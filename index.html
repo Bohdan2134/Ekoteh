@@ -2,227 +2,289 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>ЭКВИПТЕХ</title>
+<title>Галерея - ЭКВИПТЕХ</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Tahoma, Arial;
-    background: #fff;
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000;
 }
 
-.wrapper {
-    width: 1000px;
-    margin: auto;
-}
-
-/* HEADER */
+/* HEADER с фоном */
 .header {
-    background: #3b4a5a;
-    color: white;
-    padding: 10px;
+    width: 100%;
+    height: 200px;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
 }
 
-.header-top {
+.header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.logo {
-    font-size: 22px;
+.header-left img {
+    height: 60px;
+}
+
+.header-center {
+    font-size: 18px;
     font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
 }
 
-.contacts {
-    font-size: 12px;
-    text-align: right;
+.header-right {
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+}
+
+.header-right a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .header .overlay {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .header-right {
+        text-align: center;
+    }
 }
 
 /* MENU */
 .menu {
-    background: #dcdcdc;
+    background-color: #f2f2f2;
 }
 
-.menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.menu li {
-    position: relative;
+.menu td {
+    padding: 8px 15px;
 }
 
 .menu a {
-    display: block;
-    padding: 10px 15px;
     text-decoration: none;
     color: black;
-}
-
-/* DROPDOWN */
-.menu li:hover {
-    background: #bbb;
-}
-
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #eee;
-    width: 220px;
-    border: 1px solid #ccc;
-}
-
-.submenu li {
+    font-size: 14px;
     display: block;
+    padding: 10px;
 }
 
-.menu li:hover .submenu {
-    display: block;
-}
-
-/* CONTENT */
-.content {
-    display: flex;
+.menu td:hover {
+    background: #ccc;
+    cursor: pointer;
 }
 
 /* SIDEBAR */
 .sidebar {
-    width: 260px;
-    background: #efefef;
+    width: 250px;
+    background-color: #efefef;
+    vertical-align: top;
     padding: 10px;
     border-right: 1px solid #ccc;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    padding: 6px;
+.sidebar a {
+    display: block;
+    padding: 5px;
+    color: black;
+    text-decoration: none;
     border-bottom: 1px solid #ddd;
+    font-size: 13px;
 }
 
-/* MAIN */
+/* MAIN с сеткой картинок */
 .main {
-    flex: 1;
     padding: 15px;
+    vertical-align: top;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
 }
 
-.main img {
+/* Контейнер каждой картинки */
+.photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.photo img {
     width: 100%;
-    max-width: 400px;
-    margin-bottom: 10px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Подпись */
+.photo .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Эффект при наведении */
+.photo:hover img {
+    transform: scale(1.1);
+}
+
+.photo:hover .caption {
+    opacity: 1;
 }
 
 /* FOOTER */
 .footer {
-    background: #3b4a5a;
+    background-color: #3b4a5a;
     color: white;
     text-align: center;
     padding: 10px;
     font-size: 12px;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="wrapper">
+<!-- HEADER с картинкой -->
+<div class="header">
+    <div class="overlay">
+        <div class="header-left">
+            <img src="images/logo.png" alt="ЭКВИПТЕХ">
+        </div>
 
-    <!-- HEADER -->
-    <div class="header">
-        <div class="header-top">
-            <div class="logo">ЭКВИПТЕХ</div>
-            <div class="contacts">
-                Украина, Харьков<br>
-                +38 (000) 000-00-00
-            </div>
+        <div class="header-center">
+            Строительное и промышленное оборудование
+        </div>
+
+        <div class="header-right">
+            <div>ТОВ «ЭКВИПТЕХ», Дніпро, Україна</div>
+            <div>Электронная почта: <a href="mailto:info@ekvipteh.com.ua">info@ekvipteh.com.ua</a></div>
         </div>
     </div>
+</div>
 
-    <!-- MENU -->
-    <nav class="menu">
-        <ul>
-            <li><a href="#">Главная</a></li>
+<!-- MENU -->
+<table class="menu" width="100%">
+    <tr>
+        <td><a href="index.html">Главная</a></td>
+        <td><a href="about.html">О компании</a></td>
+        <td><a href="products.html">Продукция</a></td>
+        <td><a href="contacts.html">Контакты</a></td>
+    </tr>
+</table>
 
-            <li>
-                <a href="#">Продукция ▼</a>
-                <ul class="submenu">
-                    <li><a href="#">Конвейеры</a></li>
-                    <li><a href="#">Сушильные установки</a></li>
-                    <li><a href="#">Дозаторы</a></li>
-                    <li><a href="#">Шнеки</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#">О компании ▼</a>
-                <ul class="submenu">
-                    <li><a href="#">История</a></li>
-                    <li><a href="#">Клиенты</a></li>
-                </ul>
-            </li>
-
-            <li><a href="#">Контакты</a></li>
-        </ul>
-    </nav>
-
-    <!-- CONTENT -->
-    <div class="content">
-
+<!-- CONTENT -->
+<table width="100%">
+    <tr>
         <!-- SIDEBAR -->
-        <div class="sidebar">
-            <h3>Оборудование</h3>
-            <ul>
-                <li>Смесительные линии</li>
-                <li>Сушильные комплексы</li>
-                <li>Конвейеры</li>
-                <li>Шнековые транспортеры</li>
-                <li>Дозаторы</li>
-                <li>Фасовка</li>
-            </ul>
-        </div>
+        <td class="sidebar">
+            <b>Оборудование</b>
+            <a href="#">Конвейеры</a>
+            <a href="#">Сушильные установки</a>
+            <a href="#">Дозаторы</a>
+            <a href="#">Шнеки</a>
+            <a href="#">Фасовка</a>
+            <a href="#">Нестандартное оборудование</a>
+        </td>
 
-        <!-- MAIN -->
-        <div class="main">
-            <h2>О компании</h2>
+        <!-- MAIN с 60 картинками и эффектом -->
+        <td class="main">
+    <div class="photo"><img src="images/1_1.jpg" alt="Фото 1"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР</div></div>
+    <div class="photo"><img src="images/1_2.jpg" alt="Фото 2"><div class="caption">НОРИЯ ВЕРТИКАЛЬНАЯ КОВШОВАЯ</div></div>
+    <div class="photo"><img src="images/1_3.jpg" alt="Фото 3"><div class="caption">ТРАНСПОРТЕР ЦЕПНОЙ СКРЕБКОВЫЙ</div></div>
+    <div class="photo"><img src="images/1_4.jpg" alt="Фото 4"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ЖЕЛОБЧАТОГО ТИПА</div></div>
+    <div class="photo"><img src="images/1_4.jpg" alt="Фото 5"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР С МЕХНИЧЕСКИМ ИЗМЕНЕНИЕМ ВЫСОТЫ</div></div>
+    <div class="photo"><img src="images/1_5.jpg" alt="Фото 6"><div class="caption">ЛЕНТОЧНО-КОВШОВЫЙ ТРАНСПОРТЕР С РЕГУЛИРОВКОЙ УГЛА НАКЛОНА</div></div>
+    <div class="photo"><img src="images/1_6.jpg" alt="Фото 7"><div class="caption">ЛЕНТОЧНО-КОВШОВЫЙ ТРАНСПОРТЕР</div></div>
+    <div class="photo"><img src="images/1_6_a.jpg" alt="Фото 8"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДЛЯ ЧАСТНОЙ ПТИЦЕФАБРИКИ</div></div>
+    <div class="photo"><img src="images/1_7.jpg" alt="Фото 9"><div class="caption">ЛЕНТОЧНЫЕ ТРАНСПОРТЕРЫ ДЛЯ ПИЩЕВОЙ ПРОМЫШЛЕННОСТИ</div></div>
+    <div class="photo"><img src="images/1_8.jpg" alt="Фото 10"><div class="caption">ЛЕНТОЧНЫЕ ТРАНСПОРТЕРЫ ДЛЯ ПИЩЕВОЙ ПРОМЫШЛЕННОСТИ</div></div>
+    <div class="photo"><img src="images/1_8_a.jpg" alt="Фото 11"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
+    <div class="photo"><img src="images/1_9.jpg" alt="Фото 12"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ПРЯМОЙ С ГИДРАВЛИЧЕСКИМ ПОДЪЕМОМ</div></div>
+    <div class="photo"><img src="images/1_10.jpg" alt="Фото 13"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
+    <div class="photo"><img src="images/2_1.jpg" alt="Фото 14"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
+    <div class="photo"><img src="images/2_1a.jpg" alt="Фото 15"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
+    <div class="photo"><img src="images/2_1b.jpg" alt="Фото 16"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР ДЛЯ СЕЛЬХОЗ КУЛЬТУР</div></div>
+    <div class="photo"><img src="images/2_2.jpg" alt="Фото 17"><div class="caption">УСЛУГИ РЕМОНТА ЗЕРНОВЫХ ШНЕКОВ</div></div>
+    <div class="photo"><img src="images/2_2a.jpg" alt="Фото 18"><div class="caption">УСЛУГИ РЕМОНТА ЗЕРНОВЫХ ШНЕКОВ</div></div>
+    <div class="photo"><img src="images/2_3.jpg" alt="Фото 19"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
+    <div class="photo"><img src="images/4_1.jpg" alt="Фото 20"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
+    <div class="photo"><img src="images/4_1a.jpg" alt="Фото 21"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
+    <div class="photo"><img src="images/4_1b.jpg" alt="Фото 22"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
+    <div class="photo"><img src="images/4_1c.jpg" alt="Фото 23"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
+    <div class="photo"><img src="images/4_1d.jpg" alt="Фото 24"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
+    <div class="photo"><img src="images/4_1j.jpg" alt="Фото 25"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
+    <div class="photo"><img src="images/4_2.jpg" alt="Фото 26"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
+    <div class="photo"><img src="images/4_2a.jpg" alt="Фото 27"><div class="caption">ПРОСЕИВАНИЕ МАТЕРИАЛА</div></div>
+    <div class="photo"><img src="images/4_3.jpg" alt="Фото 28"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ </div></div>
+    <div class="photo"><img src="images/4_3a.jpg" alt="Фото 29"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ </div></div>
+    <div class="photo"><img src="images/4_4.jpg" alt="Фото 30"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ НЕПРЕРЫВНОГО ДЕЙСТВИЯ</div></div>
+    <div class="photo"><img src="images/5_1.jpg" alt="Фото 31"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ НЕПРЕРЫВНОГО ДЕЙСТВИЯ</div></div>
+    <div class="photo"><img src="images/6_1.jpg" alt="Фото 32"><div class="caption">СУШИЛЬНЫЙ КОМПЛЕКС НА БАЗЕ СУШИЛКИ БАРАБАННОГО ТИПА</div></div>
+    <div class="photo"><img src="images/6_1a.jpg" alt="Фото 33"><div class="caption">ОБОРУДОВАНИЕ ДЛЯ ВЫПУСКА ШЛАКОБЛОКА, ПРЕСОВАННОЙ ПЛИТКИ, МЕТАЛЛУРГИЧЕСКОГО БРИКЕТА</div></div>
+    <div class="photo"><img src="images/6_1b.jpg" alt="Фото 34"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/6_1d.jpg" alt="Фото 35"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/6_2.jpg" alt="Фото 36"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/6_2a.jpg" alt="Фото 37"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/6_2b.jpg" alt="Фото 38"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/6_2c.jpg" alt="Фото 39"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/6_2d.jpg" alt="Фото 40"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/7_1.jpg" alt="Фото 41"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/7_1a.jpg" alt="Фото 42"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
+    <div class="photo"><img src="images/7_1b.jpg" alt="Фото 43"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
+    <div class="photo"><img src="images/7_1c.jpg" alt="Фото 44"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
+    <div class="photo"><img src="images/7_2.jpg" alt="Фото 45"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
+    <div class="photo"><img src="images/8_1.jpg" alt="Фото 46"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
+    <div class="photo"><img src="images/8_1a.jpg" alt="Фото 47"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
+    <div class="photo"><img src="images/8_1b.jpg" alt="Фото 48"><div class="caption">Мобильный разгрузчик вагонов-хопперов ВРХ-30Ц</div></div>
+    <div class="photo"><img src="images/8_1c.jpg" alt="Фото 49"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР - РАЗГРУЗЧИК ВАГОНОВ ЛРВ-200</div></div>
+    <div class="photo"><img src="images/8_1d.jpg" alt="Фото 50"><div class="caption">Решения загрузки цемента в автоцементовозы</div></div>
+    <div class="photo"><img src="images/8_2.jpg" alt="Фото 51"><div class="caption">Решения загрузки цемента в автоцементовозы</div></div>
+    <div class="photo"><img src="images/8_2a.jpg" alt="Фото 52"><div class="caption">Решения загрузки цемента в автоцементовозы</div></div>
+    <div class="photo"><img src="images/9_2.jpg" alt="Фото 53"><div class="caption">Пневмокамерные насосы для цемента</div></div>
+    <div class="photo"><img src="images/9_2a.jpg" alt="Фото 54"><div class="caption">Пневмокамерные насосы для цемента</div></div>
+    <div class="photo"><img src="images/9_3.jpg" alt="Фото 55"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
+    <div class="photo"><img src="images/13-1.jpg" alt="Фото 56"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
+    <div class="photo"><img src="images/13-3.jpg" alt="Фото 57"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
+    <div class="photo"><img src="images/13-5.jpg" alt="Фото 58"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
+</td>
+    </tr>
+</table>
 
-            <!-- КАРТИНКА -->
-            <img src="https://via.placeholder.com/400x250?text=Оборудование" alt="оборудование">
-
-            <p>
-                Компания занимается разработкой и производством промышленного оборудования.
-                Основные направления — транспортировка, сушка и дозирование материалов.
-            </p>
-
-            <img src="https://via.placeholder.com/400x250?text=Производство" alt="производство">
-
-            <p>
-                Мы создаём комплексные решения для предприятий и обеспечиваем полный цикл:
-                от проектирования до запуска.
-            </p>
-
-            <h3>Преимущества</h3>
-            <ul>
-                <li>20+ лет опыта</li>
-                <li>Индивидуальные решения</li>
-                <li>Собственное производство</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        © 2002–2026 ЭКВИПТЕХ
-    </div>
-
+<!-- FOOTER -->
+<div class="footer">
+    © 2002–2026 ЭКВИПТЕХ
 </div>
 
 </body>
