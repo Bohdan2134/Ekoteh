@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>ЭКВИПТЕХ</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, Arial;
+    background: #fff;
+}
+
+.wrapper {
+    width: 1000px;
+    margin: auto;
+}
+
+/* HEADER */
+.header {
+    background: #3b4a5a;
+    color: white;
+    padding: 10px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.contacts {
+    font-size: 12px;
+    text-align: right;
+}
+
+/* MENU */
+.menu {
+    background: #dcdcdc;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+/* DROPDOWN */
+.menu li:hover {
+    background: #bbb;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #eee;
+    width: 220px;
+    border: 1px solid #ccc;
+}
+
+.submenu li {
+    display: block;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+/* CONTENT */
+.content {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background: #efefef;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 15px;
+}
+
+.main img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+.footer {
+    background: #3b4a5a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-top">
+            <div class="logo">ЭКВИПТЕХ</div>
+            <div class="contacts">
+                Украина, Харьков<br>
+                +38 (000) 000-00-00
+            </div>
+        </div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Главная</a></li>
+
+            <li>
+                <a href="#">Продукция ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">Конвейеры</a></li>
+                    <li><a href="#">Сушильные установки</a></li>
+                    <li><a href="#">Дозаторы</a></li>
+                    <li><a href="#">Шнеки</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">О компании ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">История</a></li>
+                    <li><a href="#">Клиенты</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h3>Оборудование</h3>
+            <ul>
+                <li>Смесительные линии</li>
+                <li>Сушильные комплексы</li>
+                <li>Конвейеры</li>
+                <li>Шнековые транспортеры</li>
+                <li>Дозаторы</li>
+                <li>Фасовка</li>
+            </ul>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+            <h2>О компании</h2>
+
+            <!-- КАРТИНКА -->
+            <img src="https://via.placeholder.com/400x250?text=Оборудование" alt="оборудование">
+
+            <p>
+                Компания занимается разработкой и производством промышленного оборудования.
+                Основные направления — транспортировка, сушка и дозирование материалов.
+            </p>
+
+            <img src="https://via.placeholder.com/400x250?text=Производство" alt="производство">
+
+            <p>
+                Мы создаём комплексные решения для предприятий и обеспечиваем полный цикл:
+                от проектирования до запуска.
+            </p>
+
+            <h3>Преимущества</h3>
+            <ul>
+                <li>20+ лет опыта</li>
+                <li>Индивидуальные решения</li>
+                <li>Собственное производство</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2002–2026 ЭКВИПТЕХ
+    </div>
+
+</div>
+
+</body>
+</html>
