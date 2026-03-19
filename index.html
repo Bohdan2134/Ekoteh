@@ -171,6 +171,80 @@ body {
     padding: 10px;
     font-size: 12px;
 }
+
+/* основной контейнер */
+.menu-item {
+    position: relative;
+}
+
+/* главные ссылки */
+.menu-item > a {
+    display: block;
+    padding: 6px;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ПЕРВОЕ подменю */
+.submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #ddd;
+    min-width: 150px;
+    border: 1px solid #bbb;
+    z-index: 100;
+}
+
+.submenu a {
+    display: block;
+    padding: 6px;
+    color: black;
+    text-decoration: none;
+}
+
+.submenu a:hover {
+    background-color: #bbb;
+}
+
+/* ПОЯВЛЕНИЕ первого уровня */
+.menu-item:hover .submenu {
+    display: block;
+}
+
+/* ВТОРОЙ уровень (Транспортера) */
+.submenu-item {
+    position: relative;
+}
+
+.submenu-2 {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #ccc;
+    min-width: 150px;
+    border: 1px solid #aaa;
+    z-index: 200;
+}
+
+.submenu-2 a {
+    display: block;
+    padding: 6px;
+    color: black;
+    text-decoration: none;
+}
+
+.submenu-2 a:hover {
+    background-color: #aaa;
+}
+
+/* ПОЯВЛЕНИЕ второго уровня */
+.submenu-item:hover .submenu-2 {
+    display: block;
+}
 </style>
 </head>
 
@@ -208,15 +282,79 @@ body {
 <table width="100%">
     <tr>
         <!-- SIDEBAR -->
-        <td class="sidebar">
-            <b>Оборудование</b>
-            <a href="#">Конвейеры</a>
-            <a href="#">Сушильные установки</a>
-            <a href="#">Дозаторы</a>
-            <a href="#">Шнеки</a>
-            <a href="#">Фасовка</a>
-            <a href="#">Нестандартное оборудование</a>
-        </td>
+<td class="sidebar">
+    <b>Оборудование</b>
+
+    <!-- 1 -->
+    <div class="menu-item">
+        <a href="#">Общего назначения</a>
+
+        <div class="submenu">
+
+            <!-- Транспортера (с 3 уровнем) -->
+            <div class="submenu-item">
+                <a href="#">Транспортера ⭢</a>
+
+                <div class="submenu-2">
+                    <a href="#">Ленточные</a>
+                    <a href="#">Шнековые</a>
+                    <a href="#">Скребковые</a>
+                    <a href="#">Шайбовые</a>
+                </div>
+            </div>
+
+            <a href="#">Смесителя</a>
+            <a href="#">Опрокидователь вагонов</a>
+            <a href="#">Емкости (Бункера)</a>
+            <a href="#">Металлоконструкции</a>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="menu-item">
+        <a href="#">Сушильные установки</a>
+        <div class="submenu">
+            <a href="#">Барабанные</a>
+            <a href="#">Ленточные</a>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="menu-item">
+        <a href="#">Дозаторы</a>
+        <div class="submenu">
+            <a href="#">Весовые</a>
+            <a href="#">Объемные</a>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="menu-item">
+        <a href="#">Шнеки</a>
+        <div class="submenu">
+            <a href="#">Горизонтальные</a>
+            <a href="#">Вертикальные</a>
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="menu-item">
+        <a href="#">Фасовка</a>
+        <div class="submenu">
+            <a href="#">Автоматическая</a>
+            <a href="#">Полуавтомат</a>
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="menu-item">
+        <a href="#">Нестандартное оборудование</a>
+        <div class="submenu">
+            <a href="#">Под заказ</a>
+            <a href="#">Проектирование</a>
+        </div>
+    </div>
+</td>
 
         <!-- MAIN с 60 картинками и эффектом -->
         <td class="main">
