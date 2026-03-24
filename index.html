@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Галерея - ЭКВИПТЕХ</title>
+<title>ЭКВИПТЕХ</title>
 
 <style>
 body {
@@ -165,11 +165,54 @@ body {
 
 /* FOOTER */
 .footer {
-    background-color: #3b4a5a;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
+    background: #e9edf2;
+    padding: 30px 40px;
+    font-family: Arial, sans-serif;
+    color: #2c3e50;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* левая часть */
+.footer-left {
+    max-width: 600px;
+}
+
+.footer-left b {
+    font-weight: bold;
+}
+
+.footer-left p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* правая часть */
+.footer-right {
+    text-align: right;
+}
+
+.footer-right p {
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+/* адаптив */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
 }
 
 /* основной контейнер */
@@ -258,7 +301,7 @@ body {
         </div>
 
         <div class="header-center">
-            Строительное и промышленное оборудование
+            Будівельне та промислове обладнання
         </div>
 
         <div class="header-right">
@@ -271,10 +314,10 @@ body {
 <!-- MENU -->
 <table class="menu" width="100%">
     <tr>
-        <td><a href="index.html">Главная</a></td>
-        <td><a href="about.html">О компании</a></td>
-        <td><a href="products.html">Продукция</a></td>
-        <td><a href="contacts.html">Контакты</a></td>
+        <td><a href="index.html">Головна</a></td>
+        <td><a href="about.html">Про компанію</a></td>
+        <td><a href="products.html">Продукція</a></td>
+        <td><a href="contacts.html">Контакти</a></td>
     </tr>
 </table>
 
@@ -287,7 +330,7 @@ body {
 
     <!-- 1 -->
     <div class="menu-item">
-        <a href="#">Общего назначения</a>
+        <a href="#">Загального призначення</a>
 
         <div class="submenu">
 
@@ -296,36 +339,36 @@ body {
                 <a href="#">Транспортера ⭢</a>
 
                 <div class="submenu-2">
-                    <a href="#">Ленточные</a>
-                    <a href="#">Шнековые</a>
-                    <a href="#">Скребковые</a>
-                    <a href="#">Шайбовые</a>
+                    <a href="#">Стрічкові</a>
+                    <a href="#">Шнекові</a>
+                    <a href="#">Скребкові</a>
+                    <a href="#">Шайбові</a>
                 </div>
             </div>
 
-            <a href="#">Смесителя</a>
-            <a href="#">Опрокидователь вагонов</a>
-            <a href="#">Емкости (Бункера, силоса)</a>
-            <a href="#">Металлоконструкции</a>
+            <a href="#">Змішувачі</a>
+            <a href="#">Перекидач вагонів</a>
+            <a href="#">Ємності (бункери, силоси)</a>
+            <a href="#">Металоконструкції</a>
         </div>
     </div>
 
     <!-- 2 -->
     <div class="menu-item">
-        <a href="#">Сельско Хозяйственые</a>
+        <a href="#">Сільськогосподарські</a>
         <div class="submenu">
             <a href="#">Шнеки</a>
             <a href="#">Плуги</a>
-            <a href="#">Ремонт ШНЕКОВ</a>
+            <a href="#">Ремонт шнеків</a>
         </div>
     </div>
 
     <!-- 3 -->
     <div class="menu-item">
-        <a href="#">Дозаторы</a>
+        <a href="#">Дозатори</a>
         <div class="submenu">
-            <a href="#">Весовые</a>
-            <a href="#">Объемные</a>
+            <a href="#">Вагові</a>
+            <a href="#">Об'ємні</a>
         </div>
     </div>
 
@@ -333,97 +376,129 @@ body {
     <div class="menu-item">
         <a href="#">Шнеки</a>
         <div class="submenu">
-            <a href="#">Горизонтальные</a>
-            <a href="#">Вертикальные</a>
+            <a href="#">Горизонтальні</a>
+            <a href="#">Вертикальні</a>
         </div>
     </div>
 
     <!-- 5 -->
     <div class="menu-item">
-        <a href="#">Фасовка</a>
+        <a href="#">Фасування</a>
         <div class="submenu">
-            <a href="#">Автоматическая</a>
-            <a href="#">Полуавтомат</a>
+            <a href="#">Автоматична</a>
+            <a href="#">Напівавтомат</a>
         </div>
     </div>
 
     <!-- 6 -->
     <div class="menu-item">
-        <a href="#">Нестандартное оборудование</a>
+        <a href="#">Нестандартне обладнання</a>
         <div class="submenu">
-            <a href="#">Под заказ</a>
-            <a href="#">Проектирование</a>
+            <a href="#">На замовлення</a>
+            <a href="#">Проектування</a>
         </div>
     </div>
 </td>
 
         <!-- MAIN с 60 картинками и эффектом -->
-        <td class="main">
-    <div class="photo"><img src="images/1_1.jpg" alt="Фото 1"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР</div></div>
-    <div class="photo"><img src="images/1_2.jpg" alt="Фото 2"><div class="caption">НОРИЯ ВЕРТИКАЛЬНАЯ КОВШОВАЯ</div></div>
-    <div class="photo"><img src="images/1_3.jpg" alt="Фото 3"><div class="caption">ТРАНСПОРТЕР ЦЕПНОЙ СКРЕБКОВЫЙ</div></div>
-    <div class="photo"><img src="images/1_4.jpg" alt="Фото 4"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ЖЕЛОБЧАТОГО ТИПА</div></div>
-    <div class="photo"><img src="images/1_4.jpg" alt="Фото 5"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР С МЕХНИЧЕСКИМ ИЗМЕНЕНИЕМ ВЫСОТЫ</div></div>
-    <div class="photo"><img src="images/1_5.jpg" alt="Фото 6"><div class="caption">ЛЕНТОЧНО-КОВШОВЫЙ ТРАНСПОРТЕР С РЕГУЛИРОВКОЙ УГЛА НАКЛОНА</div></div>
-    <div class="photo"><img src="images/1_6.jpg" alt="Фото 7"><div class="caption">ЛЕНТОЧНО-КОВШОВЫЙ ТРАНСПОРТЕР</div></div>
-    <div class="photo"><img src="images/1_6_a.jpg" alt="Фото 8"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДЛЯ ЧАСТНОЙ ПТИЦЕФАБРИКИ</div></div>
-    <div class="photo"><img src="images/1_7.jpg" alt="Фото 9"><div class="caption">ЛЕНТОЧНЫЕ ТРАНСПОРТЕРЫ ДЛЯ ПИЩЕВОЙ ПРОМЫШЛЕННОСТИ</div></div>
-    <div class="photo"><img src="images/1_8.jpg" alt="Фото 10"><div class="caption">ЛЕНТОЧНЫЕ ТРАНСПОРТЕРЫ ДЛЯ ПИЩЕВОЙ ПРОМЫШЛЕННОСТИ</div></div>
-    <div class="photo"><img src="images/1_8_a.jpg" alt="Фото 11"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
-    <div class="photo"><img src="images/1_9.jpg" alt="Фото 12"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ПРЯМОЙ С ГИДРАВЛИЧЕСКИМ ПОДЪЕМОМ</div></div>
-    <div class="photo"><img src="images/1_10.jpg" alt="Фото 13"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
-    <div class="photo"><img src="images/2_1.jpg" alt="Фото 14"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
-    <div class="photo"><img src="images/2_1a.jpg" alt="Фото 15"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
-    <div class="photo"><img src="images/2_1b.jpg" alt="Фото 16"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР ДЛЯ СЕЛЬХОЗ КУЛЬТУР</div></div>
-    <div class="photo"><img src="images/2_2.jpg" alt="Фото 17"><div class="caption">УСЛУГИ РЕМОНТА ЗЕРНОВЫХ ШНЕКОВ</div></div>
-    <div class="photo"><img src="images/2_2a.jpg" alt="Фото 18"><div class="caption">УСЛУГИ РЕМОНТА ЗЕРНОВЫХ ШНЕКОВ</div></div>
-    <div class="photo"><img src="images/2_3.jpg" alt="Фото 19"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
-    <div class="photo"><img src="images/4_1.jpg" alt="Фото 20"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
-    <div class="photo"><img src="images/4_1a.jpg" alt="Фото 21"><div class="caption">ШНЕК-ВИНТОВОЙ КОНВЕЙЕР</div></div>
-    <div class="photo"><img src="images/4_1b.jpg" alt="Фото 22"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
-    <div class="photo"><img src="images/4_1c.jpg" alt="Фото 23"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
-    <div class="photo"><img src="images/4_1d.jpg" alt="Фото 24"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
-    <div class="photo"><img src="images/4_1j.jpg" alt="Фото 25"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
-    <div class="photo"><img src="images/4_2.jpg" alt="Фото 26"><div class="caption">ЛИНИИ ВЫПУСКА И ФАСОВКЕ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ</div></div>
-    <div class="photo"><img src="images/4_2a.jpg" alt="Фото 27"><div class="caption">ПРОСЕИВАНИЕ МАТЕРИАЛА</div></div>
-    <div class="photo"><img src="images/4_3.jpg" alt="Фото 28"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ </div></div>
-    <div class="photo"><img src="images/4_3a.jpg" alt="Фото 29"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ </div></div>
-    <div class="photo"><img src="images/4_4.jpg" alt="Фото 30"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ НЕПРЕРЫВНОГО ДЕЙСТВИЯ</div></div>
-    <div class="photo"><img src="images/5_1.jpg" alt="Фото 31"><div class="caption">СМЕСИТЕЛЬ ДЛЯ ПЕРЕМЕШИВАНИЯ СУХИХ СТРОИТЕЛЬНЫХ СМЕСЕЙ НЕПРЕРЫВНОГО ДЕЙСТВИЯ</div></div>
-    <div class="photo"><img src="images/6_1.jpg" alt="Фото 32"><div class="caption">СУШИЛЬНЫЙ КОМПЛЕКС НА БАЗЕ СУШИЛКИ БАРАБАННОГО ТИПА</div></div>
-    <div class="photo"><img src="images/6_1a.jpg" alt="Фото 33"><div class="caption">ОБОРУДОВАНИЕ ДЛЯ ВЫПУСКА ШЛАКОБЛОКА, ПРЕСОВАННОЙ ПЛИТКИ, МЕТАЛЛУРГИЧЕСКОГО БРИКЕТА</div></div>
-    <div class="photo"><img src="images/6_1b.jpg" alt="Фото 34"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/6_1d.jpg" alt="Фото 35"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/6_2.jpg" alt="Фото 36"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/6_2a.jpg" alt="Фото 37"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/6_2b.jpg" alt="Фото 38"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/6_2c.jpg" alt="Фото 39"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/6_2d.jpg" alt="Фото 40"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/7_1.jpg" alt="Фото 41"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/7_1a.jpg" alt="Фото 42"><div class="caption">СИСТЕМА ДОЗАЦИИ И ФАСОВКИ ПЕСКА (ОТСЕВА, ЗЕРНА и т.п.) В МЕШКИ С ПРОСЕИВАНИЕМ </div></div>
-    <div class="photo"><img src="images/7_1b.jpg" alt="Фото 43"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
-    <div class="photo"><img src="images/7_1c.jpg" alt="Фото 44"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
-    <div class="photo"><img src="images/7_2.jpg" alt="Фото 45"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
-    <div class="photo"><img src="images/8_1.jpg" alt="Фото 46"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
-    <div class="photo"><img src="images/8_1a.jpg" alt="Фото 47"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР ДОЗАТОР</div></div>
-    <div class="photo"><img src="images/8_1b.jpg" alt="Фото 48"><div class="caption">Мобильный разгрузчик вагонов-хопперов ВРХ-30Ц</div></div>
-    <div class="photo"><img src="images/8_1c.jpg" alt="Фото 49"><div class="caption">ЛЕНТОЧНЫЙ ТРАНСПОРТЕР - РАЗГРУЗЧИК ВАГОНОВ ЛРВ-200</div></div>
-    <div class="photo"><img src="images/8_1d.jpg" alt="Фото 50"><div class="caption">Решения загрузки цемента в автоцементовозы</div></div>
-    <div class="photo"><img src="images/8_2.jpg" alt="Фото 51"><div class="caption">Решения загрузки цемента в автоцементовозы</div></div>
-    <div class="photo"><img src="images/8_2a.jpg" alt="Фото 52"><div class="caption">Решения загрузки цемента в автоцементовозы</div></div>
-    <div class="photo"><img src="images/9_2.jpg" alt="Фото 53"><div class="caption">Пневмокамерные насосы для цемента</div></div>
-    <div class="photo"><img src="images/9_2a.jpg" alt="Фото 54"><div class="caption">Пневмокамерные насосы для цемента</div></div>
-    <div class="photo"><img src="images/9_3.jpg" alt="Фото 55"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
-    <div class="photo"><img src="images/13-1.jpg" alt="Фото 56"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
-    <div class="photo"><img src="images/13-3.jpg" alt="Фото 57"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
-    <div class="photo"><img src="images/13-5.jpg" alt="Фото 58"><div class="caption">СКЛАДЫ ПЕСКА (ИНЕРТНЫХ)</div></div>
+       <!-- MAIN -->
+<td class="main">
+
+<div class="photo"><img src="images/1_1.jpg" alt="Фото 1"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР</div></div>
+<div class="photo"><img src="images/1_2.jpg" alt="Фото 2"><div class="caption">НОРІЯ ВЕРТИКАЛЬНА КОВШОВА</div></div>
+<div class="photo"><img src="images/1_3.jpg" alt="Фото 3"><div class="caption">ТРАНСПОРТЕР ЛАНЦЮГОВИЙ СКРЕБКОВИЙ</div></div>
+<div class="photo"><img src="images/1_4.jpg" alt="Фото 4"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР ЖОЛОБЧАСТОГО ТИПУ</div></div>
+<div class="photo"><img src="images/1_4.jpg" alt="Фото 5"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР З МЕХАНІЧНОЮ ЗМІНОЮ ВИСОТИ</div></div>
+<div class="photo"><img src="images/1_5.jpg" alt="Фото 6"><div class="caption">СТРІЧКОВО-КОВШОВИЙ ТРАНСПОРТЕР З РЕГУЛЮВАННЯМ КУТА НАХИЛУ</div></div>
+<div class="photo"><img src="images/1_6.jpg" alt="Фото 7"><div class="caption">СТРІЧКОВО-КОВШОВИЙ ТРАНСПОРТЕР</div></div>
+<div class="photo"><img src="images/1_6_a.jpg" alt="Фото 8"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР ДЛЯ ПРИВАТНОЇ ПТАХОФАБРИКИ</div></div>
+<div class="photo"><img src="images/1_7.jpg" alt="Фото 9"><div class="caption">СТРІЧКОВІ ТРАНСПОРТЕРИ ДЛЯ ХАРЧОВОЇ ПРОМИСЛОВОСТІ</div></div>
+<div class="photo"><img src="images/1_8.jpg" alt="Фото 10"><div class="caption">СТРІЧКОВІ ТРАНСПОРТЕРИ ДЛЯ ХАРЧОВОЇ ПРОМИСЛОВОСТІ</div></div>
+<div class="photo"><img src="images/1_8_a.jpg" alt="Фото 11"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
+<div class="photo"><img src="images/1_9.jpg" alt="Фото 12"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР ПРЯМИЙ З ГІДРАВЛІЧНИМ ПІДЙОМОМ</div></div>
+<div class="photo"><img src="images/1_10.jpg" alt="Фото 13"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
+
+<div class="photo"><img src="images/2_1.jpg" alt="Фото 14"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
+<div class="photo"><img src="images/2_1a.jpg" alt="Фото 15"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
+<div class="photo"><img src="images/2_1b.jpg" alt="Фото 16"><div class="caption">ШНЕКОВИЙ КОНВЕЄР ДЛЯ СІЛЬГОСП КУЛЬТУР</div></div>
+<div class="photo"><img src="images/2_2.jpg" alt="Фото 17"><div class="caption">ПОСЛУГИ РЕМОНТУ ЗЕРНОВИХ ШНЕКІВ</div></div>
+<div class="photo"><img src="images/2_2a.jpg" alt="Фото 18"><div class="caption">ПОСЛУГИ РЕМОНТУ ЗЕРНОВИХ ШНЕКІВ</div></div>
+<div class="photo"><img src="images/2_3.jpg" alt="Фото 19"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
+
+<div class="photo"><img src="images/4_1.jpg" alt="Фото 20"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
+<div class="photo"><img src="images/4_1a.jpg" alt="Фото 21"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
+<div class="photo"><img src="images/4_1b.jpg" alt="Фото 22"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
+<div class="photo"><img src="images/4_1c.jpg" alt="Фото 23"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
+<div class="photo"><img src="images/4_1d.jpg" alt="Фото 24"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
+<div class="photo"><img src="images/4_1j.jpg" alt="Фото 25"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
+
+<div class="photo"><img src="images/4_2.jpg" alt="Фото 26"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
+<div class="photo"><img src="images/4_2a.jpg" alt="Фото 27"><div class="caption">ПРОСІЮВАННЯ МАТЕРІАЛУ</div></div>
+
+<div class="photo"><img src="images/4_3.jpg" alt="Фото 28"><div class="caption">ЗМІШУВАЧ ДЛЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
+<div class="photo"><img src="images/4_3a.jpg" alt="Фото 29"><div class="caption">ЗМІШУВАЧ ДЛЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
+<div class="photo"><img src="images/4_4.jpg" alt="Фото 30"><div class="caption">ЗМІШУВАЧ БЕЗПЕРЕРВНОЇ ДІЇ</div></div>
+
+<div class="photo"><img src="images/5_1.jpg" alt="Фото 31"><div class="caption">ЗМІШУВАЧ БЕЗПЕРЕРВНОЇ ДІЇ</div></div>
+
+<div class="photo"><img src="images/6_1.jpg" alt="Фото 32"><div class="caption">СУШАРНИЙ КОМПЛЕКС БАРАБАННОГО ТИПУ</div></div>
+<div class="photo"><img src="images/6_1a.jpg" alt="Фото 33"><div class="caption">ОБЛАДНАННЯ ДЛЯ ВИРОБНИЦТВА ШЛАКОБЛОКУ, ПЛИТКИ, БРИКЕТІВ</div></div>
+
+<div class="photo"><img src="images/6_1b.jpg" alt="Фото 34"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+<div class="photo"><img src="images/6_1d.jpg" alt="Фото 35"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+
+<div class="photo"><img src="images/6_2.jpg" alt="Фото 36"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+<div class="photo"><img src="images/6_2a.jpg" alt="Фото 37"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+<div class="photo"><img src="images/6_2b.jpg" alt="Фото 38"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+<div class="photo"><img src="images/6_2c.jpg" alt="Фото 39"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+<div class="photo"><img src="images/6_2d.jpg" alt="Фото 40"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+
+<div class="photo"><img src="images/7_1.jpg" alt="Фото 41"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+<div class="photo"><img src="images/7_1a.jpg" alt="Фото 42"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
+
+<div class="photo"><img src="images/7_1b.jpg" alt="Фото 43"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
+<div class="photo"><img src="images/7_1c.jpg" alt="Фото 44"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
+<div class="photo"><img src="images/7_2.jpg" alt="Фото 45"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
+
+<div class="photo"><img src="images/8_1.jpg" alt="Фото 46"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
+<div class="photo"><img src="images/8_1a.jpg" alt="Фото 47"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
+
+<div class="photo"><img src="images/8_1b.jpg" alt="Фото 48"><div class="caption">МОБІЛЬНИЙ РОЗВАНТАЖУВАЧ ВАГОНІВ</div></div>
+<div class="photo"><img src="images/8_1c.jpg" alt="Фото 49"><div class="caption">ТРАНСПОРТЕР-РОЗВАНТАЖУВАЧ ВАГОНІВ</div></div>
+
+<div class="photo"><img src="images/8_1d.jpg" alt="Фото 50"><div class="caption">РІШЕННЯ ДЛЯ ЗАВАНТАЖЕННЯ ЦЕМЕНТУ</div></div>
+<div class="photo"><img src="images/8_2.jpg" alt="Фото 51"><div class="caption">РІШЕННЯ ДЛЯ ЗАВАНТАЖЕННЯ ЦЕМЕНТУ</div></div>
+<div class="photo"><img src="images/8_2a.jpg" alt="Фото 52"><div class="caption">РІШЕННЯ ДЛЯ ЗАВАНТАЖЕННЯ ЦЕМЕНТУ</div></div>
+
+<div class="photo"><img src="images/9_2.jpg" alt="Фото 53"><div class="caption">ПНЕВМОКАМЕРНІ НАСОСИ ДЛЯ ЦЕМЕНТУ</div></div>
+<div class="photo"><img src="images/9_2a.jpg" alt="Фото 54"><div class="caption">ПНЕВМОКАМЕРНІ НАСОСИ ДЛЯ ЦЕМЕНТУ</div></div>
+
+<div class="photo"><img src="images/9_3.jpg" alt="Фото 55"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
+<div class="photo"><img src="images/13-1.jpg" alt="Фото 56"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
+<div class="photo"><img src="images/13-3.jpg" alt="Фото 57"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
+<div class="photo"><img src="images/13-5.jpg" alt="Фото 58"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
+
 </td>
     </tr>
 </table>
 
 <!-- FOOTER -->
 <div class="footer">
-    © 2002–2026 ЭКВИПТЕХ
+    <div class="footer-container">
+
+        <!-- Левая часть -->
+        <div class="footer-left">
+            <p><b>EKVIPTEH</b> - промислове обладнання для реального виробництва.</p>
+            <p>49035, м.Дніпро, Україна. Проектування, виробництво, пусконалагодження.</p>
+        </div>
+
+        <!-- Правая часть -->
+        <div class="footer-right">
+            <p>(C) 2002 - 2026 Ekvipteh LLC</p>
+            <p>info@ekvipteh.com.ua</p>
+        </div>
+
+    </div>
 </div>
 
 </body>
