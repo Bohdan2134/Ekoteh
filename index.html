@@ -7,499 +7,246 @@
 <style>
 body {
     margin: 0;
-    font-family: Tahoma, Arial, sans-serif;
-    background-color: #ffffff;
-    color: #000;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #f7f9fc;
+    color: #2c3e50;
 }
 
-/* HEADER с фоном */
+/* HEADER */
 .header {
-    width: 100%;
-    height: 200px;
-    background-image: url('images/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    height: 300px;
+    background: url('images/background.jpg') center/cover no-repeat;
     position: relative;
 }
 
-.header .overlay {
+.overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    inset: 0;
+    background: rgba(0,0,0,0.6);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.header-left img {
-    height: 60px;
-}
-
-.header-center {
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
+    align-items: center;
+    color: white;
     text-align: center;
-    white-space: nowrap;
 }
 
-.header-right {
-    font-size: 14px;
-    color: #fff;
-    text-align: left;
+.overlay h1 {
+    font-size: 36px;
+    margin: 10px 0;
 }
 
-.header-right a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    .header .overlay {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    .header-right {
-        text-align: center;
-    }
+.overlay p {
+    font-size: 18px;
+    opacity: 0.9;
 }
 
 /* MENU */
 .menu {
-    background-color: #f2f2f2;
-}
-
-.menu td {
-    padding: 8px 15px;
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-bottom: 1px solid #ddd;
 }
 
 .menu a {
+    padding: 14px 20px;
     text-decoration: none;
-    color: black;
-    font-size: 14px;
-    display: block;
-    padding: 10px;
+    color: #2c3e50;
 }
 
-.menu td:hover {
-    background: #ccc;
-    cursor: pointer;
+.menu a:hover {
+    color: #2f6fed;
 }
 
-/* SIDEBAR */
-.sidebar {
-    width: 250px;
-    background-color: #efefef;
-    vertical-align: top;
-    padding: 10px;
-    border-right: 1px solid #ccc;
-}
-
-.sidebar a {
-    display: block;
-    padding: 5px;
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px solid #ddd;
-    font-size: 13px;
-}
-
-/* MAIN с сеткой картинок */
-.main {
-    padding: 15px;
-    vertical-align: top;
-    background-color: #ffffff;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-}
-
-/* Контейнер каждой картинки */
-.photo {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.photo img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-/* Подпись */
-.photo .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 14px;
+/* SECTION */
+.section {
+    padding: 50px 20px;
     text-align: center;
-    padding: 5px 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-/* Эффект при наведении */
-.photo:hover img {
-    transform: scale(1.1);
+.section h2 {
+    margin-bottom: 20px;
 }
 
-.photo:hover .caption {
-    opacity: 1;
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+}
+
+.product {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product p {
+    padding: 10px;
+    font-size: 14px;
 }
 
 /* FOOTER */
 .footer {
-    background: #e9edf2;
-    padding: 30px 40px;
-    font-family: Arial, sans-serif;
-    color: #2c3e50;
+    background: #1f2a38;
+    color: white;
+    padding: 30px;
+    text-align: center;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* левая часть */
-.footer-left {
-    max-width: 600px;
-}
-
-.footer-left b {
-    font-weight: bold;
-}
-
-.footer-left p {
-    margin: 5px 0;
+/* ПЛАВАЮЩАЯ КНОПКА */
+.contact-button, .tz-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2f6fed, #5aa3ff);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 30px;
+    text-decoration: none;
     font-size: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 9999;
+    animation: pulse 2s infinite;
 }
 
-/* правая часть */
-.footer-right {
-    text-align: right;
+.contact-button:hover {
+    transform: scale(1.1);
 }
 
-.footer-right p {
-    margin: 5px 0;
-    font-size: 13px;
+.tz-button {
+    bottom: 80px;
+    background: linear-gradient(135deg, #28a745, #5cd67a);
 }
 
-/* адаптив */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .footer-right {
-        text-align: center;
-    }
-}
-
-/* основной контейнер */
-.menu-item {
-    position: relative;
-}
-
-/* главные ссылки */
-.menu-item > a {
-    display: block;
-    padding: 6px;
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px solid #ddd;
-}
-
-/* ПЕРВОЕ подменю */
-.submenu {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    background-color: #ddd;
-    min-width: 150px;
-    border: 1px solid #bbb;
-    z-index: 100;
-}
-
-.submenu a {
-    display: block;
-    padding: 6px;
-    color: black;
-    text-decoration: none;
-}
-
-.submenu a:hover {
-    background-color: #bbb;
-}
-
-/* ПОЯВЛЕНИЕ первого уровня */
-.menu-item:hover .submenu {
-    display: block;
-}
-
-/* ВТОРОЙ уровень (Транспортера) */
-.submenu-item {
-    position: relative;
-}
-
-.submenu-2 {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    background-color: #ccc;
-    min-width: 150px;
-    border: 1px solid #aaa;
-    z-index: 200;
-}
-
-.submenu-2 a {
-    display: block;
-    padding: 6px;
-    color: black;
-    text-decoration: none;
-}
-
-.submenu-2 a:hover {
-    background-color: #aaa;
-}
-
-/* ПОЯВЛЕНИЕ второго уровня */
-.submenu-item:hover .submenu-2 {
-    display: block;
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(47,111,237,0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(47,111,237,0); }
+    100% { box-shadow: 0 0 0 0 rgba(47,111,237,0); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER с картинкой -->
+<!-- HEADER -->
 <div class="header">
     <div class="overlay">
-        <div class="header-left">
-            <img src="images/logo.png" alt="ЭКВИПТЕХ">
-        </div>
-
-        <div class="header-center">
-            Будівельне та промислове обладнання
-        </div>
-
-        <div class="header-right">
-            <div>ТОВ «ЭКВИПТЕХ», Дніпро, Україна</div>
-            <div>Электронная почта: <a href="mailto:info@ekvipteh.com.ua">info@ekvipteh.com.ua</a></div>
-        </div>
+         <img src="images/logo.png" alt="ЭКВИПТЕХ">
+        <p>Будівельне та промислове обладнання</p>
     </div>
 </div>
 
 <!-- MENU -->
-<table class="menu" width="100%">
-    <tr>
-        <td><a href="index.html">Головна</a></td>
-        <td><a href="about.html">Про компанію</a></td>
-        <td><a href="products.html">Продукція</a></td>
-        <td><a href="contacts.html">Контакти</a></td>
-    </tr>
-</table>
+<div class="menu">
+    <a href="#">Головна</a>
+    <a href="about.html">Про компанію</a>
+    <a href="#">Обладнання</a>
+</div>
 
-<!-- CONTENT -->
-<table width="100%">
-    <tr>
-        <!-- SIDEBAR -->
-<td class="sidebar">
-    <b>Оборудование</b>
+<!-- ABOUT -->
+<div class="section">
+    <h2>Про компанію</h2>
+    <p>
+        ТОВ «Еквіптех» — це українська компанія, яка спеціалізується на
+        проектуванні, виробництві та запуску промислового обладнання.
+        Працюємо з 2002 року та реалізували сотні проектів.
+    </p>
+</div>
 
-    <!-- 1 -->
-    <div class="menu-item">
-        <a href="#">Загального призначення</a>
+<!-- ADVANTAGES -->
+<div class="section">
+    <h2>Наші переваги</h2>
 
-        <div class="submenu">
+    <div class="cards">
+        <div class="card">
+            <h3>20+ років досвіду</h3>
+            <p>Працюємо на ринку з 2002 року</p>
+        </div>
 
-            <!-- Транспортера (с 3 уровнем) -->
-            <div class="submenu-item">
-                <a href="#">Транспортера ⭢</a>
+        <div class="card">
+            <h3>Повний цикл</h3>
+            <p>Проектування, виробництво та запуск</p>
+        </div>
 
-                <div class="submenu-2">
-                    <a href="#">Стрічкові</a>
-                    <a href="#">Шнекові</a>
-                    <a href="#">Скребкові</a>
-                    <a href="#">Шайбові</a>
-                </div>
-            </div>
-
-            <a href="#">Змішувачі</a>
-            <a href="#">Перекидач вагонів</a>
-            <a href="#">Ємності (бункери, силоси)</a>
-            <a href="#">Металоконструкції</a>
+        <div class="card">
+            <h3>Якість</h3>
+            <p>Надійне обладнання для бізнесу</p>
         </div>
     </div>
+</div>
 
-    <!-- 2 -->
-    <div class="menu-item">
-        <a href="#">Сільськогосподарські</a>
-        <div class="submenu">
-            <a href="#">Шнеки</a>
-            <a href="#">Плуги</a>
-            <a href="#">Ремонт шнеків</a>
+<!-- PRODUCTS -->
+<div class="section">
+    <h2>Наша продукція</h2>
+
+    <div class="products">
+        <div class="product">
+            <img src="images/1_1.jpg">
+            <p>Стрічковий транспортер</p>
+        </div>
+
+        <div class="product">
+            <img src="images/1_2.jpg">
+            <p>Змішувач</p>
+        </div>
+
+        <div class="product">
+            <img src="images/1_3.jpg">
+            <p>Шнек</p>
+        </div>
+
+        <div class="product">
+            <img src="images/1_4.jpg">
+            <p>Дозатор</p>
         </div>
     </div>
-
-    <!-- 3 -->
-    <div class="menu-item">
-        <a href="#">Дозатори</a>
-        <div class="submenu">
-            <a href="#">Вагові</a>
-            <a href="#">Об'ємні</a>
-        </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="menu-item">
-        <a href="#">Шнеки</a>
-        <div class="submenu">
-            <a href="#">Горизонтальні</a>
-            <a href="#">Вертикальні</a>
-        </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="menu-item">
-        <a href="#">Фасування</a>
-        <div class="submenu">
-            <a href="#">Автоматична</a>
-            <a href="#">Напівавтомат</a>
-        </div>
-    </div>
-
-    <!-- 6 -->
-    <div class="menu-item">
-        <a href="#">Нестандартне обладнання</a>
-        <div class="submenu">
-            <a href="#">На замовлення</a>
-            <a href="#">Проектування</a>
-        </div>
-    </div>
-</td>
-
-        <!-- MAIN с 60 картинками и эффектом -->
-       <!-- MAIN -->
-<td class="main">
-
-<div class="photo"><img src="images/1_1.jpg" alt="Фото 1"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР</div></div>
-<div class="photo"><img src="images/1_2.jpg" alt="Фото 2"><div class="caption">НОРІЯ ВЕРТИКАЛЬНА КОВШОВА</div></div>
-<div class="photo"><img src="images/1_3.jpg" alt="Фото 3"><div class="caption">ТРАНСПОРТЕР ЛАНЦЮГОВИЙ СКРЕБКОВИЙ</div></div>
-<div class="photo"><img src="images/1_4.jpg" alt="Фото 4"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР ЖОЛОБЧАСТОГО ТИПУ</div></div>
-<div class="photo"><img src="images/1_4.jpg" alt="Фото 5"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР З МЕХАНІЧНОЮ ЗМІНОЮ ВИСОТИ</div></div>
-<div class="photo"><img src="images/1_5.jpg" alt="Фото 6"><div class="caption">СТРІЧКОВО-КОВШОВИЙ ТРАНСПОРТЕР З РЕГУЛЮВАННЯМ КУТА НАХИЛУ</div></div>
-<div class="photo"><img src="images/1_6.jpg" alt="Фото 7"><div class="caption">СТРІЧКОВО-КОВШОВИЙ ТРАНСПОРТЕР</div></div>
-<div class="photo"><img src="images/1_6_a.jpg" alt="Фото 8"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР ДЛЯ ПРИВАТНОЇ ПТАХОФАБРИКИ</div></div>
-<div class="photo"><img src="images/1_7.jpg" alt="Фото 9"><div class="caption">СТРІЧКОВІ ТРАНСПОРТЕРИ ДЛЯ ХАРЧОВОЇ ПРОМИСЛОВОСТІ</div></div>
-<div class="photo"><img src="images/1_8.jpg" alt="Фото 10"><div class="caption">СТРІЧКОВІ ТРАНСПОРТЕРИ ДЛЯ ХАРЧОВОЇ ПРОМИСЛОВОСТІ</div></div>
-<div class="photo"><img src="images/1_8_a.jpg" alt="Фото 11"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
-<div class="photo"><img src="images/1_9.jpg" alt="Фото 12"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР ПРЯМИЙ З ГІДРАВЛІЧНИМ ПІДЙОМОМ</div></div>
-<div class="photo"><img src="images/1_10.jpg" alt="Фото 13"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
-
-<div class="photo"><img src="images/2_1.jpg" alt="Фото 14"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
-<div class="photo"><img src="images/2_1a.jpg" alt="Фото 15"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
-<div class="photo"><img src="images/2_1b.jpg" alt="Фото 16"><div class="caption">ШНЕКОВИЙ КОНВЕЄР ДЛЯ СІЛЬГОСП КУЛЬТУР</div></div>
-<div class="photo"><img src="images/2_2.jpg" alt="Фото 17"><div class="caption">ПОСЛУГИ РЕМОНТУ ЗЕРНОВИХ ШНЕКІВ</div></div>
-<div class="photo"><img src="images/2_2a.jpg" alt="Фото 18"><div class="caption">ПОСЛУГИ РЕМОНТУ ЗЕРНОВИХ ШНЕКІВ</div></div>
-<div class="photo"><img src="images/2_3.jpg" alt="Фото 19"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
-
-<div class="photo"><img src="images/4_1.jpg" alt="Фото 20"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
-<div class="photo"><img src="images/4_1a.jpg" alt="Фото 21"><div class="caption">ШНЕКОВИЙ КОНВЕЄР</div></div>
-<div class="photo"><img src="images/4_1b.jpg" alt="Фото 22"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
-<div class="photo"><img src="images/4_1c.jpg" alt="Фото 23"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
-<div class="photo"><img src="images/4_1d.jpg" alt="Фото 24"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
-<div class="photo"><img src="images/4_1j.jpg" alt="Фото 25"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
-
-<div class="photo"><img src="images/4_2.jpg" alt="Фото 26"><div class="caption">ЛІНІЇ ВИРОБНИЦТВА ТА ФАСУВАННЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
-<div class="photo"><img src="images/4_2a.jpg" alt="Фото 27"><div class="caption">ПРОСІЮВАННЯ МАТЕРІАЛУ</div></div>
-
-<div class="photo"><img src="images/4_3.jpg" alt="Фото 28"><div class="caption">ЗМІШУВАЧ ДЛЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
-<div class="photo"><img src="images/4_3a.jpg" alt="Фото 29"><div class="caption">ЗМІШУВАЧ ДЛЯ СУХИХ БУДІВЕЛЬНИХ СУМІШЕЙ</div></div>
-<div class="photo"><img src="images/4_4.jpg" alt="Фото 30"><div class="caption">ЗМІШУВАЧ БЕЗПЕРЕРВНОЇ ДІЇ</div></div>
-
-<div class="photo"><img src="images/5_1.jpg" alt="Фото 31"><div class="caption">ЗМІШУВАЧ БЕЗПЕРЕРВНОЇ ДІЇ</div></div>
-
-<div class="photo"><img src="images/6_1.jpg" alt="Фото 32"><div class="caption">СУШАРНИЙ КОМПЛЕКС БАРАБАННОГО ТИПУ</div></div>
-<div class="photo"><img src="images/6_1a.jpg" alt="Фото 33"><div class="caption">ОБЛАДНАННЯ ДЛЯ ВИРОБНИЦТВА ШЛАКОБЛОКУ, ПЛИТКИ, БРИКЕТІВ</div></div>
-
-<div class="photo"><img src="images/6_1b.jpg" alt="Фото 34"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-<div class="photo"><img src="images/6_1d.jpg" alt="Фото 35"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-
-<div class="photo"><img src="images/6_2.jpg" alt="Фото 36"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-<div class="photo"><img src="images/6_2a.jpg" alt="Фото 37"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-<div class="photo"><img src="images/6_2b.jpg" alt="Фото 38"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-<div class="photo"><img src="images/6_2c.jpg" alt="Фото 39"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-<div class="photo"><img src="images/6_2d.jpg" alt="Фото 40"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-
-<div class="photo"><img src="images/7_1.jpg" alt="Фото 41"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-<div class="photo"><img src="images/7_1a.jpg" alt="Фото 42"><div class="caption">СИСТЕМА ДОЗУВАННЯ ТА ФАСУВАННЯ ПІСКУ</div></div>
-
-<div class="photo"><img src="images/7_1b.jpg" alt="Фото 43"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
-<div class="photo"><img src="images/7_1c.jpg" alt="Фото 44"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
-<div class="photo"><img src="images/7_2.jpg" alt="Фото 45"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
-
-<div class="photo"><img src="images/8_1.jpg" alt="Фото 46"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
-<div class="photo"><img src="images/8_1a.jpg" alt="Фото 47"><div class="caption">СТРІЧКОВИЙ ТРАНСПОРТЕР-ДОЗАТОР</div></div>
-
-<div class="photo"><img src="images/8_1b.jpg" alt="Фото 48"><div class="caption">МОБІЛЬНИЙ РОЗВАНТАЖУВАЧ ВАГОНІВ</div></div>
-<div class="photo"><img src="images/8_1c.jpg" alt="Фото 49"><div class="caption">ТРАНСПОРТЕР-РОЗВАНТАЖУВАЧ ВАГОНІВ</div></div>
-
-<div class="photo"><img src="images/8_1d.jpg" alt="Фото 50"><div class="caption">РІШЕННЯ ДЛЯ ЗАВАНТАЖЕННЯ ЦЕМЕНТУ</div></div>
-<div class="photo"><img src="images/8_2.jpg" alt="Фото 51"><div class="caption">РІШЕННЯ ДЛЯ ЗАВАНТАЖЕННЯ ЦЕМЕНТУ</div></div>
-<div class="photo"><img src="images/8_2a.jpg" alt="Фото 52"><div class="caption">РІШЕННЯ ДЛЯ ЗАВАНТАЖЕННЯ ЦЕМЕНТУ</div></div>
-
-<div class="photo"><img src="images/9_2.jpg" alt="Фото 53"><div class="caption">ПНЕВМОКАМЕРНІ НАСОСИ ДЛЯ ЦЕМЕНТУ</div></div>
-<div class="photo"><img src="images/9_2a.jpg" alt="Фото 54"><div class="caption">ПНЕВМОКАМЕРНІ НАСОСИ ДЛЯ ЦЕМЕНТУ</div></div>
-
-<div class="photo"><img src="images/9_3.jpg" alt="Фото 55"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
-<div class="photo"><img src="images/13-1.jpg" alt="Фото 56"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
-<div class="photo"><img src="images/13-3.jpg" alt="Фото 57"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
-<div class="photo"><img src="images/13-5.jpg" alt="Фото 58"><div class="caption">СКЛАДИ ПІСКУ (ІНЕРТНИХ)</div></div>
-
-</td>
-    </tr>
-</table>
+</div>
 
 <!-- FOOTER -->
 <div class="footer">
-    <div class="footer-container">
-
-        <!-- Левая часть -->
-        <div class="footer-left">
-            <p><b>EKVIPTEH</b> - промислове обладнання для реального виробництва.</p>
-            <p>49035, м.Дніпро, Україна. Проектування, виробництво, пусконалагодження.</p>
-        </div>
-
-        <!-- Правая часть -->
-        <div class="footer-right">
-            <p>(C) 2002 - 2026 Ekvipteh LLC</p>
-            <p>info@ekvipteh.com.ua</p>
-        </div>
-
-    </div>
+    <p>ТОВ «Еквіптех», м. Дніпро, Україна</p>
+    <p>Email: info@ekvipteh.com.ua</p>
 </div>
+
+<!-- ПЛАВАЮЩАЯ КНОПКА -->
+<a href="mailto:info@ekvipteh.com.ua" class="contact-button">
+    📩 Написати нам
+</a>
+
+<a href="mailto:info@ekvipteh.com.ua?subject=Запрос расчета" class="tz-button">
+    💰 Отримати розрахунок
+</a>
 
 </body>
 </html>
