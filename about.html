@@ -1,318 +1,532 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ЭКВИПТЕХ — Про компанію</title>
+<title>Про компанію — ЕКВІПТЕХ</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: #f7f9fc;
-    color: #2c3e50;
+    background: #f4f7fb;
+    color: #223548;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* HEADER */
-.header {
-    height: 280px;
+.page-hero {
+    min-height: 260px;
     background: url('images/background.jpg') center/cover no-repeat;
     position: relative;
+    overflow: hidden;
 }
 
-.overlay {
+.page-hero::before {
+    content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.65);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(to right, rgba(8,18,31,0.88), rgba(8,18,31,0.45));
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 42px 0 50px;
     color: white;
-    text-align: center;
 }
 
-.overlay h1 {
-    font-size: 36px;
-    margin: 10px 0;
+.hero-logo {
+    width: 170px;
+    margin-bottom: 18px;
 }
 
-.overlay p {
-    font-size: 18px;
+.hero-inner h1 {
+    margin: 0 0 10px;
+    font-size: 48px;
+    line-height: 1.1;
+    max-width: 700px;
+}
+
+.hero-inner p {
+    margin: 0;
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
 }
 
 /* MENU */
+.menu-wrap {
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #dfe7f2;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+}
+
 .menu {
     display: flex;
     justify-content: center;
-    background: white;
-    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+    gap: 34px;
+    padding: 16px 10px;
 }
 
 .menu a {
-    padding: 14px 20px;
     text-decoration: none;
-    color: #2c3e50;
+    color: #223548;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s;
 }
 
 .menu a:hover {
     color: #2f6fed;
 }
 
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #2f6fed;
+    transition: 0.3s;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;
+}
+
+.menu a.active {
+    color: #2f6fed;
+}
+
 /* MAIN */
-.main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
-}
-
-/* SECTION */
 .section {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    padding: 40px 0;
 }
 
-.section h2 {
-    margin-top: 0;
-    color: #0f4c81;
+.content-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.panel {
+    background: white;
+    border: 1px solid #e3e8ef;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(17,42,70,0.05);
+    transition: 0.3s ease;
+}
+
+.panel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(17,42,70,0.08);
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.panel-title::before {
+    content: "";
+    width: 4px;
+    height: 28px;
+    border-radius: 4px;
+    background: #2f6fed;
+    display: block;
+}
+
+.panel-title h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #16385b;
+}
+
+.panel p {
+    margin: 0;
+    font-size: 18px;
+    color: #4f6275;
+}
+
+/* TRUST STATS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.stat-card {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    border: 1px solid #dce6f2;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(47,111,237,0.1);
+    border-color: #c9daf7;
+}
+
+.stat-card h3 {
+    margin: 0 0 10px;
+    font-size: 40px;
+    color: #2f6fed;
+}
+
+.stat-card p {
+    margin: 0;
+    font-size: 17px;
+    color: #56697d;
 }
 
 /* LIST */
-.section ul li {
-    margin-bottom: 8px;
+.feature-list {
+    margin: 0;
+    padding-left: 22px;
 }
 
-/* STEPS */
-.steps {
+.feature-list li {
+    margin-bottom: 14px;
+    font-size: 18px;
+    color: #475a6c;
+}
+
+.feature-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* FORMAT */
+.format-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
 }
 
-.step {
-    background: #f9fbff;
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 4px solid #2f6fed;
+.format-card {
+    background: #f8fbff;
+    border: 1px solid #dce6f2;
+    border-radius: 16px;
+    padding: 24px 20px;
+    transition: 0.3s ease;
 }
 
-.step h3 {
-    margin-top: 0;
+.format-card:hover {
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
+}
+
+.format-card h3 {
+    margin: 0 0 12px;
+    font-size: 24px;
     color: #2f6fed;
+}
+
+.format-card p {
+    margin: 0;
+    font-size: 17px;
+    color: #586b7e;
+}
+
+/* CTA BAR */
+.bottom-cta {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #2f6fed, #2158c7);
+    color: white;
+    border-radius: 18px;
+    padding: 34px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 18px 36px rgba(47,111,237,0.2);
+}
+
+.bottom-cta h2 {
+    margin: 0 0 8px;
+    font-size: 32px;
+}
+
+.bottom-cta p {
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 18px;
+}
+
+.bottom-cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.bottom-cta-buttons a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-white {
+    background: white;
+    color: #2f6fed;
+}
+
+.btn-white:hover {
+    background: #eef4ff;
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: rgba(255,255,255,0.14);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.btn-dark:hover {
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
 }
 
 /* FOOTER */
 .footer {
-    background: #1f2a38;
+    margin-top: 50px;
+    background: linear-gradient(90deg, #143d68, #1f2a38);
     color: white;
-    padding: 30px;
+    padding: 40px 20px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
 }
 
-/* КНОПКИ */
-.contact-button, .tz-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #2f6fed, #5aa3ff);
-    color: white;
-    padding: 14px 20px;
-    border-radius: 30px;
+.footer h4 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.footer p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: rgba(255,255,255,0.88);
+}
+
+.footer a {
+    color: #9ec4ff;
     text-decoration: none;
-    font-size: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    z-index: 9999;
-    animation: pulse 2s infinite;
 }
 
-.contact-button {
-    bottom: 20px;
-    background: linear-gradient(135deg, #2f6fed, #5aa3ff);
+.footer a:hover {
+    text-decoration: underline;
 }
 
-.tz-button {
-    bottom: 80px;
-    background: linear-gradient(135deg, #28a745, #5cd67a);
-}
-
-.contact-button:hover, .tz-button:hover {
-    transform: scale(1.1);
-}
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(47,111,237,0.5); }
-    70% { box-shadow: 0 0 0 10px rgba(47,111,237,0); }
-    100% { box-shadow: 0 0 0 0 rgba(47,111,237,0); }
-}
-
-/* MOBILE */
-/* 📱 MOBILE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
-    /* HEADER */
-    .header {
-        height: 220px;
+    .hero-inner h1 {
+        font-size: 36px;
     }
 
-    .overlay img {
-        width: 140px;
+    .hero-inner p {
+        font-size: 17px;
     }
 
-    .overlay h1 {
-        font-size: 24px;
+    .panel {
+        padding: 22px;
     }
 
-    .overlay p {
-        font-size: 14px;
-    }
-
-    /* MENU */
-    .menu {
-        flex-wrap: wrap;
-    }
-
-    .menu a {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    /* MAIN */
-    .main {
-        padding: 20px 15px;
-    }
-
-    /* SECTION */
-    .section {
-        padding: 15px;
-    }
-
-    .section h2 {
+    .panel-title h2 {
         font-size: 20px;
     }
 
-    .section p,
-    .section li {
-        font-size: 14px;
+    .panel p,
+    .feature-list li,
+    .format-card p,
+    .stat-card p {
+        font-size: 16px;
     }
 
-    /* STEPS */
-    .steps {
-        grid-template-columns: 1fr;
+    .bottom-cta h2 {
+        font-size: 26px;
     }
 
-    /* FOOTER */
-    .footer {
-        padding: 20px;
-        font-size: 14px;
-    }
-
-    /* КНОПКИ */
-    .contact-button, .tz-button {
-        right: 10px;
-        padding: 10px 14px;
-        font-size: 12px;
-    }
-
-    .tz-button {
-        bottom: 70px;
-    }
-
-    .contact-button {
-        bottom: 20px;
+    .bottom-cta p {
+        font-size: 16px;
     }
 }
-
 </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
-<div class="header">
-    <div class="overlay">
-         <img src="images/logo.png" alt="ЭКВИПТЕХ">
-        <p>Будівельне та промислове обладнання</p>
+<!-- HERO -->
+<div class="page-hero">
+    <div class="container">
+        <div class="hero-inner">
+            <img src="images/logo.png" alt="ЕКВІПТЕХ" class="hero-logo">
+            <h1>Інженерні рішення для промисловості</h1>
+            <p>Проєктування • Виробництво • Впровадження</p>
+        </div>
     </div>
 </div>
-
 
 <!-- MENU -->
-<div class="menu">
-    <a href="index.html">Головна</a>
-    <a href="about.html">Про компанію</a>
-    <a href="products.html">Наші клієнти</a>
+<div class="menu-wrap">
+    <div class="container">
+        <div class="menu">
+            <a href="index.html">Головна</a>
+            <a href="about.html" class="active">Про компанію</a>
+            <a href="equipment.html">Обладнання</a>
+            <a href="clients.html">Наші клієнти</a>
+            <a href="contacts.html">Контакти</a>
+        </div>
+    </div>
 </div>
 
-<!-- MAIN -->
-<div class="main">
+<!-- CONTENT -->
+<div class="section">
+    <div class="container">
+        <div class="content-grid">
 
-    <div class="section">
-        <h2>Про компанію</h2>
-        <p>
-            Інженерна компанія ЕКВІПТЕХ спеціалізується на проєктуванні, виготовленні та впровадженні
-            промислових рішень, адаптованих під конкретні задачі замовника.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Профіль компетенцій</h2>
-        <p>
-            Компанія працює у виробничому B2B-сегменті: транспортні системи, вузли сушіння,
-            обладнання для сухих сумішей та рішення для цементної галузі.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Що важливо в роботі</h2>
-        <ul>
-            <li>Практична інженерія без надлишкових рішень</li>
-            <li>Прозоре узгодження етапів і технічних параметрів</li>
-            <li>Підтримка до і після запуску</li>
-            <li>Рішення під конкретну задачу</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Формат співпраці</h2>
-
-        <div class="steps">
-            <div class="step">
-                <h3>Технічний бриф</h3>
-                <p>Збір вихідних даних.</p>
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>Про компанію</h2>
+                </div>
+                <p>
+                    ЕКВІПТЕХ — інженерна компанія, що спеціалізується на розробці та впровадженні
+                    промислових рішень для підприємств. Основний фокус — ефективність, надійність
+                    та адаптація під конкретні виробничі задачі.
+                </p>
             </div>
 
-            <div class="step">
-                <h3>Проєктне рішення</h3>
-                <p>Конфігурація обладнання.</p>
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>Профіль компетенцій</h2>
+                </div>
+                <p>
+                    Робота у B2B сегменті: транспортні системи, обладнання для сухих сумішей,
+                    рішення для цементної та будівельної галузі.
+                </p>
             </div>
 
-            <div class="step">
-                <h3>Запуск і супровід</h3>
-                <p>Пусконалагодження і стабілізація.</p>
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>Нам довіряють</h2>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>200+</h3>
+                        <p>реалізованих проєктів</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>20+ років</h3>
+                        <p>практичного досвіду</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>відповідальності за результат</p>
+                    </div>
+                </div>
             </div>
+
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>Що важливо в роботі</h2>
+                </div>
+
+                <ul class="feature-list">
+                    <li>Практична інженерія без зайвих рішень</li>
+                    <li>Прозорість технічних параметрів і етапів роботи</li>
+                    <li>Супровід після запуску обладнання</li>
+                    <li>Індивідуальні рішення під специфіку виробництва</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>Формат співпраці</h2>
+                </div>
+
+                <div class="format-grid">
+                    <div class="format-card">
+                        <h3>01</h3>
+                        <p><strong>Технічний бриф</strong><br>Аналіз задачі, параметрів і вихідних даних.</p>
+                    </div>
+
+                    <div class="format-card">
+                        <h3>02</h3>
+                        <p><strong>Проєктне рішення</strong><br>Підбір конфігурації та технічного рішення.</p>
+                    </div>
+
+                    <div class="format-card">
+                        <h3>03</h3>
+                        <p><strong>Реалізація</strong><br>Виробництво, монтаж і контроль якості.</p>
+                    </div>
+
+                    <div class="format-card">
+                        <h3>04</h3>
+                        <p><strong>Запуск</strong><br>Пусконалагодження, тестування та підтримка.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-cta">
+                <div>
+                    <h2>Обговоримо ваш проєкт?</h2>
+                    <p>Підготуємо технічне рішення та попередній розрахунок під ваше виробництво.</p>
+                </div>
+
+                <div class="bottom-cta-buttons">
+                    <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
+                    <a href="contacts.html" class="btn-dark">Написати нам</a>
+                </div>
+            </div>
+
         </div>
-
     </div>
-
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-    <p>ТОВ «Еквіптех», м. Дніпро, Україна</p>
-    <p>Email: info@ekvipteh.com.ua</p>
+    <div class="footer-inner">
+        <h4>ТОВ «Еквіптех»</h4>
+        <p>м. Дніпро, Україна</p>
+        <p>Email: <a href="mailto:info@ekvipteh.com.ua">info@ekvipteh.com.ua</a></p>
+    </div>
 </div>
-
-<!-- КНОПКИ -->
-<a href="mailto:info@ekvipteh.com.ua" class="contact-button">
-    📩 Написати нам
-</a>
-
-<a href="mailto:info@ekvipteh.com.ua?subject=Запрос расчета" class="tz-button">
-    💰 Отримати розрахунок
-</a>
 
 </body>
 </html>
