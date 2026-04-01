@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакти — ЕКВІПТЕХ</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #16385b;
+    --accent: #2f6fed;
+    --dark: #1f2a38;
+    --light: #f4f7fb;
+    --text: #223548;
+    --muted: #5a6b7d;
+    --border: #e2e9f2;
+    --success: #28a745;
+    --danger: #dc3545;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HERO */
+.page-hero {
+    min-height: 270px;
+    background: url('images/background.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(8,18,31,0.88), rgba(8,18,31,0.5), rgba(8,18,31,0.2));
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 40px 0 50px;
+    color: white;
+}
+
+.hero-logo {
+    width: 165px;
+    margin-bottom: 18px;
+}
+
+.hero-inner h1 {
+    margin: 0 0 10px;
+    font-size: 46px;
+    line-height: 1.1;
+}
+
+.hero-inner p {
+    margin: 0;
+    font-size: 19px;
+    color: rgba(255,255,255,0.9);
+    max-width: 650px;
+}
+
+/* MENU */
+.menu-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #dfe7f2;
+    backdrop-filter: blur(8px);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+    flex-wrap: wrap;
+    padding: 16px 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: var(--accent);
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;
+}
+
+/* MAIN */
+.page-section {
+    padding: 42px 0 60px;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 12px 30px rgba(17,42,70,0.05);
+}
+
+.section-title {
+    margin: 0 0 18px;
+    font-size: 34px;
+    color: var(--primary);
+}
+
+.section-text {
+    margin: 0 0 24px;
+    font-size: 17px;
+    color: var(--muted);
+}
+
+/* CONTACT INFO */
+.info-list {
+    display: grid;
+    gap: 16px;
+}
+
+.info-item {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    border: 1px solid #dce6f2;
+    border-radius: 16px;
+    padding: 20px;
+    transition: 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
+}
+
+.info-item h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: var(--accent);
+}
+
+.info-item p,
+.info-item a {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+/* FORM */
+.form-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.form-grid input,
+.form-grid textarea {
+    width: 100%;
+    border: 1px solid #d8e2ef;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.25s ease;
+    background: #fbfdff;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(47,111,237,0.1);
+    background: white;
+}
+
+.form-grid textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 22px rgba(47,111,237,0.22);
+}
+
+.submit-btn:hover {
+    background: #205bd0;
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-status {
+    display: none;
+    margin-top: 6px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-status.success {
+    display: block;
+    background: rgba(40,167,69,0.1);
+    color: #1f7a35;
+    border: 1px solid rgba(40,167,69,0.2);
+}
+
+.form-status.error {
+    display: block;
+    background: rgba(220,53,69,0.08);
+    color: #b02a37;
+    border: 1px solid rgba(220,53,69,0.18);
+}
+
+/* EXTRA */
+.extra-block {
+    margin-top: 24px;
+}
+
+.mini-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.mini-card {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    border: 1px solid #dce6f2;
+    border-radius: 16px;
+    padding: 22px 18px;
+    transition: 0.3s ease;
+}
+
+.mini-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
+}
+
+.mini-card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.mini-card p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+/* CTA */
+.bottom-cta {
+    margin-top: 28px;
+    background: linear-gradient(135deg, #2f6fed, #2158c7);
+    color: white;
+    border-radius: 18px;
+    padding: 34px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 18px 36px rgba(47,111,237,0.2);
+}
+
+.bottom-cta h3 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.bottom-cta p {
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 17px;
+}
+
+.bottom-cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.bottom-cta-buttons a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-white {
+    background: white;
+    color: var(--accent);
+}
+
+.btn-white:hover {
+    background: #eef4ff;
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: rgba(255,255,255,0.14);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.btn-dark:hover {
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 50px;
+    background: linear-gradient(90deg, #143d68, #1f2a38);
+    color: white;
+    text-align: center;
+    padding: 36px 15px;
+}
+
+.footer p {
+    margin: 8px 0;
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+}
+
+/* FLOATING BUTTONS */
+.floating-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+}
+
+.floating-buttons a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
+    transition: 0.3s ease;
+    text-align: center;
+    min-width: 180px;
+}
+
+.floating-buttons a:hover {
+    transform: translateY(-2px);
+}
+
+.calc-btn {
+    background: var(--success);
+}
+
+.calc-btn:hover {
+    background: #21903a;
+}
+
+.mail-btn {
+    background: var(--accent);
+}
+
+.mail-btn:hover {
+    background: #205bd0;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        min-height: 220px;
+    }
+
+    .hero-inner {
+        padding: 28px 0 34px;
+    }
+
+    .hero-logo {
+        width: 140px;
+    }
+
+    .hero-inner h1 {
+        font-size: 34px;
+    }
+
+    .hero-inner p {
+        font-size: 16px;
+    }
+
+    .menu {
+        gap: 18px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-text {
+        font-size: 16px;
+    }
+
+    .bottom-cta h3 {
+        font-size: 24px;
+    }
+
+    .bottom-cta p {
+        font-size: 15px;
+    }
+
+    .floating-buttons {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .floating-buttons a {
+        min-width: 155px;
+        font-size: 13px;
+        padding: 12px 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="page-hero">
+    <div class="container">
+        <div class="hero-inner">
+            <img src="images/logo.png" alt="ЕКВІПТЕХ" class="hero-logo">
+            <h1>Контакти</h1>
+            <p>Зв’яжіться з нами для консультації, технічного обговорення або попереднього розрахунку проєкту</p>
+        </div>
+    </div>
+</div>
+
+<!-- MENU -->
+<div class="menu-wrap">
+    <div class="container">
+        <div class="menu">
+            <a href="index.html">Головна</a>
+            <a href="about.html">Про компанію</a>
+            <a href="equipment.html">Обладнання</a>
+            <a href="clients.html">Наші клієнти</a>
+            <a href="contacts.html" class="active">Контакти</a>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-section">
+    <div class="container">
+
+        <div class="contact-layout">
+            <div class="card">
+                <h2 class="section-title">Контактна інформація</h2>
+                <p class="section-text">
+                    Ми готові обговорити підбір обладнання, модернізацію ліній і запуск нових виробничих рішень.
+                </p>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <h3>Email</h3>
+                        <a href="mailto:info@ekvipteh.com.ua">info@ekvipteh.com.ua</a>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Місто</h3>
+                        <p>м. Дніпро, Україна</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Напрямок роботи</h3>
+                        <p>Промислове та будівельне обладнання, інженерні рішення, виробничі комплекси</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Формат звернення</h3>
+                        <p>Надішліть короткий опис задачі, і ми підготуємо консультацію або попередній розрахунок</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="section-title">Надіслати запит</h2>
+                <p class="section-text">
+                    Заповніть форму, і повідомлення буде відправлене прямо з сайту.
+                </p>
+
+                <form id="contact-form" class="form-grid">
+                    <input type="text" name="user_name" placeholder="Ваше ім’я" required>
+                    <input type="text" name="company" placeholder="Назва компанії">
+                    <input type="email" name="user_email" placeholder="Email" required>
+                    <input type="text" name="phone" placeholder="Телефон">
+                    <textarea name="message" placeholder="Опишіть ваш запит або обладнання, яке вас цікавить" required></textarea>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">Надіслати запит</button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+
+        <div class="extra-block">
+            <div class="mini-grid">
+                <div class="mini-card">
+                    <h3>Консультація</h3>
+                    <p>Допоможемо підібрати обладнання під специфіку вашого виробництва.</p>
+                </div>
+
+                <div class="mini-card">
+                    <h3>Попередній розрахунок</h3>
+                    <p>Підготуємо базову оцінку проєкту та можливих технічних параметрів.</p>
+                </div>
+
+                <div class="mini-card">
+                    <h3>Технічне обговорення</h3>
+                    <p>Обговоримо продуктивність, конфігурацію, автоматизацію та етапи запуску.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-cta">
+            <div>
+                <h3>Потрібен швидкий зворотний зв’язок?</h3>
+                <p>Напишіть нам на email або надішліть запит через форму.</p>
+            </div>
+
+            <div class="bottom-cta-buttons">
+                    <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
+                    <a href="contacts.html" class="btn-dark">Написати нам</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>ТОВ «Еквіптех», м. Дніпро, Україна</p>
+    <p>Email: info@ekvipteh.com.ua</p>
+</div>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-buttons">
+                    <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
+                    <a href="contacts.html" class="btn-dark">Написати нам</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init({
+        publicKey: "FlxHXurEyYVLzzuEW"
+    });
+
+    const form = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("submit-btn");
+    const statusBox = document.getElementById("form-status");
+
+    if (!form || !submitBtn || !statusBox) return;
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Відправляємо...";
+        statusBox.className = "form-status";
+        statusBox.textContent = "";
+
+        emailjs.sendForm(
+            "service_6rhkjrc",
+            "template_wcxtu9s",
+            form
+        )
+        .then(function () {
+            statusBox.className = "form-status success";
+            statusBox.textContent = "Дякуємо! Ваш запит успішно надіслано.";
+            form.reset();
+        })
+        .catch(function (error) {
+            statusBox.className = "form-status error";
+            statusBox.textContent = "Помилка відправлення. Перевірте налаштування форми.";
+            console.error("EmailJS error:", error);
+        })
+        .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Надіслати запит";
+        });
+    });
+});
+</script>
+
+</body>
+</html>
