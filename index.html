@@ -1,332 +1,857 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
-<title>ЭКВИПТЕХ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЕКВІПТЕХ</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background-color: #f7f9fc;
-    color: #2c3e50;
+    background: #f4f7fb;
+    color: #223548;
+    line-height: 1.6;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* HEADER */
+/* HEADER */
 .header {
-    height: 300px;
+    min-height: 620px; /* было 520px */
     background: url('images/background.jpg') center/cover no-repeat;
     position: relative;
+    overflow: hidden;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background:
+        linear-gradient(to right, rgba(8,18,31,0.88), rgba(8,18,31,0.55), rgba(8,18,31,0.22));
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 40px 0 60px; /* добавили отступы сверху и снизу */
+}
+
+.hero-content {
+    max-width: 760px;
+    padding: 30px 0 40px; /* было 40px 0 */
     color: white;
-    text-align: center;
 }
 
-.overlay h1 {
-    font-size: 36px;
-    margin: 10px 0;
+.hero-logo {
+    width: 170px;
+    margin-bottom: 22px;
 }
 
-.overlay p {
-    font-size: 18px;
-    opacity: 0.9;
+.hero-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    font-size: 14px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(4px);
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    margin: 0 0 18px;
+    font-weight: 700;
+    max-width: 760px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    max-width: 680px;
+    margin: 0 0 28px;
+    color: rgba(255,255,255,0.92);
+}
+
+.hero-highlight {
+    color: #7fb2ff;
+    font-weight: 700;
+}
+
+.cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.cta a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 14px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.cta .primary-btn {
+    background: #2f6fed;
+    color: white;
+    box-shadow: 0 8px 24px rgba(47,111,237,0.35);
+}
+
+.cta .primary-btn:hover {
+    background: #205bd0;
+    transform: translateY(-2px);
+}
+
+.cta .secondary-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.18);
+}
+
+.cta .secondary-btn:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    gap: 16px;
+    max-width: 720px;
+}
+
+.hero-stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 18px 16px;
+    backdrop-filter: blur(4px);
+}
+
+.hero-stat h3 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    color: white;
+}
+
+.hero-stat p {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.82);
+}
+
+.logo-fixed {
+    position: absolute;
+    top: 25px;
+    left: 60px;
+    width: 160px;
+    z-index: 10;
+    opacity: 0.95;
 }
 
 /* MENU */
+.menu-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #dfe7f2;
+}
+
 .menu {
     display: flex;
     justify-content: center;
-    background: white;
-    border-bottom: 1px solid #ddd;
+    gap: 34px;
+    padding: 16px 10px;
 }
 
 .menu a {
-    padding: 14px 20px;
     text-decoration: none;
-    color: #2c3e50;
+    color: #223548;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s;
 }
 
 .menu a:hover {
     color: #2f6fed;
 }
 
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #2f6fed;
+    transition: 0.3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
 /* SECTION */
 .section {
-    padding: 50px 20px;
+    padding: 85px 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    margin: 0 0 14px;
+    color: #1d3c5f;
+}
+
+.section-header p {
+    margin: 0;
+    font-size: 18px;
+    color: #526476;
+}
+
+/* ABOUT */
+.about-box {
+    background: white;
+    border: 1px solid #e3eaf3;
+    border-radius: 18px;
+    padding: 36px;
+    box-shadow: 0 10px 30px rgba(17, 42, 70, 0.05);
+    max-width: 1000px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.section h2 {
-    margin-bottom: 20px;
+.about-box p {
+    margin: 0;
+    font-size: 18px;
+    color: #425569;
 }
 
 /* CARDS */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap: 20px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
 }
 
 .card {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: 0.3s;
+    padding: 34px 28px;
+    border-radius: 18px;
+    border: 1px solid #e3e8ef;
+    box-shadow: 0 10px 30px rgba(17,42,70,0.05);
+    text-align: center;
+    transition: 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(17,42,70,0.1);
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 34px;
+    color: #1d3c5f;
+}
+
+.card h4 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #1d3c5f;
+}
+
+.card p {
+    margin: 0;
+    color: #58697c;
+    font-size: 17px;
 }
 
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 24px;
+    margin-top: 10px;
 }
 
 .product {
     background: white;
-    border-radius: 10px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e3e8ef;
+    box-shadow: 0 10px 30px rgba(17,42,70,0.05);
+    transition: 0.35s ease;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(17,42,70,0.12);
+}
+
+.product-image {
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.18), transparent 45%);
+    opacity: 0;
+    transition: 0.35s;
+}
+
+.product:hover .product-image::after {
+    opacity: 1;
 }
 
 .product img {
     width: 100%;
-    height: 250px;
+    height: 240px;
     object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
 }
 
-.product:hover {
-    transform: translateY(-5px);
+.product:hover img {
+    transform: scale(1.06);
+}
+
+.product-content {
+    padding: 22px;
+    text-align: left;
+}
+
+.product h4 {
+    margin: 0 0 10px;
+    font-size: 25px;
+    color: #1d3c5f;
 }
 
 .product p {
-    padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
+    color: #5a6b7d;
+    margin-bottom: 16px;
+}
+
+.product a {
+    color: #2f6fed;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product a:hover {
+    color: #174cad;
+}
+
+/* PROJECTS */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.project {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #e3e8ef;
+    box-shadow: 0 10px 30px rgba(17,42,70,0.05);
+    transition: 0.35s ease;
+}
+
+.project:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(17,42,70,0.12);
+}
+
+.project-image {
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.project:hover img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 22px;
+    text-align: left;
+}
+
+.project-info h4 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #1d3c5f;
+}
+
+.project-info p {
+    margin: 0;
+    color: #596b7b;
+    font-size: 16px;
+}
+
+/* CTA BLOCK */
+.cta-block {
+    background: linear-gradient(135deg, #2f6fed, #2259c7);
+    color: white;
+    padding: 85px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cta-block h2 {
+    margin: 0 0 12px;
+    font-size: 42px;
+}
+
+.cta-block p {
+    margin: 0;
+    font-size: 19px;
+    color: rgba(255,255,255,0.9);
+}
+
+.cta-block .cta-note {
+    margin-top: 10px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.82);
+}
+
+.cta-block a {
+    display: inline-block;
+    margin-top: 26px;
+    background: white;
+    color: #2f6fed;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.cta-block a:hover {
+    transform: translateY(-2px);
+    background: #f0f4ff;
 }
 
 /* FOOTER */
 .footer {
-    background: #1f2a38;
+    background: linear-gradient(90deg, #143d68, #1f2a38);
     color: white;
-    padding: 30px;
+    padding: 40px 20px;
+}
+
+.footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
     text-align: center;
 }
 
-/* ПЛАВАЮЩАЯ КНОПКА */
-.contact-button, .tz-button {
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-    background: linear-gradient(135deg, #2f6fed, #5aa3ff);
-    color: white;
-    padding: 14px 20px;
-    border-radius: 30px;
+.footer h4 {
+    margin: 0 0 14px;
+    font-size: 24px;
+}
+
+.footer p {
+    margin: 8px 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 16px;
+}
+
+.footer a {
+    color: #9bc2ff;
     text-decoration: none;
-    font-size: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    z-index: 9999;
-    animation: pulse 2s infinite;
 }
 
-.contact-button:hover, .tz-button:hover {
-    transform: scale(1.1);
+.footer a:hover {
+    text-decoration: underline;
 }
 
-.tz-button {
-    bottom: 120px;
-    background: linear-gradient(135deg, #28a745, #5cd67a);
-}
-
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(47,111,237,0.5); }
-    70% { box-shadow: 0 0 0 10px rgba(47,111,237,0); }
-    100% { box-shadow: 0 0 0 0 rgba(47,111,237,0); }
-}
-
-/* 📱 АДАПТАЦИЯ ПОД ТЕЛЕФОН */
-@media (max-width: 768px) {
-
-    /* HEADER */
-    .header {
-        height: 220px;
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 44px;
     }
 
-    .overlay img {
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .section-header h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        min-height: 760px; /* было 620px */
+    }
+
+    .overlay {
+        padding: 30px 0 50px;
+    }
+
+    .hero-content {
+        padding: 20px 0 30px;
+    }
+
+    .hero-logo {
         width: 140px;
     }
 
-    .overlay h1 {
-        font-size: 24px;
+    .hero-content h1 {
+        font-size: 36px;
     }
 
-    .overlay p {
-        font-size: 14px;
+    .hero-stats {
+        grid-template-columns: 1fr;
     }
 
-    /* MENU */
     .menu {
         flex-wrap: wrap;
+        gap: 16px;
     }
 
-    .menu a {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    /* SECTION */
     .section {
-        padding: 30px 15px;
+        padding: 70px 0;
     }
 
-    .section h2 {
-        font-size: 22px;
+    .section-header h2 {
+        font-size: 32px;
     }
 
-    /* CARDS */
-    .cards {
-        grid-template-columns: 1fr;
+    .about-box,
+    .card,
+    .product-content,
+    .project-info {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    /* PRODUCTS */
-    .products {
-        grid-template-columns: 1fr;
-    }
-
-    .product img {
-        height: 200px;
-    }
-
-    /* FOOTER */
-    .footer {
-        font-size: 14px;
-        padding: 20px;
-    }
-
-    /* КНОПКИ */
-    .contact-button, .tz-button {
-        right: 10px;
-        padding: 10px 14px;
-        font-size: 12px;
-    }
-
-    .tz-button {
-        bottom: 70px;
-    }
-
-    .contact-button {
-        bottom: 20px;
+    .cta-block h2 {
+        font-size: 32px;
     }
 }
 
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta a {
+        width: 100%;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <!-- HEADER -->
+<!-- HEADER -->
 <div class="header">
     <div class="overlay">
-         <img src="images/logo.png" alt="ЭКВИПТЕХ">
-        <p>Будівельне та промислове обладнання</p>
+        <!-- ✅ ЛОГОТИП ВЫНЕСЕН ОТДЕЛЬНО -->
+        <img src="images/logo.png" alt="ЕКВІПТЕХ" class="logo-fixed">
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    Інжинірингові рішення для сучасного виробництва
+                </div>
+
+                <h1>
+                    Промислове обладнання під ключ для 
+                    <span class="hero-highlight">ефективного виробництва</span>
+                </h1>
+
+                <p>
+                    Проєктуємо, виробляємо та запускаємо промислове обладнання під ваші задачі.
+                    Допомагаємо скорочувати витрати, автоматизувати процеси та підвищувати продуктивність.
+                </p>
+
+                <div class="cta">
+                      <a href="#products" class="primary-btn">Переглянути продукцію</a>
+                      <a href="contacts.html" class="secondary-btn">Отримати консультацію</a>
+                    </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <h3>20+</h3>
+                        <p>років досвіду в промисловості</p>
+                    </div>
+
+                    <div class="hero-stat">
+                        <h3>200+</h3>
+                        <p>реалізованих проєктів</p>
+                    </div>
+
+                    <div class="hero-stat">
+                        <h3>100%</h3>
+                        <p>контроль якості та супровід запуску</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 
 <!-- MENU -->
-<div class="menu">
-    <a href="#">Головна</a>
-    <a href="about.html">Про компанію</a>
-    <a href="#">Обладнання</a>
+<div class="menu-wrap">
+    <div class="container">
+        <div class="menu">
+            <a href="index.html">Головна</a>
+            <a href="about.html">Про компанію</a>
+            <a href="equipment.html">Обладнання</a>
+            <a href="clients.html">Наші клієнти</a>
+            <a href="contacts.html">Контакти</a>
+        </div>
+    </div>
 </div>
 
 <!-- ABOUT -->
 <div class="section">
-    <h2>Про компанію</h2>
-    <p>
-        ТОВ «Еквіптех» — це українська компанія, яка спеціалізується на
-        проектуванні, виробництві та запуску промислового обладнання.
-        Працюємо з 2002 року та реалізували сотні проектів.
-    </p>
+    <div class="container">
+        <div class="section-header">
+            <h2>Про компанію</h2>
+        </div>
+
+        <div class="about-box">
+            <p>
+                <strong>ЕКВІПТЕХ</strong> — інжинірингова компанія повного циклу:
+                від розробки ідеї та проєктування до виробництва, монтажу й запуску обладнання.
+                Ми допомагаємо підприємствам впроваджувати надійні технологічні рішення
+                та вже реалізували понад <strong>200 проєктів</strong> у різних галузях промисловості.
+            </p>
+        </div>
+    </div>
 </div>
 
 <!-- ADVANTAGES -->
-<div class="section">
-    <h2>Наші переваги</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>20+ років досвіду</h3>
-            <p>Працюємо на ринку з 2002 року</p>
+<div class="section" style="padding-top: 20px;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Наші переваги</h2>
+            <p>Поєднуємо інженерну експертизу, власне виробництво та практичний досвід запуску обладнання</p>
         </div>
 
-        <div class="card">
-            <h3>Повний цикл</h3>
-            <p>Проектування, виробництво та запуск</p>
+        <div class="cards">
+            <div class="card">
+                <h4>20+ років</h4>
+                <p>успішної роботи та досвіду в промисловому секторі</p>
+            </div>
+
+            <div class="card">
+                <h4>Повний цикл</h4>
+                <p>проєктування, виробництво, монтаж, запуск і технічний супровід</p>
+            </div>
+
+            <div class="card">
+                <h4>Індивідуальні рішення</h4>
+                <p>розробляємо обладнання під специфіку саме вашого виробництва</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TRUST -->
+<div class="section" style="padding-top: 20px;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Нам довіряють</h2>
+            <p>Ми цінуємо репутацію, дотримуємось строків та створюємо рішення, які реально працюють</p>
         </div>
 
-        <div class="card">
-            <h3>Якість</h3>
-            <p>Надійне обладнання для бізнесу</p>
+        <div class="cards">
+            <div class="card">
+                <h3>200+</h3>
+                <p>успішно реалізованих проєктів для підприємств різних напрямків</p>
+            </div>
+
+            <div class="card">
+                <h3>100%</h3>
+                <p>уваги до якості, деталей і відповідності технічним вимогам</p>
+            </div>
+
+            <div class="card">
+                <h4>Сертифікація</h4>
+                <p>відповідність стандартам, технічним нормам і вимогам замовника</p>
+            </div>
         </div>
     </div>
 </div>
 
 <!-- PRODUCTS -->
+<div class="section" id="products">
+    <div class="container">
+        <div class="section-header">
+            <h2>Наша продукція</h2>
+            <p>Обладнання для транспортування, змішування, дозування та автоматизації виробничих процесів</p>
+        </div>
+
+        <div class="products">
+
+            <div class="product">
+                <div class="product-image">
+                    <img src="images/1_1.jpg" alt="Стрічковий транспортер">
+                </div>
+                <div class="product-content">
+                    <h4>Стрічковий транспортер</h4>
+                    <p>Надійне рішення для оптимізації логістики та безперервної подачі матеріалів на виробництві.</p>
+                    <a href="equipment.html?item=transporter">Детальніше →</a>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="product-image">
+                    <img src="images/4_1.jpg" alt="Змішувач">
+                </div>
+                <div class="product-content">
+                    <h4>Змішувач</h4>
+                    <p>Забезпечує стабільну якість сумішей, високу ефективність процесу та точність змішування.</p>
+                    <a href="equipment.html?item=mix">Детальніше →</a>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="product-image">
+                    <img src="images/2_3.jpg" alt="Шнек">
+                </div>
+                <div class="product-content">
+                    <h4>Шнек</h4>
+                    <p>Точне та контрольоване транспортування сипучих матеріалів у різних технологічних лініях.</p>
+                    <a href="equipment.html?item=screw">Детальніше →</a>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="product-image">
+                    <img src="images/9_2.jpg" alt="Дозатор">
+                </div>
+                <div class="product-content">
+                    <h4>Дозатор</h4>
+                    <p>Висока точність дозування для стабільної подачі матеріалів і зменшення виробничих втрат.</p>
+                    <a href="equipment.html?item=doser">Детальніше →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- PROJECTS -->
 <div class="section">
-    <h2>Наша продукція</h2>
-
-    <div class="products">
-        <div class="product">
-            <img src="images/1_1.jpg">
-            <p>Стрічковий транспортер</p>
+    <div class="container">
+        <div class="section-header">
+            <h2>Реалізовані проєкти</h2>
+            <p>Приклади обладнання, яке вже працює на підприємствах наших клієнтів та приносить практичний результат</p>
         </div>
 
-        <div class="product">
-            <img src="images/4_1.jpg">
-            <p>Суміші</p>
-        </div>
+        <div class="projects">
 
-        <div class="product">
-            <img src="images/2_3.jpg">
-            <p>Шнек</p>
-        </div>
+            <div class="project">
+                <div class="project-image">
+                    <img src="images/img 10_1.jpg" alt="Лінія транспортування">
+                </div>
+                <div class="project-info">
+                    <h4>Лінія транспортування</h4>
+                    <p>Автоматизована система подачі матеріалу, яка підвищила швидкість виробничого процесу та зменшила ручні операції.</p>
+                </div>
+            </div>
 
-        <div class="product">
-            <img src="images/9_2.jpg">
-            <p>Дозатор</p>
+            <div class="project">
+                <div class="project-image">
+                    <img src="images/img 10_2.jpg" alt="Змішувальний комплекс">
+                </div>
+                <div class="project-info">
+                    <h4>Змішувальний комплекс</h4>
+                    <p>Комплекс для стабільного змішування з високою точністю параметрів і надійною роботою в щоденному циклі.</p>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    <img src="images/img 11_1.jpg" alt="Дозуюча система">
+                </div>
+                <div class="project-info">
+                    <h4>Дозуюча система</h4>
+                    <p>Система контролю подачі матеріалів у реальному часі для точного дозування та кращого контролю виробництва.</p>
+                </div>
+            </div>
+
         </div>
+    </div>
+</div>
+
+<!-- CTA BLOCK -->
+<div class="cta-block">
+    <div class="container">
+        <h2>Потрібне індивідуальне рішення?</h2>
+        <p>Отримайте попередній розрахунок обладнання під ваш проєкт уже сьогодні</p>
+        <div class="cta-note">Безкоштовна консультація • Підбір рішення • Швидкий зворотний зв’язок</div>
+        <a href="contacts.html" class="secondary-btn">Отримати розрахунок</a>
     </div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-    <p>ТОВ «Еквіптех», м. Дніпро, Україна</p>
-    <p>Email: info@ekvipteh.com.ua</p>
+    <div class="footer-inner">
+        <h4>ТОВ «Еквіптех»</h4>
+        <p>м. Дніпро, Україна</p>
+        <p>Email: <a href="mailto:info@ekvipteh.com.ua">info@ekvipteh.com.ua</a></p>
+    </div>
 </div>
-
-<!-- ПЛАВАЮЩАЯ КНОПКА -->
-<a href="mailto:info@ekvipteh.com.ua" class="contact-button">
-    📩 Написати нам
-</a>
-
-<a href="mailto:info@ekvipteh.com.ua?subject=Запрос расчета" class="tz-button">
-    💰 Отримати розрахунок
-</a>
 
 </body>
 </html>
