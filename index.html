@@ -109,6 +109,10 @@ body {
     object-fit: cover;
 }
 
+.product:hover {
+    transform: translateY(-5px);
+}
+
 .product p {
     padding: 10px;
     font-size: 14px;
@@ -125,7 +129,7 @@ body {
 /* ПЛАВАЮЩАЯ КНОПКА */
 .contact-button, .tz-button {
     position: fixed;
-    bottom: 20px;
+    bottom: 60px;
     right: 20px;
     background: linear-gradient(135deg, #2f6fed, #5aa3ff);
     color: white;
@@ -139,12 +143,12 @@ body {
     animation: pulse 2s infinite;
 }
 
-.contact-button:hover {
+.contact-button:hover, .tz-button:hover {
     transform: scale(1.1);
 }
 
 .tz-button {
-    bottom: 80px;
+    bottom: 120px;
     background: linear-gradient(135deg, #28a745, #5cd67a);
 }
 
@@ -154,6 +158,82 @@ body {
     70% { box-shadow: 0 0 0 10px rgba(47,111,237,0); }
     100% { box-shadow: 0 0 0 0 rgba(47,111,237,0); }
 }
+
+/* 📱 АДАПТАЦИЯ ПОД ТЕЛЕФОН */
+@media (max-width: 768px) {
+
+    /* HEADER */
+    .header {
+        height: 220px;
+    }
+
+    .overlay img {
+        width: 140px;
+    }
+
+    .overlay h1 {
+        font-size: 24px;
+    }
+
+    .overlay p {
+        font-size: 14px;
+    }
+
+    /* MENU */
+    .menu {
+        flex-wrap: wrap;
+    }
+
+    .menu a {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    /* SECTION */
+    .section {
+        padding: 30px 15px;
+    }
+
+    .section h2 {
+        font-size: 22px;
+    }
+
+    /* CARDS */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* PRODUCTS */
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product img {
+        height: 200px;
+    }
+
+    /* FOOTER */
+    .footer {
+        font-size: 14px;
+        padding: 20px;
+    }
+
+    /* КНОПКИ */
+    .contact-button, .tz-button {
+        right: 10px;
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .tz-button {
+        bottom: 70px;
+    }
+
+    .contact-button {
+        bottom: 20px;
+    }
+}
+
 </style>
 </head>
 
@@ -217,17 +297,17 @@ body {
         </div>
 
         <div class="product">
-            <img src="images/1_2.jpg">
-            <p>Змішувач</p>
+            <img src="images/4_1.jpg">
+            <p>Суміші</p>
         </div>
 
         <div class="product">
-            <img src="images/1_3.jpg">
+            <img src="images/2_3.jpg">
             <p>Шнек</p>
         </div>
 
         <div class="product">
-            <img src="images/1_4.jpg">
+            <img src="images/9_2.jpg">
             <p>Дозатор</p>
         </div>
     </div>
