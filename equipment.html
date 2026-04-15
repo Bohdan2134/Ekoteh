@@ -3,11 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Обладнання — ЕКВІПТЕХ</title>
+<title>Обладнання — ЕКОТЕХ</title>
 
 <style>
 * {
     box-sizing: border-box;
+}
+
+:root {
+    --primary: #16385b;
+    --accent: #2f6fed;
+    --accent-dark: #205bd0;
+    --dark: #1f2a38;
+    --light: #f4f7fb;
+    --text: #223548;
+    --muted: #5a6b7d;
+    --border: #e2e9f2;
+    --success: #28a745;
 }
 
 html {
@@ -17,8 +29,8 @@ html {
 body {
     margin: 0;
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: #f4f7fb;
-    color: #223548;
+    background: var(--light);
+    color: var(--text);
     line-height: 1.6;
 }
 
@@ -29,9 +41,85 @@ body {
     padding: 0 20px;
 }
 
+/* HEADER */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 20, 34, 0.35);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.site-header.scrolled {
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #dfe7f2;
+    box-shadow: 0 8px 24px rgba(17,42,70,0.08);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 78px;
+}
+
+.header-logo img {
+    width: 155px;
+    display: block;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.header-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s ease;
+}
+
+.header-nav a:hover::after,
+.header-nav a.active::after {
+    width: 100%;
+}
+
+.site-header.scrolled .header-nav a {
+    color: var(--text);
+}
+
+.header-nav a.active {
+    color: #7fb2ff;
+}
+
+.site-header.scrolled .header-nav a.active {
+    color: var(--accent);
+}
+
 /* HERO */
 .page-hero {
-    min-height: 270px;
+    padding-top: 78px;
+    min-height: 300px;
     background: url('images/background.jpg') center/cover no-repeat;
     position: relative;
     overflow: hidden;
@@ -47,77 +135,60 @@ body {
 .hero-inner {
     position: relative;
     z-index: 2;
-    padding: 40px 0 50px;
+    padding: 42px 0 54px;
     color: white;
+    max-width: 760px;
 }
 
-.hero-logo {
-    width: 165px;
+.hero-badge {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
     margin-bottom: 18px;
+    backdrop-filter: blur(4px);
 }
 
 .hero-inner h1 {
-    margin: 0 0 10px;
-    font-size: 46px;
-    line-height: 1.1;
+    margin: 0 0 12px;
+    font-size: 50px;
+    line-height: 1.08;
 }
 
 .hero-inner p {
     margin: 0;
     font-size: 19px;
     color: rgba(255,255,255,0.9);
-}
-
-/* MENU */
-.menu-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 80;
-    background: rgba(255,255,255,0.96);
-    border-bottom: 1px solid #dfe7f2;
-    backdrop-filter: blur(8px);
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-    gap: 34px;
-    flex-wrap: wrap;
-    padding: 16px 10px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #223548;
-    font-weight: 600;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-.menu a:hover,
-.menu a.active {
-    color: #2f6fed;
-}
-
-.menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: #2f6fed;
-    transition: 0.3s ease;
-}
-
-.menu a:hover::after,
-.menu a.active::after {
-    width: 100%;
+    max-width: 700px;
 }
 
 /* MAIN */
 .page-section {
-    padding: 36px 0 60px;
+    padding: 38px 0 64px;
+}
+
+.top-intro {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 12px 30px rgba(17,42,70,0.05);
+    margin-bottom: 28px;
+}
+
+.top-intro h2 {
+    margin: 0 0 10px;
+    font-size: 34px;
+    color: var(--primary);
+}
+
+.top-intro p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
 }
 
 .main-layout {
@@ -130,29 +201,35 @@ body {
 /* SIDEBAR */
 .sidebar {
     background: linear-gradient(180deg, #1b2b3e, #162434);
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 24px 18px;
     color: white;
     position: sticky;
-    top: 90px;
-    box-shadow: 0 14px 30px rgba(17,42,70,0.16);
+    top: 96px;
+    box-shadow: 0 16px 30px rgba(17,42,70,0.16);
 }
 
 .sidebar-title {
-    margin: 0 0 18px;
+    margin: 0 0 16px;
     font-size: 22px;
     font-weight: 700;
     padding-bottom: 14px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
+.sidebar-subtitle {
+    margin: 0 0 18px;
+    color: rgba(255,255,255,0.72);
+    font-size: 14px;
+}
+
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
-.sidebar a {
+.sidebar-nav a {
     display: block;
     text-decoration: none;
     color: #d9e4f0;
@@ -163,14 +240,14 @@ body {
     border: 1px solid transparent;
 }
 
-.sidebar a:hover {
+.sidebar-nav a:hover {
     background: rgba(255,255,255,0.08);
     color: white;
     transform: translateX(4px);
 }
 
-.sidebar a.active {
-    background: linear-gradient(135deg, #2f6fed, #2158c7);
+.sidebar-nav a.active {
+    background: linear-gradient(135deg, var(--accent), #2158c7);
     color: white;
     font-weight: 700;
     border-color: rgba(255,255,255,0.08);
@@ -182,12 +259,11 @@ body {
     min-width: 0;
 }
 
-/* DEFAULT CARD */
 .empty-card,
 .product-card {
     background: white;
-    border: 1px solid #e2e9f2;
-    border-radius: 20px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
     padding: 32px;
     box-shadow: 0 12px 30px rgba(17,42,70,0.05);
 }
@@ -195,60 +271,61 @@ body {
 .empty-card h2,
 .product-main h2 {
     margin: 0 0 12px;
-    font-size: 34px;
-    color: #16385b;
+    font-size: 36px;
+    color: var(--primary);
 }
 
 .empty-card p,
-.product-main p,
-.spec-note,
-.feature-list li {
-    color: #55687a;
+.product-main p {
+    color: var(--muted);
     font-size: 17px;
+    margin: 0;
 }
 
-/* PRODUCT LAYOUT */
-.product-card {
-    overflow: hidden;
+/* EMPTY */
+.empty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
 }
 
+.empty-info {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    border: 1px solid #dce6f2;
+    border-radius: 16px;
+    padding: 22px 18px;
+    transition: 0.3s ease;
+}
+
+.empty-info:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
+}
+
+.empty-info h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.empty-info p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+/* PRODUCT */
 .product-top {
     display: grid;
-    grid-template-columns: minmax(320px, 460px) 1fr;
+    grid-template-columns: minmax(320px, 470px) 1fr;
     gap: 30px;
     align-items: start;
 }
 
 .product-image-wrap {
-    overflow: hidden;
     border-radius: 18px;
-    position: relative;
     background: #eef4fb;
-}
-
-.product-image-wrap::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.16), transparent 45%);
-    opacity: 0;
-    transition: 0.35s ease;
-}
-
-.product-card:hover .product-image-wrap::after {
-    opacity: 1;
-}
-
-.product-image-wrap img {
-    width: 100%;
-    height: 340px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.45s ease;
-}
-
-.product-card:hover .product-image-wrap img {
-    transform: scale(1.04);
 }
 
 .product-main .subtitle {
@@ -257,7 +334,7 @@ body {
     padding: 8px 14px;
     border-radius: 999px;
     background: #eef4ff;
-    color: #2f6fed;
+    color: var(--accent);
     font-size: 14px;
     font-weight: 700;
 }
@@ -273,86 +350,10 @@ body {
 
 .feature-list li {
     margin-bottom: 10px;
+    color: #4d6175;
+    font-size: 16px;
 }
 
-/* SPECS */
-.spec-block {
-    margin-top: 32px;
-}
-
-.spec-block h3,
-.extra-block h3 {
-    margin: 0 0 16px;
-    font-size: 24px;
-    color: #16385b;
-}
-
-.spec-table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
-    border-radius: 14px;
-    border: 1px solid #e2e9f2;
-}
-
-.spec-table tr:nth-child(odd) {
-    background: #f8fbff;
-}
-
-.spec-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid #e2e9f2;
-    font-size: 15px;
-}
-
-.spec-table tr:last-child td {
-    border-bottom: none;
-}
-
-.spec-table td:first-child {
-    width: 42%;
-    font-weight: 700;
-    color: #27496b;
-}
-
-.spec-table td:last-child {
-    color: #56697d;
-}
-
-/* EXTRA INFO */
-.extra-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 18px;
-    margin-top: 16px;
-}
-
-.extra-card {
-    background: linear-gradient(180deg, #ffffff, #f8fbff);
-    border: 1px solid #dce6f2;
-    border-radius: 16px;
-    padding: 22px 18px;
-    transition: 0.3s ease;
-}
-
-.extra-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
-}
-
-.extra-card h4 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    color: #2f6fed;
-}
-
-.extra-card p {
-    margin: 0;
-    font-size: 15px;
-    color: #5c6f82;
-}
-
-/* ACTIONS */
 .product-actions {
     display: flex;
     flex-wrap: wrap;
@@ -370,19 +371,19 @@ body {
 }
 
 .btn-primary {
-    background: #2f6fed;
+    background: var(--accent);
     color: white;
     box-shadow: 0 10px 22px rgba(47,111,237,0.24);
 }
 
 .btn-primary:hover {
-    background: #2259c7;
+    background: var(--accent-dark);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background: #eef4ff;
-    color: #2f6fed;
+    color: var(--accent);
 }
 
 .btn-secondary:hover {
@@ -390,7 +391,223 @@ body {
     transform: translateY(-2px);
 }
 
-/* FLOAT BUTTONS */
+/* INFO */
+.info-section {
+    margin-top: 32px;
+}
+
+.info-section h3 {
+    margin: 0 0 16px;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.spec-table tr:nth-child(odd) {
+    background: #f8fbff;
+}
+
+.spec-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+}
+
+.spec-table tr:last-child td {
+    border-bottom: none;
+}
+
+.spec-table td:first-child {
+    width: 42%;
+    font-weight: 700;
+    color: #27496b;
+}
+
+.spec-table td:last-child {
+    color: var(--muted);
+}
+
+.extra-grid,
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+}
+
+.extra-card,
+.application-card {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    border: 1px solid #dce6f2;
+    border-radius: 16px;
+    padding: 22px 18px;
+    transition: 0.3s ease;
+}
+
+.extra-card:hover,
+.application-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
+}
+
+.extra-card h4,
+.application-card h4 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.extra-card p,
+.application-card p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+/* SLIDER */
+.slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #eef4fb;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-track img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    object-position: center;
+    flex: 0 0 100%;
+    display: block;
+    background: #eef4fb;
+    padding: 10px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.slider-btn.prev { left: 12px; }
+.slider-btn.next { right: 12px; }
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c7d6ea;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background: #2f6fed;
+}
+
+.slider-progress {
+    height: 4px;
+    background: #dce6f2;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.slider-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #2f6fed;
+}
+
+/* CTA */
+.bottom-cta {
+    margin-top: 30px;
+    background: linear-gradient(135deg, var(--accent), #2158c7);
+    color: white;
+    border-radius: 20px;
+    padding: 34px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 18px 36px rgba(47,111,237,0.2);
+}
+
+.bottom-cta h3 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.bottom-cta p {
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 17px;
+}
+
+.bottom-cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.bottom-cta-buttons a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-white {
+    background: white;
+    color: var(--accent);
+}
+
+.btn-white:hover {
+    background: #eef4ff;
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: rgba(255,255,255,0.14);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.btn-dark:hover {
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
+}
+
+/* FLOATING */
 .floating-buttons {
     position: fixed;
     right: 20px;
@@ -419,7 +636,7 @@ body {
 }
 
 .calc-btn {
-    background: #28a745;
+    background: var(--success);
 }
 
 .calc-btn:hover {
@@ -427,25 +644,74 @@ body {
 }
 
 .mail-btn {
-    background: #2f6fed;
+    background: var(--accent);
 }
 
 .mail-btn:hover {
-    background: #205bd0;
+    background: var(--accent-dark);
 }
 
-/* RESPONSIVE */
+/* FOOTER */
+.footer {
+    margin-top: 52px;
+    background: linear-gradient(90deg, #143d68, #1f2a38);
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-inner {
+    text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.footer h4 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.footer p {
+    margin: 8px 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 16px;
+}
+
+.footer a {
+    color: #9bc2ff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* MOBILE */
 @media (max-width: 1100px) {
     .product-top {
         grid-template-columns: 1fr;
     }
 
-    .product-image-wrap img {
+    .slider-track img {
         height: 320px;
     }
 }
 
 @media (max-width: 900px) {
+    .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .header-nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .page-hero {
+        padding-top: 118px;
+    }
+
     .main-layout {
         grid-template-columns: 1fr;
     }
@@ -460,7 +726,7 @@ body {
         padding-bottom: 6px;
     }
 
-    .sidebar a {
+    .sidebar-nav a {
         white-space: nowrap;
         min-width: max-content;
     }
@@ -468,15 +734,11 @@ body {
 
 @media (max-width: 768px) {
     .page-hero {
-        min-height: 220px;
+        min-height: 260px;
     }
 
     .hero-inner {
         padding: 28px 0 34px;
-    }
-
-    .hero-logo {
-        width: 140px;
     }
 
     .hero-inner h1 {
@@ -487,17 +749,19 @@ body {
         font-size: 16px;
     }
 
+    .top-intro,
     .empty-card,
     .product-card {
         padding: 22px;
     }
 
+    .top-intro h2,
     .empty-card h2,
     .product-main h2 {
         font-size: 28px;
     }
 
-    .product-image-wrap img {
+    .slider-track img {
         height: 250px;
     }
 
@@ -513,18 +777,21 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .menu {
-        gap: 18px;
+@media (max-width: 560px) {
+    .header-logo img {
+        width: 135px;
     }
 
-    .hero-inner h1 {
-        font-size: 28px;
+    .header-nav {
+        gap: 12px;
     }
 
-    .spec-table td {
+    .header-nav a {
         font-size: 14px;
-        padding: 12px 10px;
+    }
+
+    .page-hero {
+        padding-top: 128px;
     }
 }
 </style>
@@ -532,279 +799,647 @@ body {
 
 <body>
 
-<!-- HERO -->
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+        <a href="index.html" class="header-logo">
+            <img src="images/logo.png" alt="ЕКОТЕХ">
+        </a>
+
+        <nav class="header-nav">
+            <a href="index.html">Головна</a>
+            <a href="about.html">Про компанію</a>
+            <a href="equipment.html">Обладнання</a>
+            <a href="projects.html">Проєкти</a>
+            <a href="clients.html">Наші клієнти</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </div>
+</header>
+
 <div class="page-hero">
     <div class="container">
         <div class="hero-inner">
-            <img src="images/logo.png" alt="ЕКВІПТЕХ" class="hero-logo">
-            <h1>Каталог обладнання</h1>
-            <p>Промислові рішення для сучасного виробництва</p>
+            <div class="hero-badge">Каталог промислового обладнання</div>
+            <h1>Обладнання та технологічні рішення</h1>
+            <p>
+                Оберіть категорію зліва, щоб переглянути фото, опис, технічні характеристики
+                та варіанти застосування на виробництві.
+            </p>
         </div>
     </div>
 </div>
 
-<!-- MENU -->
-<div class="menu-wrap">
-    <div class="container">
-        <div class="menu">
-            <a href="index.html">Головна</a>
-            <a href="about.html">Про компанію</a>
-            <a href="equipment.html" class="active">Обладнання</a>
-            <a href="clients.html">Наші клієнти</a>
-            <a href="contacts.html">Контакти</a>
-        </div>
-    </div>
-</div>
-
-<!-- MAIN -->
 <div class="page-section">
     <div class="container">
+
+        <div class="top-intro">
+            <h2>Каталог обладнання</h2>
+            <p>
+                Тут зібрані основні види обладнання та технологічних рішень компанії ЕКОТЕХ.
+                Для кожної категорії можна переглянути приклади виконання, переваги та можливі сфери застосування.
+            </p>
+        </div>
+
         <div class="main-layout">
 
-            <!-- SIDEBAR -->
             <aside class="sidebar">
                 <h3 class="sidebar-title">Обладнання</h3>
+                <p class="sidebar-subtitle">Оберіть категорію для перегляду детальної інформації</p>
+
                 <nav class="sidebar-nav">
                     <a href="?item=transporter">Стрічковий транспортер</a>
-                    <a href="?item=mix">Змішувачі</a>
+                    <a href="?item=mix">Змішувач</a>
                     <a href="?item=screw">Шнек</a>
-                    <a href="?item=doser">Дозатор</a>
+                    <a href="?item=dryer">Сушильний барабан</a>
+                    <a href="?item=pump">Пневмокамерний насос</a>
+                    <a href="?item=chain">Ланцюговий скребковий транспортер</a>
+                    <a href="?item=elevator">Норія</a>
+                    <a href="?item=tanks">Ємності (бункери, силоси)</a>
+                    <a href="?item=services">Послуги</a>
                 </nav>
             </aside>
 
-            <!-- CONTENT -->
             <main class="content" id="content">
                 <div class="empty-card">
-                    <h2>Оберіть обладнання</h2>
-                    <p>Виберіть категорію ліворуч, щоб переглянути опис, характеристики, переваги та приклади застосування обладнання.</p>
+                    <h2>Оберіть категорію</h2>
+                    <p>
+                        Виберіть обладнання ліворуч, щоб переглянути фото, характеристики, переваги
+                        та приклади використання у виробничих процесах.
+                    </p>
+
+                    <div class="empty-grid">
+                        <div class="empty-info">
+                            <h3>Фото та приклади</h3>
+                            <p>Перегляньте реальні варіанти виконання обладнання та вузлів.</p>
+                        </div>
+
+                        <div class="empty-info">
+                            <h3>Технічні параметри</h3>
+                            <p>Основні характеристики, конфігурація та призначення обладнання.</p>
+                        </div>
+
+                        <div class="empty-info">
+                            <h3>Сфери застосування</h3>
+                            <p>Де і як це обладнання може працювати у складі вашого виробництва.</p>
+                        </div>
+                    </div>
                 </div>
             </main>
 
         </div>
+
+        <div class="bottom-cta">
+            <div>
+                <h3>Потрібна допомога з вибором?</h3>
+                <p>Опишіть задачу, і ми підберемо обладнання або підготуємо попередній розрахунок.</p>
+            </div>
+
+            <div class="bottom-cta-buttons">
+                <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
+                <a href="mailto:tov.ekoteh@gmail.com" class="btn-dark">Написати нам</a>
+            </div>
+        </div>
+
     </div>
 </div>
 
+<<footer class="footer">
+    <div class="footer-inner">
+        <h4>ТОВ «Екотех»</h4>
+        <p>м. Дніпро, Україна</p>
+        <p>Email: <a href="mailto:tov.ekoteh@gmail.com">tov.ekoteh@gmail.com</a></p>
+    </div>
+</footer>
+
+<div class="floating-buttons">
+    <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
+    <a href="mailto:tov.ekoteh@gmail.com" class="mail-btn">Написати нам</a>
+</div>
+
 <script>
-const params = new URLSearchParams(window.location.search);
-const item = params.get("item");
-const content = document.getElementById("content");
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("siteHeader");
+    const content = document.getElementById("content");
+    const params = new URLSearchParams(window.location.search);
+    const item = params.get("item");
 
-document.querySelectorAll('.sidebar a').forEach(link => {
-    link.classList.remove('active');
-});
+    function updateHeader() {
+        if (!header) return;
+        if (window.scrollY > 30) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
 
-function setActive(name) {
-    document.querySelectorAll('.sidebar a').forEach(link => {
-        if (link.href.includes(name)) {
-            link.classList.add('active');
+    updateHeader();
+    window.addEventListener("scroll", updateHeader);
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".header-nav a").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
         }
     });
-}
 
-function renderProduct(data) {
-    content.innerHTML = `
-        <div class="product-card">
-            <div class="product-top">
-                <div class="product-image-wrap">
-                    <img src="${data.image}" alt="${data.title}">
+    function setActive(name) {
+        document.querySelectorAll(".sidebar-nav a").forEach(link => {
+            link.classList.remove("active");
+            if (link.href.includes(name)) {
+                link.classList.add("active");
+            }
+        });
+    }
+
+    function initSliders() {
+        const sliders = document.querySelectorAll(".slider");
+
+        sliders.forEach(slider => {
+            const track = slider.querySelector(".slider-track");
+            const slides = slider.querySelectorAll("img");
+            const prevBtn = slider.querySelector(".prev");
+            const nextBtn = slider.querySelector(".next");
+            const dots = slider.parentElement.querySelectorAll(".slider-dot");
+            const progressBar = slider.parentElement.querySelector(".slider-progress-bar");
+
+            let currentIndex = 0;
+            let interval;
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle("active", index === currentIndex);
+                });
+            }
+
+            function startProgress() {
+                if (!progressBar) return;
+
+                progressBar.style.transition = "none";
+                progressBar.style.width = "0%";
+
+                setTimeout(() => {
+                    progressBar.style.transition = "width 4s linear";
+                    progressBar.style.width = "100%";
+                }, 50);
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+                startProgress();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlider();
+                startProgress();
+            }
+
+            function startAutoSlide() {
+                clearInterval(interval);
+                interval = setInterval(nextSlide, 4000);
+                startProgress();
+            }
+
+            function stopAutoSlide() {
+                clearInterval(interval);
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener("click", () => {
+                    nextSlide();
+                    startAutoSlide();
+                });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener("click", () => {
+                    prevSlide();
+                    startAutoSlide();
+                });
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => {
+                    currentIndex = index;
+                    updateSlider();
+                    startAutoSlide();
+                });
+            });
+
+            slider.addEventListener("mouseenter", stopAutoSlide);
+            slider.addEventListener("mouseleave", startAutoSlide);
+
+            updateSlider();
+            startAutoSlide();
+        });
+    }
+
+    function renderProduct(data) {
+        content.innerHTML = `
+            <div class="product-card">
+                <div class="product-top">
+                    <div class="product-image-wrap">
+                        <div class="slider">
+                            <button class="slider-btn prev" type="button">‹</button>
+
+                            <div class="slider-track">
+                                ${data.images.map(img => `<img src="${img}" alt="${data.title}">`).join("")}
+                            </div>
+
+                            <button class="slider-btn next" type="button">›</button>
+                        </div>
+
+                        <div class="slider-dots">
+                            ${data.images.map((_, i) => `<span class="slider-dot ${i === 0 ? "active" : ""}"></span>`).join("")}
+                        </div>
+
+                        <div class="slider-progress">
+                            <div class="slider-progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="product-main">
+                        <div class="subtitle">${data.badge}</div>
+                        <h2>${data.title}</h2>
+                        <p>${data.description}</p>
+
+                        <ul class="feature-list">
+                            ${data.features.map(feature => `<li>${feature}</li>`).join("")}
+                        </ul>
+
+                        <div class="product-actions">
+                            <a href="contacts.html" class="btn-primary">Запросити консультацію</a>
+                            <a href="contacts.html" class="btn-secondary">Отримати розрахунок</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="product-main">
-                    <div class="subtitle">${data.badge}</div>
-                    <h2>${data.title}</h2>
-                    <p>${data.description}</p>
+                <div class="info-section">
+                    <h3>Технічні характеристики</h3>
+                    <table class="spec-table">
+                        ${data.specs.map(row => `
+                            <tr>
+                                <td>${row[0]}</td>
+                                <td>${row[1]}</td>
+                            </tr>
+                        `).join("")}
+                    </table>
+                </div>
 
-                    <ul class="feature-list">
-                        ${data.features.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
+                <div class="info-section">
+                    <h3>Переваги</h3>
+                    <div class="extra-grid">
+                        ${data.extra.map(card => `
+                            <div class="extra-card">
+                                <h4>${card.title}</h4>
+                                <p>${card.text}</p>
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
 
-                    <div class="product-actions">
-                        <a href="contacts.html?subject=${encodeURIComponent(data.title)}" class="btn-primary">Запросити консультацію</a>
-                        <a href="contacts.html?subject=${encodeURIComponent('Розрахунок: ' + data.title)}" class="btn-secondary">Отримати розрахунок</a>
+                <div class="info-section">
+                    <h3>Де використовується</h3>
+                    <div class="application-grid">
+                        ${data.applications.map(card => `
+                            <div class="application-card">
+                                <h4>${card.title}</h4>
+                                <p>${card.text}</p>
+                            </div>
+                        `).join("")}
                     </div>
                 </div>
             </div>
+        `;
 
-            <div class="spec-block">
-                <h3>Технічні характеристики</h3>
-                <table class="spec-table">
-                    ${data.specs.map(row => `
-                        <tr>
-                            <td>${row[0]}</td>
-                            <td>${row[1]}</td>
-                        </tr>
-                    `).join('')}
-                </table>
-            </div>
-
-            <div class="extra-block" style="margin-top: 30px;">
-                <h3>Переваги та застосування</h3>
-                <div class="extra-grid">
-                    ${data.extra.map(card => `
-                        <div class="extra-card">
-                            <h4>${card.title}</h4>
-                            <p>${card.text}</p>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-const products = {
-    transporter: {
-        title: "Стрічковий транспортер",
-        badge: "Транспортування матеріалів",
-        image: "images/1_1.jpg",
-        description: "Надійне обладнання для безперервного переміщення сипучих та штучних матеріалів у виробничих лініях, складських системах і технологічних процесах.",
-        features: [
-            "Безперервна подача матеріалу без зайвих втрат",
-            "Можливість адаптації під довжину та продуктивність лінії",
-            "Надійна конструкція для інтенсивної експлуатації",
-            "Виконання у вуглецевій або нержавіючій сталі"
-        ],
-        specs: [
-            ["Продуктивність", "до 100 т/год"],
-            ["Довжина", "до 50 м"],
-            ["Ширина стрічки", "індивідуально під задачу"],
-            ["Матеріал", "Сталь / Нержавіюча сталь"],
-            ["Тип приводу", "Електричний"],
-            ["Сфера застосування", "Будівельна, цементна, харчова, аграрна"]
-        ],
-        extra: [
-            {
-                title: "Перевага",
-                text: "Оптимізує внутрішню логістику та знижує кількість ручних операцій."
-            },
-            {
-                title: "Застосування",
-                text: "Подача сировини, готової продукції та компонентів між етапами виробництва."
-            },
-            {
-                title: "Адаптація",
-                text: "Конфігурація, кут нахилу та габарити налаштовуються під конкретний об’єкт."
-            }
-        ]
-    },
-
-    mix: {
-        title: "Змішувач",
-        badge: "Підготовка сумішей",
-        image: "images/4_1.jpg",
-        description: "Обладнання для якісного та рівномірного змішування сухих компонентів у технологічних процесах виробництва будівельних і промислових сумішей.",
-        features: [
-            "Стабільна якість готового продукту",
-            "Рівномірний розподіл компонентів",
-            "Можливість інтеграції у виробничу лінію",
-            "Підбір об’єму та конфігурації під продуктивність підприємства"
-        ],
-        specs: [
-            ["Тип сумішей", "Сухі будівельні та технічні суміші"],
-            ["Об'єм", "1–5 м³"],
-            ["Продуктивність", "індивідуально під задачу"],
-            ["Автоматизація", "Повна / Часткова"],
-            ["Матеріал корпусу", "Сталь / Нержавіюча сталь"],
-            ["Керування", "Ручне / PLC"]
-        ],
-        extra: [
-            {
-                title: "Перевага",
-                text: "Забезпечує стабільний технологічний результат при щоденній роботі."
-            },
-            {
-                title: "Застосування",
-                text: "Виробництво сухих будівельних сумішей, добавок і порошкових компонентів."
-            },
-            {
-                title: "Масштабування",
-                text: "Може працювати як окремий вузол або у складі комплексної лінії."
-            }
-        ]
-    },
-
-    screw: {
-        title: "Шнек",
-        badge: "Точне транспортування",
-        image: "images/2_3.jpg",
-        description: "Шнекові транспортери для контрольованого переміщення сипучих матеріалів у горизонтальному, похилому або комбінованому виконанні.",
-        features: [
-            "Точне переміщення матеріалу у заданому напрямку",
-            "Компактне рішення для обмеженого простору",
-            "Міцна конструкція для безперервної експлуатації",
-            "Варіанти виконання для різних типів сировини"
-        ],
-        specs: [
-            ["Діаметр", "100–500 мм"],
-            ["Довжина", "до 20 м"],
-            ["Тип приводу", "Електричний"],
-            ["Монтаж", "Горизонтальний / Похилий"],
-            ["Матеріал", "Сталь / Нержавіюча сталь"],
-            ["Призначення", "Сипучі матеріали, порошки, гранулят"]
-        ],
-        extra: [
-            {
-                title: "Перевага",
-                text: "Забезпечує контрольований рух матеріалу без зайвих втрат і розсипання."
-            },
-            {
-                title: "Застосування",
-                text: "Подача цементу, сухих сумішей, наповнювачів та інших сипучих компонентів."
-            },
-            {
-                title: "Гнучкість",
-                text: "Підбирається за довжиною, діаметром і продуктивністю під ваш процес."
-            }
-        ]
-    },
-
-    doser: {
-        title: "Дозатор",
-        badge: "Точність подачі",
-        image: "images/9_2.jpg",
-        description: "Система точного дозування компонентів для стабільного технологічного процесу та контролю якості готової продукції.",
-        features: [
-            "Висока точність дозування компонентів",
-            "Зменшення перевитрат матеріалу",
-            "Інтеграція в автоматизовані виробничі лінії",
-            "Стабільне керування параметрами подачі"
-        ],
-        specs: [
-            ["Точність", "±1%"],
-            ["Тип", "Ваговий / Об’ємний"],
-            ["Керування", "PLC"],
-            ["Продуктивність", "залежно від конфігурації"],
-            ["Матеріал", "Сталь / Нержавіюча сталь"],
-            ["Сфера застосування", "Будівельні суміші, цемент, порошкові матеріали"]
-        ],
-        extra: [
-            {
-                title: "Перевага",
-                text: "Підвищує стабільність рецептури та якість кінцевого продукту."
-            },
-            {
-                title: "Застосування",
-                text: "Точна подача компонентів у змішувальних, фасувальних і технологічних вузлах."
-            },
-            {
-                title: "Контроль",
-                text: "Дозування в реальному часі з можливістю автоматичного коригування."
-            }
-        ]
+        initSliders();
     }
-};
 
-if (item && products[item]) {
-    setActive(item);
-    renderProduct(products[item]);
-}
+    const products = {
+        transporter: {
+            title: "Стрічковий транспортер",
+            badge: "Безперервне транспортування",
+            images: [
+                "images/img 10_1.jpg",
+                "images/1_1.png",
+                "images/1_4.jpg",
+                "images/1_5.jpg"
+            ],
+            description: "Стрічкові транспортери для безперервної подачі та переміщення сипучих і штучних матеріалів у виробничих та складських процесах.",
+            features: [
+                "Надійна безперервна робота",
+                "Можливість адаптації під довжину лінії",
+                "Підходить для різних типів матеріалу",
+                "Інтеграція у виробничі комплекси"
+            ],
+            specs: [
+                ["Тип", "Стрічковий транспортер"],
+                ["Режим", "Безперервний"],
+                ["Довжина", "під задачу замовника"],
+                ["Привід", "Електричний"],
+                ["Матеріал", "Сталь / комбіноване виконання"],
+                ["Сфера застосування", "Будівельна, промислова, складська"]
+            ],
+            extra: [
+                { title: "Стабільна подача", text: "Забезпечує рівномірне переміщення матеріалу між виробничими вузлами." },
+                { title: "Гнучка конфігурація", text: "Може бути виконаний у різній довжині, ширині та куті нахилу." },
+                { title: "Надійність", text: "Розрахований на постійну експлуатацію в промислових умовах." }
+            ],
+            applications: [
+                { title: "Будівельні матеріали", text: "Подача сипучих компонентів та готових сумішей." },
+                { title: "Виробничі лінії", text: "Зв’язок між зонами завантаження, обробки та вивантаження." },
+                { title: "Складські процеси", text: "Транспортування матеріалів у межах складу чи цеху." }
+            ]
+        },
+
+        mix: {
+            title: "Змішувач",
+            badge: "Підготовка та змішування",
+            images: [
+                "images/img 10_2.jpg",
+                "images/8_2a.jpg",
+                "images/8_1d.jpg"
+            ],
+            description: "Змішувальні вузли та обладнання для підготовки, перемішування та стабілізації сипучих і сухих компонентів.",
+            features: [
+                "Рівномірне змішування компонентів",
+                "Підходить для сухих сумішей",
+                "Може працювати у складі лінії",
+                "Різні конструктивні варіанти"
+            ],
+            specs: [
+                ["Тип", "Змішувальне обладнання"],
+                ["Матеріали", "Сухі та сипучі компоненти"],
+                ["Режим", "Циклічний / безперервний"],
+                ["Корпус", "Сталь"],
+                ["Керування", "Ручне / автоматизоване"],
+                ["Сфера застосування", "Сухі суміші, технічні суміші, мінеральні матеріали"]
+            ],
+            extra: [
+                { title: "Якість суміші", text: "Допомагає досягати стабільного результату при повторюваних циклах." },
+                { title: "Комплексна інтеграція", text: "Може працювати разом з бункерами, шнеками та транспортерами." },
+                { title: "Гнучке виконання", text: "Підбирається під продуктивність і склад матеріалу." }
+            ],
+            applications: [
+                { title: "Сухі суміші", text: "Підготовка будівельних, технічних та спеціальних сумішей." },
+                { title: "Виробничі комплекси", text: "Робота як окремий вузол або у складі повної лінії." },
+                { title: "Промислове виробництво", text: "Змішування компонентів перед фасуванням або подачею." }
+            ]
+        },
+
+        screw: {
+            title: "Шнек",
+            badge: "Точне транспортування",
+            images: [
+                "images/img 11_2.jpg",
+                "images/img 11_3.jpg",
+                "images/2_1.jpg",
+                "images/2_2a.jpg",
+                "images/2_3.jpg"
+            ],
+            description: "Шнекові транспортери для контрольованого переміщення сипучих матеріалів у горизонтальному, похилому або комбінованому виконанні.",
+            features: [
+                "Компактне рішення для обмеженого простору",
+                "Точна та контрольована подача",
+                "Можливість роботи під кутом",
+                "Зручна інтеграція у виробничу лінію"
+            ],
+            specs: [
+                ["Тип", "Шнековий транспортер"],
+                ["Монтаж", "Горизонтальний / похилий"],
+                ["Призначення", "Сипучі матеріали, порошки, гранулят"],
+                ["Привід", "Електричний"],
+                ["Матеріал", "Сталь"],
+                ["Сфера застосування", "Будівельна, аграрна, промислова"]
+            ],
+            extra: [
+                { title: "Компактність", text: "Дає змогу організувати подачу там, де обмежений простір." },
+                { title: "Контроль потоку", text: "Забезпечує стабільну подачу матеріалу в потрібному напрямку." },
+                { title: "Універсальність", text: "Працює як окремо, так і у складі технологічного комплексу." }
+            ],
+            applications: [
+                { title: "Сухі компоненти", text: "Подача порошків, сипучих матеріалів і технічних сумішей." },
+                { title: "Змішувальні вузли", text: "Подача компонентів у бункери, змішувачі та інші вузли." },
+                { title: "Будівельні лінії", text: "Робота у складі комплексних систем транспортування." }
+            ]
+        },
+
+        dryer: {
+            title: "Сушильний барабан",
+            badge: "Сушіння матеріалів",
+            images: [
+                "images/15_4.jpg",
+                "images/15_2.jpg",
+                "images/15_3.jpg",
+            ],
+            description: "Сушильний барабан для обробки сипучих матеріалів у технологічних лініях, де потрібна контрольована вологість і стабільне сушіння.",
+            features: [
+                "Рівномірне сушіння матеріалу",
+                "Стійка робота у виробничому режимі",
+                "Можливість інтеграції у лінію",
+                "Підбір параметрів під продуктивність"
+            ],
+            specs: [
+                ["Тип", "Барабанний"],
+                ["Режим", "Безперервний"],
+                ["Матеріал", "Сталь"],
+                ["Привід", "Електричний"],
+                ["Призначення", "Сушіння сипучих матеріалів"],
+                ["Сфера застосування", "Будівельна та промислова галузь"]
+            ],
+            extra: [
+                { title: "Стабільна якість", text: "Допомагає отримати прогнозований рівень вологості продукту." },
+                { title: "Інтеграція", text: "Може працювати у зв’язці з транспортерами, бункерами та вузлами подачі." },
+                { title: "Надійна конструкція", text: "Розрахований на тривалу експлуатацію в промислових умовах." }
+            ],
+            applications: [
+                { title: "Мінеральні матеріали", text: "Сушіння піску, технічних і будівельних компонентів." },
+                { title: "Виробничі лінії", text: "Підготовка матеріалу перед змішуванням або фасуванням." },
+                { title: "Комплексні рішення", text: "Робота в складі повних технологічних комплексів." }
+            ]
+        },
+
+        pump: {
+            title: "Пневмокамерний насос",
+            badge: "Пневматична подача",
+            images: [
+                "images/12_1.jpg",
+                "images/12_2.jpg"
+            ],
+            description: "Пневмокамерні насоси для герметичного транспортування сипучих матеріалів у складі промислових і технологічних систем.",
+            features: [
+                "Герметичне транспортування",
+                "Зменшення запилення та втрат",
+                "Сумісність з автоматизованими лініями",
+                "Робота з сухими сипучими продуктами"
+            ],
+            specs: [
+                ["Тип", "Пневмокамерний насос"],
+                ["Транспортування", "Пневматичне"],
+                ["Матеріали", "Сухі сипучі компоненти"],
+                ["Корпус", "Сталь"],
+                ["Режим", "Циклічний"],
+                ["Сфера застосування", "Цемент, мінеральні порошки, сухі суміші"]
+            ],
+            extra: [
+                { title: "Герметичність", text: "Мінімізує пил і втрати матеріалу під час подачі." },
+                { title: "Стабільна робота", text: "Дає контрольований режим транспортування в межах лінії." },
+                { title: "Ефективність", text: "Підходить для технологічних процесів, де важлива чистота та точність." }
+            ],
+            applications: [
+                { title: "Цементна галузь", text: "Подача цементу та мінеральних порошків." },
+                { title: "Сухі суміші", text: "Транспортування компонентів до вузлів змішування та накопичення." },
+                { title: "Закриті виробництва", text: "Працює там, де важливо зменшити запилення робочої зони." }
+            ]
+        },
+
+        chain: {
+            title: "Ланцюговий скребковий транспортер",
+            badge: "Закрите транспортування",
+            images: [
+                "images/14_1.jpg",
+                "images/14_2.jpg",
+                "images/14_3.jpg",
+                "images/14_4.jpg",
+                "images/14_5.jpg"
+            ],
+            description: "Ланцюговий скребковий транспортер для переміщення сипучих матеріалів у закритому корпусі.",
+            features: [
+                "Закрита подача матеріалу",
+                "Підходить для важчих фракцій",
+                "Стійка конструкція для інтенсивної роботи",
+                "Зменшення втрат під час переміщення"
+            ],
+            specs: [
+                ["Тип", "Ланцюговий скребковий"],
+                ["Призначення", "Сипучі матеріали"],
+                ["Корпус", "Закритий"],
+                ["Привід", "Електричний"],
+                ["Матеріал", "Сталь"],
+                ["Сфера застосування", "Будівельна, аграрна, промислова"]
+            ],
+            extra: [
+                { title: "Надійність", text: "Працює в складних умовах з постійним навантаженням." },
+                { title: "Мінімальні втрати", text: "Закритий корпус допомагає зберігати матеріал у процесі подачі." },
+                { title: "Універсальність", text: "Може використовуватися в різних технологічних процесах." }
+            ],
+            applications: [
+                { title: "Склади та цехи", text: "Подача сипучих матеріалів між робочими зонами." },
+                { title: "Будівельні матеріали", text: "Робота з мінеральними та технічними компонентами." },
+                { title: "Промислові системи", text: "Транспортування в складі комплексних ліній." }
+            ]
+        },
+
+        elevator: {
+            title: "Норія",
+            badge: "Вертикальний підйом",
+            images: [
+                "images/1_2.jpg"
+            ],
+            description: "Норія для вертикального підйому сипучих матеріалів у виробничих та складських системах.",
+            features: [
+                "Вертикальний підйом матеріалу",
+                "Економія простору",
+                "Сумісність з бункерами та силосами",
+                "Стабільна робота в лінії"
+            ],
+            specs: [
+                ["Тип", "Ковшова норія"],
+                ["Напрямок", "Вертикальний"],
+                ["Призначення", "Підйом сипучих матеріалів"],
+                ["Привід", "Електричний"],
+                ["Корпус", "Сталь"],
+                ["Сфера застосування", "Аграрна, будівельна, промислова"]
+            ],
+            extra: [
+                { title: "Компактність", text: "Дозволяє організувати вертикальну подачу без збільшення площі лінії." },
+                { title: "Інтеграція", text: "Працює разом з бункерами, шнеками, транспортерами та силосами." },
+                { title: "Ефективність", text: "Дає стабільну подачу до верхніх вузлів виробничого процесу." }
+            ],
+            applications: [
+                { title: "Сухі суміші", text: "Підйом компонентів до накопичувальних та змішувальних вузлів." },
+                { title: "Аграрні комплекси", text: "Вертикальне переміщення зернових та інших сипучих продуктів." },
+                { title: "Промислові лінії", text: "Подача матеріалу між різними рівнями виробництва." }
+            ]
+        },
+
+        tanks: {
+            title: "Ємності (бункери, силоси)",
+            badge: "Накопичення та зберігання",
+            images: [
+                "images/9_1.jpg",
+                "images/9_1a.jpg",
+            ],
+            description: "Бункери, силоси та накопичувальні ємності для зберігання, буферного накопичення та стабільної подачі матеріалу в технологічному процесі.",
+            features: [
+                "Буферне накопичення матеріалу",
+                "Різні об’єми та конструкції",
+                "Можливість інтеграції з транспортерами і шнеками",
+                "Підбір під конкретний об’єкт"
+            ],
+            specs: [
+                ["Тип", "Бункери / силоси / технологічні ємності"],
+                ["Призначення", "Зберігання та подача"],
+                ["Матеріал", "Сталь"],
+                ["Конфігурація", "Індивідуально під задачу"],
+                ["Комплектація", "Опори, конуси, вузли вивантаження"],
+                ["Сфера застосування", "Будівельна, аграрна, промислова"]
+            ],
+            extra: [
+                { title: "Гнучкість", text: "Можуть бути виготовлені в різній формі та об’ємі під конкретне виробництво." },
+                { title: "Стабільність подачі", text: "Допомагають вирівнювати потік матеріалу між етапами процесу." },
+                { title: "Комплексне рішення", text: "Легко інтегруються у лінії з норіями, шнеками та транспортерами." }
+            ],
+            applications: [
+                { title: "Сухі суміші", text: "Накопичення компонентів перед змішуванням і дозуванням." },
+                { title: "Цементні системи", text: "Зберігання цементу, порошків та мінеральних матеріалів." },
+                { title: "Аграрні об’єкти", text: "Буферне накопичення сипучих продуктів і сировини." }
+            ]
+        },
+
+        services: {
+            title: "Послуги",
+            badge: "Комплексні рішення",
+            images: [
+                "images/services.png",
+            ],
+            description: "Інженерні та комплексні рішення для виробництва: від окремих вузлів до повних ліній транспортування, подачі та підготовки матеріалів.",
+            features: [
+                "Підбір обладнання під задачу",
+                "Проєктування технологічних рішень",
+                "Комплексний підхід до вузлів і ліній",
+                "Адаптація під реальний виробничий процес"
+            ],
+            specs: [
+                ["Формат", "Послуги / комплексні рішення"],
+                ["Напрямок", "Інженерія та виробничі системи"],
+                ["Підхід", "Індивідуально під проєкт"],
+                ["Результат", "Готове рішення під задачу"],
+                ["Супровід", "Консультація та опрацювання конфігурації"],
+                ["Оновлення", "Тексти можна доповнити пізніше"]
+            ],
+            extra: [
+                { title: "Індивідуальний підхід", text: "Кожне рішення формується під конкретні виробничі умови." },
+                { title: "Комплексність", text: "Можливе поєднання декількох вузлів в одну технологічну систему." },
+                { title: "Готовність до доопрацювання", text: "Цей розділ легко доповнити точним списком послуг пізніше." }
+            ],
+            applications: [
+                { title: "Лінії транспортування", text: "Проєктування та підбір вузлів подачі, накопичення і переміщення." },
+                { title: "Технологічні комплекси", text: "Зв’язка обладнання в єдину виробничу систему." },
+                { title: "Промислові задачі", text: "Адаптація рішень під конкретний цех, матеріал і продуктивність." }
+            ]
+        }
+    };
+
+    if (item && products[item]) {
+        setActive(item);
+        renderProduct(products[item]);
+    }
+});
 </script>
-
-<!-- FLOATING BUTTONS -->
-<div class="floating-buttons">
-    <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
-    <a href="contacts.html" class="mail-btn">Написати нам</a>
-</div>
 
 </body>
 </html>
