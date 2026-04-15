@@ -3,11 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Про компанію — ЕКВІПТЕХ</title>
+<title>Про компанію — ЕКОТЕХ</title>
 
 <style>
 * {
     box-sizing: border-box;
+}
+
+:root {
+    --primary: #16385b;
+    --accent: #2f6fed;
+    --accent-dark: #205bd0;
+    --dark: #1f2a38;
+    --light: #f4f7fb;
+    --text: #223548;
+    --muted: #5a6b7d;
+    --border: #e2e9f2;
+    --success: #28a745;
 }
 
 html {
@@ -17,21 +29,97 @@ html {
 body {
     margin: 0;
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: #f4f7fb;
-    color: #223548;
+    background: var(--light);
+    color: var(--text);
     line-height: 1.6;
 }
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* HEADER */
+/* GLOBAL HEADER */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 20, 34, 0.35);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.site-header.scrolled {
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #dfe7f2;
+    box-shadow: 0 8px 24px rgba(17,42,70,0.08);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 78px;
+}
+
+.header-logo img {
+    width: 155px;
+    display: block;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.header-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s ease;
+}
+
+.header-nav a:hover::after,
+.header-nav a.active::after {
+    width: 100%;
+}
+
+.site-header.scrolled .header-nav a {
+    color: var(--text);
+}
+
+.header-nav a.active {
+    color: #7fb2ff;
+}
+
+.site-header.scrolled .header-nav a.active {
+    color: var(--accent);
+}
+
+/* HERO */
 .page-hero {
-    min-height: 260px;
+    padding-top: 78px;
+    min-height: 300px;
     background: url('images/background.jpg') center/cover no-repeat;
     position: relative;
     overflow: hidden;
@@ -41,113 +129,81 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(8,18,31,0.88), rgba(8,18,31,0.45));
+    background: linear-gradient(to right, rgba(8,18,31,0.88), rgba(8,18,31,0.5), rgba(8,18,31,0.2));
 }
 
 .hero-inner {
     position: relative;
     z-index: 2;
-    padding: 42px 0 50px;
+    padding: 42px 0 54px;
     color: white;
+    max-width: 760px;
 }
 
-.hero-logo {
-    width: 170px;
+.hero-badge {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
     margin-bottom: 18px;
+    backdrop-filter: blur(4px);
 }
 
 .hero-inner h1 {
-    margin: 0 0 10px;
-    font-size: 48px;
-    line-height: 1.1;
-    max-width: 700px;
+    margin: 0 0 12px;
+    font-size: 50px;
+    line-height: 1.08;
 }
 
 .hero-inner p {
     margin: 0;
-    font-size: 20px;
+    font-size: 19px;
     color: rgba(255,255,255,0.9);
-}
-
-/* MENU */
-.menu-wrap {
-    background: rgba(255,255,255,0.96);
-    border-bottom: 1px solid #dfe7f2;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(8px);
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 34px;
-    padding: 16px 10px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #223548;
-    font-weight: 600;
-    position: relative;
-    transition: 0.3s;
-}
-
-.menu a:hover {
-    color: #2f6fed;
-}
-
-.menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: #2f6fed;
-    transition: 0.3s;
-}
-
-.menu a:hover::after,
-.menu a.active::after {
-    width: 100%;
-}
-
-.menu a.active {
-    color: #2f6fed;
+    max-width: 700px;
 }
 
 /* MAIN */
-.section {
-    padding: 40px 0;
+.page-section {
+    padding: 42px 0 64px;
 }
 
-.content-grid {
-    display: grid;
-    gap: 24px;
+.section {
+    margin-bottom: 28px;
 }
 
 .panel {
     background: white;
-    border: 1px solid #e3e8ef;
-    border-radius: 18px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(17,42,70,0.05);
-    transition: 0.3s ease;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 32px;
+    box-shadow: 0 12px 30px rgba(17,42,70,0.05);
 }
 
-.panel:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 35px rgba(17,42,70,0.08);
+.section-header {
+    max-width: 900px;
+    margin-bottom: 24px;
+}
+
+.section-header h2 {
+    margin: 0 0 12px;
+    font-size: 38px;
+    color: var(--primary);
+}
+
+.section-header p {
+    margin: 0;
+    font-size: 18px;
+    color: var(--muted);
 }
 
 .panel-title {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .panel-title::before {
@@ -155,113 +211,172 @@ body {
     width: 4px;
     height: 28px;
     border-radius: 4px;
-    background: #2f6fed;
+    background: var(--accent);
     display: block;
 }
 
-.panel-title h2 {
+.panel-title h3 {
     margin: 0;
-    font-size: 22px;
-    color: #16385b;
+    font-size: 26px;
+    color: var(--primary);
 }
 
 .panel p {
     margin: 0;
-    font-size: 18px;
-    color: #4f6275;
+    color: var(--muted);
+    font-size: 17px;
 }
 
-/* TRUST STATS */
+/* STATS */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 18px;
-    margin-top: 18px;
 }
 
 .stat-card {
     background: linear-gradient(180deg, #ffffff, #f8fbff);
     border: 1px solid #dce6f2;
-    border-radius: 16px;
-    padding: 28px 20px;
+    border-radius: 18px;
+    padding: 26px 20px;
     text-align: center;
     transition: 0.3s ease;
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(47,111,237,0.1);
-    border-color: #c9daf7;
+    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
 }
 
 .stat-card h3 {
-    margin: 0 0 10px;
-    font-size: 40px;
-    color: #2f6fed;
+    margin: 0 0 8px;
+    font-size: 38px;
+    color: var(--accent);
 }
 
 .stat-card p {
     margin: 0;
-    font-size: 17px;
-    color: #56697d;
+    color: var(--muted);
+    font-size: 16px;
 }
 
-/* LIST */
-.feature-list {
+/* VALUES */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.value-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 20px;
+    box-shadow: 0 10px 24px rgba(17,42,70,0.04);
+    transition: 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(17,42,70,0.08);
+}
+
+.value-card h4 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.value-card p {
     margin: 0;
-    padding-left: 22px;
+    color: var(--muted);
+    font-size: 16px;
 }
 
-.feature-list li {
-    margin-bottom: 14px;
-    font-size: 18px;
-    color: #475a6c;
-}
-
-.feature-list li:last-child {
-    margin-bottom: 0;
-}
-
-/* FORMAT */
-.format-grid {
+/* STEPS */
+.steps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 18px;
-    margin-top: 18px;
 }
 
-.format-card {
-    background: #f8fbff;
+.step-card {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
     border: 1px solid #dce6f2;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 24px 20px;
     transition: 0.3s ease;
 }
 
-.format-card:hover {
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(17,42,70,0.08);
+}
+
+.step-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #eef4ff;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.step-card h4 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: var(--primary);
+}
+
+.step-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* INDUSTRIES */
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.industry-card {
     background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px 18px;
+    box-shadow: 0 8px 20px rgba(17,42,70,0.04);
+    transition: 0.3s ease;
+}
+
+.industry-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 28px rgba(17,42,70,0.08);
 }
 
-.format-card h3 {
-    margin: 0 0 12px;
-    font-size: 24px;
-    color: #2f6fed;
+.industry-card h4 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: var(--primary);
 }
 
-.format-card p {
+.industry-card p {
     margin: 0;
-    font-size: 17px;
-    color: #586b7e;
+    font-size: 15px;
+    color: var(--muted);
 }
 
-/* CTA BAR */
+/* CTA */
 .bottom-cta {
     margin-top: 10px;
-    background: linear-gradient(135deg, #2f6fed, #2158c7);
+    background: linear-gradient(135deg, var(--accent), #2158c7);
     color: white;
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 34px 28px;
     display: flex;
     justify-content: space-between;
@@ -271,15 +386,15 @@ body {
     box-shadow: 0 18px 36px rgba(47,111,237,0.2);
 }
 
-.bottom-cta h2 {
+.bottom-cta h3 {
     margin: 0 0 8px;
-    font-size: 32px;
+    font-size: 30px;
 }
 
 .bottom-cta p {
     margin: 0;
     color: rgba(255,255,255,0.88);
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .bottom-cta-buttons {
@@ -299,7 +414,7 @@ body {
 
 .btn-white {
     background: white;
-    color: #2f6fed;
+    color: var(--accent);
 }
 
 .btn-white:hover {
@@ -318,18 +433,62 @@ body {
     transform: translateY(-2px);
 }
 
+/* FLOATING BUTTONS */
+.floating-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+}
+
+.floating-buttons a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
+    transition: 0.3s ease;
+    text-align: center;
+    min-width: 180px;
+}
+
+.floating-buttons a:hover {
+    transform: translateY(-2px);
+}
+
+.calc-btn {
+    background: var(--success);
+}
+
+.calc-btn:hover {
+    background: #21903a;
+}
+
+.mail-btn {
+    background: var(--accent);
+}
+
+.mail-btn:hover {
+    background: var(--accent-dark);
+}
+
 /* FOOTER */
 .footer {
-    margin-top: 50px;
+    margin-top: 52px;
     background: linear-gradient(90deg, #143d68, #1f2a38);
     color: white;
     padding: 40px 20px;
 }
 
 .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
     text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 .footer h4 {
@@ -339,12 +498,12 @@ body {
 
 .footer p {
     margin: 8px 0;
-    font-size: 16px;
     color: rgba(255,255,255,0.88);
+    font-size: 16px;
 }
 
 .footer a {
-    color: #9ec4ff;
+    color: #9bc2ff;
     text-decoration: none;
 }
 
@@ -352,181 +511,318 @@ body {
     text-decoration: underline;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
+@media (max-width: 900px) {
+    .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .header-nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .page-hero {
+        padding-top: 118px;
+    }
+}
+
 @media (max-width: 768px) {
+    .page-hero {
+        min-height: 260px;
+    }
+
+    .hero-inner {
+        padding: 28px 0 34px;
+    }
+
     .hero-inner h1 {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     .hero-inner p {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .panel {
         padding: 22px;
     }
 
-    .panel-title h2 {
-        font-size: 20px;
+    .section-header h2 {
+        font-size: 30px;
     }
 
-    .panel p,
-    .feature-list li,
-    .format-card p,
-    .stat-card p {
-        font-size: 16px;
-    }
-
-    .bottom-cta h2 {
-        font-size: 26px;
+    .bottom-cta h3 {
+        font-size: 24px;
     }
 
     .bottom-cta p {
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .floating-buttons {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .floating-buttons a {
+        min-width: 155px;
+        font-size: 13px;
+        padding: 12px 14px;
+    }
+}
+
+@media (max-width: 560px) {
+    .header-logo img {
+        width: 135px;
+    }
+
+    .header-nav {
+        gap: 12px;
+    }
+
+    .header-nav a {
+        font-size: 14px;
+    }
+
+    .page-hero {
+        padding-top: 128px;
     }
 }
 </style>
 </head>
+
 <body>
 
-<!-- HERO -->
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+        <a href="index.html" class="header-logo">
+            <img src="images/logo.png" alt="ЕКОТЕХ">
+        </a>
+
+        <nav class="header-nav">
+            <a href="index.html">Головна</a>
+            <a href="about.html">Про компанію</a>
+            <a href="equipment.html">Обладнання</a>
+            <a href="projects.html">Проєкти</a>
+            <a href="clients.html">Наші клієнти</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </div>
+</header>
+
 <div class="page-hero">
     <div class="container">
         <div class="hero-inner">
-            <img src="images/logo.png" alt="ЕКВІПТЕХ" class="hero-logo">
-            <h1>Інженерні рішення для промисловості</h1>
-            <p>Проєктування • Виробництво • Впровадження</p>
+            <div class="hero-badge">Інжиніринг • Виробництво • Запуск</div>
+            <h1>Про компанію ЕКОТЕХ</h1>
+            <p>
+                Ми створюємо промислові рішення для підприємств, де важливі
+                стабільність процесів, точність подачі матеріалів та надійна робота обладнання.
+            </p>
         </div>
     </div>
 </div>
 
-<!-- MENU -->
-<div class="menu-wrap">
+<div class="page-section">
     <div class="container">
-        <div class="menu">
-            <a href="index.html">Головна</a>
-            <a href="about.html" class="active">Про компанію</a>
-            <a href="equipment.html">Обладнання</a>
-            <a href="clients.html">Наші клієнти</a>
-            <a href="contacts.html">Контакти</a>
-        </div>
-    </div>
-</div>
 
-<!-- CONTENT -->
-<div class="section">
-    <div class="container">
-        <div class="content-grid">
-
+        <section class="section">
             <div class="panel">
-                <div class="panel-title">
-                    <h2>Про компанію</h2>
+                <div class="section-header">
+                    <h2>Хто ми</h2>
+                    <p>Інженерна компанія повного циклу для будівельної, цементної та промислової галузі</p>
                 </div>
+
+                <div class="panel-title">
+                    <h3>Про компанію</h3>
+                </div>
+
                 <p>
-                    ЕКВІПТЕХ — інженерна компанія, що спеціалізується на розробці та впровадженні
-                    промислових рішень для підприємств. Основний фокус — ефективність, надійність
-                    та адаптація під конкретні виробничі задачі.
+                    <strong>ЕКОТЕХ</strong> — інжинірингова компанія, що спеціалізується на розробці,
+                    виробництві та впровадженні промислового обладнання. Ми працюємо з підприємствами,
+                    для яких важливі ефективність, надійність і адаптація технічного рішення під конкретну задачу.
+                    Основний підхід — не пропонувати шаблонне обладнання, а формувати рішення,
+                    яке реально працює у виробничому процесі.
                 </p>
             </div>
+        </section>
 
-            <div class="panel">
-                <div class="panel-title">
-                    <h2>Профіль компетенцій</h2>
-                </div>
-                <p>
-                    Робота у B2B сегменті: транспортні системи, обладнання для сухих сумішей,
-                    рішення для цементної та будівельної галузі.
-                </p>
+        <section class="section">
+            <div class="section-header">
+                <h2>Нам довіряють</h2>
+                <p>Практичний досвід, реалізовані проєкти та відповідальний підхід до кожного етапу роботи</p>
             </div>
 
-            <div class="panel">
-                <div class="panel-title">
-                    <h2>Нам довіряють</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>200+</h3>
+                    <p>реалізованих проєктів</p>
                 </div>
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3>200+</h3>
-                        <p>реалізованих проєктів</p>
-                    </div>
-
-                    <div class="stat-card">
-                        <h3>20+ років</h3>
-                        <p>практичного досвіду</p>
-                    </div>
-
-                    <div class="stat-card">
-                        <h3>100%</h3>
-                        <p>відповідальності за результат</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel">
-                <div class="panel-title">
-                    <h2>Що важливо в роботі</h2>
+                <div class="stat-card">
+                    <h3>20+</h3>
+                    <p>років практичного досвіду</p>
                 </div>
 
-                <ul class="feature-list">
-                    <li>Практична інженерія без зайвих рішень</li>
-                    <li>Прозорість технічних параметрів і етапів роботи</li>
-                    <li>Супровід після запуску обладнання</li>
-                    <li>Індивідуальні рішення під специфіку виробництва</li>
-                </ul>
-            </div>
-
-            <div class="panel">
-                <div class="panel-title">
-                    <h2>Формат співпраці</h2>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>уваги до технічної якості</p>
                 </div>
 
-                <div class="format-grid">
-                    <div class="format-card">
-                        <h3>01</h3>
-                        <p><strong>Технічний бриф</strong><br>Аналіз задачі, параметрів і вихідних даних.</p>
-                    </div>
-
-                    <div class="format-card">
-                        <h3>02</h3>
-                        <p><strong>Проєктне рішення</strong><br>Підбір конфігурації та технічного рішення.</p>
-                    </div>
-
-                    <div class="format-card">
-                        <h3>03</h3>
-                        <p><strong>Реалізація</strong><br>Виробництво, монтаж і контроль якості.</p>
-                    </div>
-
-                    <div class="format-card">
-                        <h3>04</h3>
-                        <p><strong>Запуск</strong><br>Пусконалагодження, тестування та підтримка.</p>
-                    </div>
+                <div class="stat-card">
+                    <h3>15+</h3>
+                    <p>напрямків застосування обладнання</p>
                 </div>
             </div>
+        </section>
 
-            <div class="bottom-cta">
-                <div>
-                    <h2>Обговоримо ваш проєкт?</h2>
-                    <p>Підготуємо технічне рішення та попередній розрахунок під ваше виробництво.</p>
-                </div>
-
-                <div class="bottom-cta-buttons">
-                    <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
-                    <a href="contacts.html" class="btn-dark">Написати нам</a>
-                </div>
+        <section class="section">
+            <div class="section-header">
+                <h2>Що для нас важливо</h2>
+                <p>Принципи, на яких будується наша робота з клієнтами та технічними рішеннями</p>
             </div>
 
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>Практичність</h4>
+                    <p>Ми проєктуємо рішення, які працюють у реальному виробництві, а не лише виглядають добре на кресленнях.</p>
+                </div>
+
+                <div class="value-card">
+                    <h4>Прозорість</h4>
+                    <p>Зрозуміло пояснюємо технічні параметри, етапи роботи та можливості інтеграції обладнання.</p>
+                </div>
+
+                <div class="value-card">
+                    <h4>Індивідуальний підхід</h4>
+                    <p>Підбираємо конфігурацію обладнання під продуктивність, тип матеріалу та умови об’єкта.</p>
+                </div>
+
+                <div class="value-card">
+                    <h4>Супровід</h4>
+                    <p>Не зникаємо після монтажу — допомагаємо на етапі запуску та впровадження в робочий цикл.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Як ми працюємо</h2>
+                <p>Прозора схема співпраці від запиту до запуску обладнання</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h4>Аналіз задачі</h4>
+                    <p>Вивчаємо ваш процес, матеріали, продуктивність, особливості об’єкта та технічні вимоги.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h4>Проєктне рішення</h4>
+                    <p>Формуємо конфігурацію обладнання та технічне рішення під вашу конкретну задачу.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h4>Виробництво</h4>
+                    <p>Виготовляємо обладнання з урахуванням узгоджених параметрів та вимог до надійності.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h4>Монтаж і запуск</h4>
+                    <p>Проводимо інтеграцію, пусконалагодження та допомагаємо запустити систему в роботу.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Галузі, з якими ми працюємо</h2>
+                <p>Наші рішення застосовуються там, де потрібна точна подача, змішування, транспортування та дозування</p>
+            </div>
+
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <h4>Будівельна галузь</h4>
+                    <p>Лінії та вузли для сухих будівельних сумішей, фасування та внутрішньої логістики.</p>
+                </div>
+
+                <div class="industry-card">
+                    <h4>Цементна промисловість</h4>
+                    <p>Подача, переміщення та дозування сипучих матеріалів у стабільному технологічному процесі.</p>
+                </div>
+
+                <div class="industry-card">
+                    <h4>Промислові підприємства</h4>
+                    <p>Рішення для модернізації виробничих ліній, автоматизації окремих вузлів і транспортних процесів.</p>
+                </div>
+
+                <div class="industry-card">
+                    <h4>Складські та технологічні процеси</h4>
+                    <p>Обладнання для подачі матеріалів, внутрішньої логістики та контролю рецептури.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="bottom-cta">
+            <div>
+                <h3>Обговоримо ваш проєкт?</h3>
+                <p>Ми допоможемо підібрати рішення, підготувати технічну концепцію та попередній розрахунок.</p>
+            </div>
+
+            <div class="bottom-cta-buttons">
+                <a href="contacts.html" class="btn-white">Отримати консультацію</a>
+                <a href="equipment.html" class="btn-dark">Переглянути обладнання</a>
+            </div>
         </div>
+
     </div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
+<footer class="footer">
     <div class="footer-inner">
-        <h4>ТОВ «Еквіптех»</h4>
+        <h4>ТОВ «Екотех»</h4>
         <p>м. Дніпро, Україна</p>
-        <p>Email: <a href="mailto:info@ekvipteh.com.ua">info@ekvipteh.com.ua</a></p>
+        <p>Email: <a href="mailto:tov.ekoteh@gmail.com">tov.ekoteh@gmail.com</a></p>
     </div>
+</footer>
+
+<div class="floating-buttons">
+    <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
+    <a href="mailto:tov.ekoteh@gmail.com" class="mail-btn">Написати нам</a>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("siteHeader");
+
+    function updateHeader() {
+        if (!header) return;
+        if (window.scrollY > 30) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader);
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".header-nav a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === currentPage) {
+            link.classList.add("active");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
