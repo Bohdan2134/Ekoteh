@@ -1,1 +1,1 @@
-# Ekvipteh
+# Ekoteh
