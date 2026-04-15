@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Контакти — ЕКВІПТЕХ</title>
+<title>Контакти — ЕКОТЕХ</title>
 
 <style>
 * {
@@ -13,6 +13,7 @@
 :root {
     --primary: #16385b;
     --accent: #2f6fed;
+    --accent-dark: #205bd0;
     --dark: #1f2a38;
     --light: #f4f7fb;
     --text: #223548;
@@ -41,8 +42,84 @@ body {
     padding: 0 20px;
 }
 
+/* HEADER */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 20, 34, 0.35);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.site-header.scrolled {
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #dfe7f2;
+    box-shadow: 0 8px 24px rgba(17,42,70,0.08);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 78px;
+}
+
+.header-logo img {
+    width: 155px;
+    display: block;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.header-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s ease;
+}
+
+.header-nav a:hover::after,
+.header-nav a.active::after {
+    width: 100%;
+}
+
+.site-header.scrolled .header-nav a {
+    color: var(--text);
+}
+
+.header-nav a.active {
+    color: #7fb2ff;
+}
+
+.site-header.scrolled .header-nav a.active {
+    color: var(--accent);
+}
+
 /* HERO */
 .page-hero {
+    padding-top: 78px;
     min-height: 270px;
     background: url('images/background.jpg') center/cover no-repeat;
     position: relative;
@@ -61,11 +138,19 @@ body {
     z-index: 2;
     padding: 40px 0 50px;
     color: white;
+    max-width: 760px;
 }
 
-.hero-logo {
-    width: 165px;
+.hero-badge {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
     margin-bottom: 18px;
+    backdrop-filter: blur(4px);
 }
 
 .hero-inner h1 {
@@ -79,53 +164,6 @@ body {
     font-size: 19px;
     color: rgba(255,255,255,0.9);
     max-width: 650px;
-}
-
-/* MENU */
-.menu-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 80;
-    background: rgba(255,255,255,0.96);
-    border-bottom: 1px solid #dfe7f2;
-    backdrop-filter: blur(8px);
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-    gap: 34px;
-    flex-wrap: wrap;
-    padding: 16px 10px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 600;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-.menu a:hover,
-.menu a.active {
-    color: var(--accent);
-}
-
-.menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: 0.3s ease;
-}
-
-.menu a:hover::after,
-.menu a.active::after {
-    width: 100%;
 }
 
 /* MAIN */
@@ -245,7 +283,7 @@ body {
 }
 
 .submit-btn:hover {
-    background: #205bd0;
+    background: var(--accent-dark);
     transform: translateY(-2px);
 }
 
@@ -381,14 +419,28 @@ body {
     margin-top: 50px;
     background: linear-gradient(90deg, #143d68, #1f2a38);
     color: white;
-    text-align: center;
     padding: 36px 15px;
+}
+
+.footer-inner {
+    text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 .footer p {
     margin: 8px 0;
     color: rgba(255,255,255,0.9);
     font-size: 16px;
+}
+
+.footer a {
+    color: #9bc2ff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 /* FLOATING BUTTONS */
@@ -432,11 +484,26 @@ body {
 }
 
 .mail-btn:hover {
-    background: #205bd0;
+    background: var(--accent-dark);
 }
 
 /* MOBILE */
 @media (max-width: 900px) {
+    .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .header-nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .page-hero {
+        padding-top: 118px;
+    }
+
     .contact-layout {
         grid-template-columns: 1fr;
     }
@@ -451,20 +518,12 @@ body {
         padding: 28px 0 34px;
     }
 
-    .hero-logo {
-        width: 140px;
-    }
-
     .hero-inner h1 {
         font-size: 34px;
     }
 
     .hero-inner p {
         font-size: 16px;
-    }
-
-    .menu {
-        gap: 18px;
     }
 
     .card {
@@ -498,36 +557,56 @@ body {
         padding: 12px 14px;
     }
 }
+
+@media (max-width: 560px) {
+    .header-logo img {
+        width: 135px;
+    }
+
+    .header-nav {
+        gap: 12px;
+    }
+
+    .header-nav a {
+        font-size: 14px;
+    }
+
+    .page-hero {
+        padding-top: 128px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="page-hero">
-    <div class="container">
-        <div class="hero-inner">
-            <img src="images/logo.png" alt="ЕКВІПТЕХ" class="hero-logo">
-            <h1>Контакти</h1>
-            <p>Зв’яжіться з нами для консультації, технічного обговорення або попереднього розрахунку проєкту</p>
-        </div>
-    </div>
-</div>
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+        <a href="index.html" class="header-logo">
+            <img src="images/logo.png" alt="ЕКВІПТЕХ">
+        </a>
 
-<!-- MENU -->
-<div class="menu-wrap">
-    <div class="container">
-        <div class="menu">
+        <nav class="header-nav">
             <a href="index.html">Головна</a>
             <a href="about.html">Про компанію</a>
             <a href="equipment.html">Обладнання</a>
+            <a href="projects.html">Проєкти</a>
             <a href="clients.html">Наші клієнти</a>
-            <a href="contacts.html" class="active">Контакти</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </div>
+</header>
+
+<div class="page-hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-badge">Консультація • Розрахунок • Технічне обговорення</div>
+            <h1>Контакти</h1>
+            <p>Зв’яжіться з нами для консультації, технічного обговорення або попереднього розрахунку проєкту.</p>
         </div>
     </div>
 </div>
 
-<!-- MAIN -->
 <div class="page-section">
     <div class="container">
 
@@ -541,7 +620,7 @@ body {
                 <div class="info-list">
                     <div class="info-item">
                         <h3>Email</h3>
-                        <a href="mailto:info@ekvipteh.com.ua">info@ekvipteh.com.ua</a>
+                        <a href="mailto:tov.ekoteh@gmail.com">tov.ekoteh@gmail.com</a>
                     </div>
 
                     <div class="info-item">
@@ -551,12 +630,12 @@ body {
 
                     <div class="info-item">
                         <h3>Напрямок роботи</h3>
-                        <p>Промислове та будівельне обладнання, інженерні рішення, виробничі комплекси</p>
+                        <p>Промислове та будівельне обладнання, інженерні рішення, виробничі комплекси.</p>
                     </div>
 
                     <div class="info-item">
                         <h3>Формат звернення</h3>
-                        <p>Надішліть короткий опис задачі, і ми підготуємо консультацію або попередній розрахунок</p>
+                        <p>Надішліть короткий опис задачі, і ми підготуємо консультацію або попередній розрахунок.</p>
                     </div>
                 </div>
             </div>
@@ -606,39 +685,63 @@ body {
             </div>
 
             <div class="bottom-cta-buttons">
-                    <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
-                    <a href="contacts.html" class="btn-dark">Написати нам</a>
+                <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
+                <a href="mailto:tov.ekoteh@gmail.com" class="btn-dark">Написати нам</a>
             </div>
         </div>
 
     </div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-    <p>ТОВ «Еквіптех», м. Дніпро, Україна</p>
-    <p>Email: info@ekvipteh.com.ua</p>
-</div>
+<footer class="footer">
+    <div class="footer-inner">
+        <h4>ТОВ «Екотех»</h4>
+        <p>м. Дніпро, Україна</p>
+        <p>Email: <a href="mailto:tov.ekoteh@gmail.com">tov.ekoteh@gmail.com</a></p>
+    </div>
+</footer>
 
-<!-- FLOATING BUTTONS -->
 <div class="floating-buttons">
-                    <a href="contacts.html" class="btn-white">Отримати розрахунок</a>
-                    <a href="contacts.html" class="btn-dark">Написати нам</a>
+    <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
+    <a href="mailto:tov.ekoteh@gmail.com" class="mail-btn">Написати нам</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init({
-        publicKey: "FlxHXurEyYVLzzuEW"
-    });
-
+    const header = document.getElementById("siteHeader");
     const form = document.getElementById("contact-form");
     const submitBtn = document.getElementById("submit-btn");
     const statusBox = document.getElementById("form-status");
 
-    if (!form || !submitBtn || !statusBox) return;
+    function updateHeader() {
+        if (!header) return;
+        if (window.scrollY > 30) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader);
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".header-nav a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === currentPage) {
+            link.classList.add("active");
+        }
+    });
+
+    if (typeof emailjs !== "undefined") {
+        emailjs.init({
+            publicKey: "FlxHXurEyYVLzzuEW"
+        });
+    }
+
+    if (!form || !submitBtn || !statusBox || typeof emailjs === "undefined") return;
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
