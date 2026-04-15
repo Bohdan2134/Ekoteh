@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Реалізовані проєкти — ЕКОТЕХ</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #16385b;
+    --accent: #2f6fed;
+    --accent-dark: #205bd0;
+    --light: #f4f7fb;
+    --text: #223548;
+    --muted: #5a6b7d;
+    --border: #e2e9f2;
+    --success: #28a745;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 20, 34, 0.35);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.site-header.scrolled {
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #dfe7f2;
+    box-shadow: 0 8px 24px rgba(17,42,70,0.08);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 78px;
+}
+
+.header-logo img {
+    width: 155px;
+    display: block;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.header-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s ease;
+}
+
+.header-nav a:hover::after,
+.header-nav a.active::after {
+    width: 100%;
+}
+
+.site-header.scrolled .header-nav a {
+    color: var(--text);
+}
+
+.header-nav a.active {
+    color: #7fb2ff;
+}
+
+.site-header.scrolled .header-nav a.active {
+    color: var(--accent);
+}
+
+/* HERO */
+.page-hero {
+    padding-top: 78px;
+    min-height: 300px;
+    background: url('images/background.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(8,18,31,0.88), rgba(8,18,31,0.5), rgba(8,18,31,0.2));
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 42px 0 54px;
+    color: white;
+    max-width: 760px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.hero-inner h1 {
+    margin: 0 0 12px;
+    font-size: 50px;
+    line-height: 1.08;
+}
+
+.hero-inner p {
+    margin: 0;
+    font-size: 19px;
+    color: rgba(255,255,255,0.9);
+}
+
+/* MAIN */
+.page-section {
+    padding: 42px 0 64px;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 920px;
+    margin: 0 auto 40px;
+}
+
+.section-header h2 {
+    margin: 0 0 14px;
+    font-size: 40px;
+    color: var(--primary);
+}
+
+.section-header p {
+    margin: 0;
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(17,42,70,0.05);
+    transition: 0.3s ease;
+    scroll-margin-top: 110px;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(17,42,70,0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-content {
+    padding: 24px;
+}
+
+.project-content h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.project-content p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.project-meta {
+    display: grid;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.project-meta div {
+    font-size: 15px;
+    color: #425569;
+}
+
+.project-result {
+    display: inline-block;
+    background: #eef4ff;
+    color: var(--accent);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* CTA */
+.bottom-cta {
+    margin-top: 36px;
+    background: linear-gradient(135deg, var(--accent), #2158c7);
+    color: white;
+    border-radius: 20px;
+    padding: 34px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 18px 36px rgba(47,111,237,0.2);
+}
+
+.bottom-cta h3 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.bottom-cta p {
+    margin: 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 17px;
+}
+
+.bottom-cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.bottom-cta-buttons a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-white {
+    background: white;
+    color: var(--accent);
+}
+
+.btn-white:hover {
+    background: #eef4ff;
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: rgba(255,255,255,0.14);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.btn-dark:hover {
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 52px;
+    background: linear-gradient(90deg, #143d68, #1f2a38);
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-inner {
+    text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.footer h4 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.footer p {
+    margin: 8px 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 16px;
+}
+
+.footer a {
+    color: #9bc2ff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .header-nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .page-hero {
+        padding-top: 118px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-inner h1 {
+        font-size: 34px;
+    }
+
+    .hero-inner p {
+        font-size: 16px;
+    }
+
+    .bottom-cta h3 {
+        font-size: 24px;
+    }
+
+    .bottom-cta p {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+        <a href="index.html" class="header-logo">
+            <img src="images/logo.png" alt="ЕКВІПТЕХ">
+        </a>
+
+        <nav class="header-nav">
+            <a href="index.html">Головна</a>
+            <a href="about.html">Про компанію</a>
+            <a href="equipment.html">Обладнання</a>
+            <a href="projects.html">Проєкти</a>
+            <a href="clients.html">Наші клієнти</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </div>
+</header>
+
+<div class="page-hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-badge">Приклади реалізованих рішень</div>
+            <h1>Реалізовані проєкти</h1>
+            <p>Приклади обладнання та виробничих рішень, які вже працюють на підприємствах наших клієнтів.</p>
+        </div>
+    </div>
+</div>
+
+<div class="page-section">
+    <div class="container">
+
+        <div class="section-header">
+            <h2>Наші проєкти</h2>
+            <p>Кожен проєкт — це адаптація обладнання під конкретну технологічну задачу, виробничі умови та вимоги клієнта.</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card" id="project1">
+                <img src="images/img 10_1.jpg" alt="Лінія транспортування">
+                <div class="project-content">
+                    <h3>Лінія транспортування</h3>
+                    <p>Автоматизована система подачі матеріалу для виробничої ділянки з безперервним циклом роботи.</p>
+
+                    <div class="project-meta">
+                        <div><strong>Задача:</strong> автоматизувати внутрішню логістику матеріалів</div>
+                        <div><strong>Рішення:</strong> стрічкові транспортери та вузли подачі</div>
+                        <div><strong>Результат:</strong> стабільніша подача та менше ручних операцій</div>
+                    </div>
+
+                    <span class="project-result">Менше ручних операцій</span>
+                </div>
+            </div>
+
+            <div class="project-card" id="project2">
+                <img src="images/img 10_2.jpg" alt="Змішувальний комплекс">
+                <div class="project-content">
+                    <h3>Змішувальний комплекс</h3>
+                    <p>Рішення для точного змішування сухих компонентів у стабільному щоденному виробничому циклі.</p>
+
+                    <div class="project-meta">
+                        <div><strong>Задача:</strong> отримати стабільну якість сумішей</div>
+                        <div><strong>Рішення:</strong> змішувальний вузол з інтеграцією в лінію</div>
+                        <div><strong>Результат:</strong> точніше дозування і стабільніша рецептура</div>
+                    </div>
+
+                    <span class="project-result">Стабільна якість суміші</span>
+                </div>
+            </div>
+
+        <div class="project-card" id="project3">
+                <img src="images/12_1.jpg" alt="Пневмокамерний насос">
+            <div class="project-content">
+                <h3>Пневмокамерний насос</h3>
+                <p>Обладнання для транспортування сипучих матеріалів за допомогою стисненого повітря з точною та стабільною подачею.</p>
+
+            <div class="project-meta">
+               <div><strong>Задача:</strong> забезпечити стабільне транспортування сипучих матеріалів</div>
+               <div><strong>Рішення:</strong> встановлення пневмокамерного насоса в технологічну лінію</div>
+               <div><strong>Результат:</strong> надійна подача матеріалу та кращий контроль процесу</div>
+            </div>
+
+            <span class="project-result">Надійна подача матеріалу</span>
+        </div>
+</div>
+<div class="project-card" id="project4">
+    <img src="images/15_3.jpg" alt="Сушильний барабан">
+    <div class="project-content">
+        <h3>Сушильний барабан</h3>
+        <p>Обладнання для ефективного сушіння сипучих матеріалів з рівномірним розподілом температури.</p>
+
+        <div class="project-meta">
+            <div><strong>Задача:</strong> знизити вологість матеріалу</div>
+            <div><strong>Рішення:</strong> встановлення сушильного барабана</div>
+            <div><strong>Результат:</strong> стабільна якість та підготовка матеріалу</div>
+        </div>
+
+        <span class="project-result">Стабільна вологість матеріалу</span>
+    </div>
+</div>
+
+<div class="project-card" id="project5">
+    <img src="images/14_5.jpg" alt="Ланцюговий скребковий транспортер">
+    <div class="project-content">
+        <h3>Ланцюговий скребковий транспортер</h3>
+        <p>Рішення для транспортування матеріалів у складних умовах та обмежених просторах.</p>
+
+        <div class="project-meta">
+            <div><strong>Задача:</strong> транспортування важких матеріалів</div>
+            <div><strong>Рішення:</strong> скребковий транспортер</div>
+            <div><strong>Результат:</strong> надійна подача без втрат</div>
+        </div>
+
+        <span class="project-result">Надійне транспортування</span>
+    </div>
+</div>
+
+<div class="project-card" id="project6">
+    <img src="images/1_2.jpg" alt="Норія">
+    <div class="project-content">
+        <h3>Норія</h3>
+        <p>Вертикальне транспортування сипучих матеріалів з високою продуктивністю.</p>
+
+        <div class="project-meta">
+            <div><strong>Задача:</strong> підйом матеріалу на висоту</div>
+            <div><strong>Рішення:</strong> ковшовий елеватор (норія)</div>
+            <div><strong>Результат:</strong> ефективна вертикальна подача</div>
+        </div>
+
+        <span class="project-result">Ефективний підйом матеріалу</span>
+    </div>
+</div>
+
+<div class="project-card" id="project7">
+    <img src="images/9_1.jpg" alt="Ємності (бункери, силоси)">
+    <div class="project-content">
+        <h3>Ємності (бункери, силоси)</h3>
+        <p>Системи зберігання та накопичення матеріалів для безперервної роботи виробництва.</p>
+
+        <div class="project-meta">
+            <div><strong>Задача:</strong> організувати зберігання матеріалу</div>
+            <div><strong>Рішення:</strong> бункери та силоси</div>
+            <div><strong>Результат:</strong> стабільний запас та подача</div>
+        </div>
+
+        <span class="project-result">Безперервна робота лінії</span>
+    </div>
+</div>
+    </div>
+
+        <div class="bottom-cta">
+            <div>
+                <h3>Потрібне подібне рішення?</h3>
+                <p>Опишіть вашу задачу, і ми підберемо технічне рішення під ваше виробництво.</p>
+            </div>
+
+            <div class="bottom-cta-buttons">
+                <a href="contacts.html" class="btn-white">Отримати консультацію</a>
+                <a href="equipment.html" class="btn-dark">Переглянути обладнання</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <h4>ТОВ «Екотех»</h4>
+        <p>м. Дніпро, Україна</p>
+        <p>Email: <a href="mailto:tov.ekoteh@gmail.com">tov.ekoteh@gmail.com</a></p>
+    </div>
+</footer>
+
+<div class="floating-buttons">
+    <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
+    <a href="mailto:tov.ekoteh@gmail.com" class="mail-btn">Написати нам</a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("siteHeader");
+
+    function updateHeader() {
+        if (!header) return;
+        if (window.scrollY > 30) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader);
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".header-nav a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === currentPage) {
+            link.classList.add("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
