@@ -483,7 +483,8 @@ body {
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.slider-track img {
+.slider-track img,
+.slider-track video {
     width: 100%;
     height: 350px;
     object-fit: contain;
@@ -492,6 +493,11 @@ body {
     display: block;
     background: #eef4fb;
     padding: 10px;
+}
+
+.slider-track video {
+    border-radius: 12px;
+    background: #eef4fb;
 }
 
 .slider-btn {
@@ -618,7 +624,8 @@ body {
     z-index: 100;
 }
 
-.floating-buttons a {
+.floating-buttons a,
+.floating-buttons button {
     text-decoration: none;
     color: white;
     font-size: 14px;
@@ -629,9 +636,16 @@ body {
     transition: 0.3s ease;
     text-align: center;
     min-width: 180px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.floating-buttons a:hover {
+.floating-buttons a:hover,
+.floating-buttons button:hover {
     transform: translateY(-2px);
 }
 
@@ -649,6 +663,173 @@ body {
 
 .mail-btn:hover {
     background: var(--accent-dark);
+}
+
+.contact-popup-wrap {
+    position: relative;
+}
+
+.contact-toggle {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.contact-popup {
+    position: absolute;
+    right: 0;
+    bottom: 58px;
+    width: 220px;
+    background: white;
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    border: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-popup.show {
+    display: flex;
+}
+
+.contact-phone {
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 15px;
+    padding-bottom: 4px;
+}
+
+.contact-link {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 14px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+}
+
+.telegram {
+    background: #2AABEE;
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+.viber {
+    background: #7360F2;
+}
+
+.yt-super-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 180px;
+    padding: 13px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.1;
+    background:
+        linear-gradient(135deg, #ff2a2a 0%, #ff0000 45%, #c40000 100%);
+    box-shadow:
+        0 12px 28px rgba(255, 0, 0, 0.30),
+        0 4px 12px rgba(0, 0, 0, 0.14);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    animation: ytPulse 2.2s infinite;
+}
+
+.yt-super-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow:
+        0 18px 42px rgba(255, 0, 0, 0.40),
+        0 8px 18px rgba(0, 0, 0, 0.18);
+    filter: brightness(1.05);
+}
+
+.yt-super-btn:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.yt-super-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -85%;
+    width: 52%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.12) 25%,
+        rgba(255,255,255,0.45) 50%,
+        rgba(255,255,255,0.12) 75%,
+        transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+}
+
+.yt-super-btn:hover::before {
+    left: 130%;
+}
+
+.yt-super-btn::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 13px;
+    border: 1px solid rgba(255,255,255,0.14);
+    pointer-events: none;
+}
+
+.yt-super-btn__icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.14);
+}
+
+.yt-super-btn__icon svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    display: block;
+}
+
+.yt-super-btn__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.yt-super-btn__text small {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.82);
+    margin-top: 2px;
 }
 
 /* FOOTER */
@@ -691,8 +872,57 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .slider-track img {
+    .slider-track img,
+    .slider-track video {
         height: 320px;
+    }
+}
+
+@keyframes ytPulse {
+    0% {
+        box-shadow:
+            0 12px 28px rgba(255, 0, 0, 0.30),
+            0 4px 12px rgba(0, 0, 0, 0.14),
+            0 0 0 0 rgba(255, 0, 0, 0.18);
+    }
+    70% {
+        box-shadow:
+            0 12px 28px rgba(255, 0, 0, 0.30),
+            0 4px 12px rgba(0, 0, 0, 0.14),
+            0 0 0 12px rgba(255, 0, 0, 0);
+    }
+    100% {
+        box-shadow:
+            0 12px 28px rgba(255, 0, 0, 0.30),
+            0 4px 12px rgba(0, 0, 0, 0.14),
+            0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .yt-super-btn {
+        min-width: 155px;
+        padding: 12px 14px;
+        border-radius: 12px;
+    }
+
+    .yt-super-btn__icon {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+    }
+
+    .yt-super-btn__icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .yt-super-btn__text {
+        font-size: 13px;
+    }
+
+    .yt-super-btn__text small {
+        font-size: 10px;
     }
 }
 
@@ -761,7 +991,8 @@ body {
         font-size: 28px;
     }
 
-    .slider-track img {
+    .slider-track img,
+    .slider-track video {
         height: 250px;
     }
 
@@ -855,6 +1086,7 @@ body {
                     <a href="?item=chain">Ланцюговий скребковий транспортер</a>
                     <a href="?item=elevator">Норія</a>
                     <a href="?item=tanks">Ємності (бункери, силоси)</a>
+                    <a href="?item=hoper">Развонтажувачи вагонов типа Хоппер</a>
                     <a href="?item=services">Послуги</a>
                 </nav>
             </aside>
@@ -903,7 +1135,7 @@ body {
     </div>
 </div>
 
-<<footer class="footer">
+<footer class="footer">
     <div class="footer-inner">
         <h4>ТОВ «Екотех»</h4>
         <p>м. Дніпро, Україна</p>
@@ -913,7 +1145,40 @@ body {
 
 <div class="floating-buttons">
     <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
-    <a href="mailto:tov.ekoteh@gmail.com" class="mail-btn">Написати нам</a>
+
+    <div class="contact-popup-wrap">
+        <button type="button" class="mail-btn contact-toggle" id="contactToggle">
+            Написати нам
+        </button>
+        
+        <div class="contact-popup" id="contactPopup">
+            <div class="contact-phone">📞 +380 99 123 45 67</div>
+
+            <a href="https://t.me/utanabali" target="_blank" class="contact-link telegram">
+                Telegram
+            </a>
+
+            <a href="https://wa.me/380672567173" target="_blank" class="contact-link whatsapp">
+                WhatsApp
+            </a>
+
+            <a href="viber://chat?number=%2B380672567173" class="contact-link viber">
+                Viber
+            </a>
+        </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TOVEkoteh" target="_blank" class="yt-super-btn">
+        <span class="yt-super-btn__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C17.6 2.5 12 2.5 12 2.5s-5.6 0-8.6.4c-.4.1-1.3.1-2.1 1C.7 4.6.5 6.2.5 6.2S0 8.1 0 10v1.9c0 1.9.5 3.8.5 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.3.4 7.3.4s5.6 0 8.6-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.5-1.9.5-3.8V10c0-1.9-.5-3.8-.5-3.8zM9.5 14.5V7.5l6 3.5-6 3.5z"/>
+            </svg>
+        </span>
+        <span class="yt-super-btn__text">
+            Наш YouTube
+            <small>дивитися відео</small>
+        </span>
+    </a>
 </div>
 
 <script>
@@ -952,92 +1217,205 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initSliders() {
-        const sliders = document.querySelectorAll(".slider");
+    const sliders = document.querySelectorAll(".slider");
 
-        sliders.forEach(slider => {
-            const track = slider.querySelector(".slider-track");
-            const slides = slider.querySelectorAll("img");
-            const prevBtn = slider.querySelector(".prev");
-            const nextBtn = slider.querySelector(".next");
-            const dots = slider.parentElement.querySelectorAll(".slider-dot");
-            const progressBar = slider.parentElement.querySelector(".slider-progress-bar");
+    sliders.forEach(slider => {
+        const track = slider.querySelector(".slider-track");
+        const slides = slider.querySelectorAll("img, video");
+        const prevBtn = slider.querySelector(".prev");
+        const nextBtn = slider.querySelector(".next");
+        const dots = slider.parentElement.querySelectorAll(".slider-dot");
+        const progressBar = slider.parentElement.querySelector(".slider-progress-bar");
 
-            let currentIndex = 0;
-            let interval;
+        let currentIndex = 0;
+        let interval = null;
 
-            function updateSlider() {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle("active", index === currentIndex);
-                });
-            }
-
-            function startProgress() {
-                if (!progressBar) return;
-
-                progressBar.style.transition = "none";
-                progressBar.style.width = "0%";
-
-                setTimeout(() => {
-                    progressBar.style.transition = "width 4s linear";
-                    progressBar.style.width = "100%";
-                }, 50);
-            }
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSlider();
-                startProgress();
-            }
-
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateSlider();
-                startProgress();
-            }
-
-            function startAutoSlide() {
-                clearInterval(interval);
-                interval = setInterval(nextSlide, 4000);
-                startProgress();
-            }
-
-            function stopAutoSlide() {
-                clearInterval(interval);
-            }
-
-            if (nextBtn) {
-                nextBtn.addEventListener("click", () => {
-                    nextSlide();
-                    startAutoSlide();
-                });
-            }
-
-            if (prevBtn) {
-                prevBtn.addEventListener("click", () => {
-                    prevSlide();
-                    startAutoSlide();
-                });
-            }
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener("click", () => {
-                    currentIndex = index;
-                    updateSlider();
-                    startAutoSlide();
-                });
+        function pauseAllVideos() {
+            slides.forEach(slide => {
+                if (slide.tagName === "VIDEO") {
+                    slide.pause();
+                }
             });
+        }
 
-            slider.addEventListener("mouseenter", stopAutoSlide);
-            slider.addEventListener("mouseleave", startAutoSlide);
+        function resetProgress() {
+            if (!progressBar) return;
+            progressBar.style.transition = "none";
+            progressBar.style.width = "0%";
+        }
 
+        function startImageProgress() {
+            if (!progressBar) return;
+
+            resetProgress();
+
+            setTimeout(() => {
+                progressBar.style.transition = "width 4s linear";
+                progressBar.style.width = "100%";
+            }, 50);
+        }
+
+        function startVideoProgress(video) {
+            if (!progressBar || !video) return;
+
+            resetProgress();
+
+            const duration = video.duration;
+            if (!duration || !isFinite(duration)) return;
+
+            setTimeout(() => {
+                progressBar.style.transition = `width ${duration}s linear`;
+                progressBar.style.width = "100%";
+            }, 50);
+        }
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentIndex);
+            });
+        }
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots();
+
+            const currentSlide = slides[currentIndex];
+
+            pauseAllVideos();
+            clearInterval(interval);
+            interval = null;
+            resetProgress();
+
+            if (currentSlide && currentSlide.tagName === "VIDEO") {
+                currentSlide.currentTime = 0;
+                currentSlide.play().then(() => {
+                    startVideoProgress(currentSlide);
+                }).catch(() => {});
+            } else {
+                startAutoSlide();
+            }
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
             updateSlider();
-            startAutoSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function startAutoSlide() {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                const currentSlide = slides[currentIndex];
+
+                if (currentSlide && currentSlide.tagName === "VIDEO") {
+                    return;
+                }
+
+                nextSlide();
+            }, 4000);
+
+            const currentSlide = slides[currentIndex];
+            if (currentSlide && currentSlide.tagName !== "VIDEO") {
+                startImageProgress();
+            }
+        }
+
+        function stopAutoSlide() {
+            clearInterval(interval);
+            interval = null;
+            resetProgress();
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener("click", () => {
+                nextSlide();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener("click", () => {
+                prevSlide();
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                currentIndex = index;
+                updateSlider();
+            });
         });
-    }
+
+        slider.addEventListener("mouseenter", () => {
+            stopAutoSlide();
+        });
+
+        slider.addEventListener("mouseleave", () => {
+            const currentSlide = slides[currentIndex];
+            if (!currentSlide) return;
+
+            if (currentSlide.tagName === "VIDEO") {
+                if (currentSlide.paused) {
+                    currentSlide.play().catch(() => {});
+                }
+            } else {
+                startAutoSlide();
+            }
+        });
+
+        slides.forEach((slide, index) => {
+            if (slide.tagName === "VIDEO") {
+                slide.addEventListener("play", () => {
+                    clearInterval(interval);
+                    interval = null;
+                    startVideoProgress(slide);
+                });
+
+                slide.addEventListener("pause", () => {
+                    if (index === currentIndex && slide.currentTime < slide.duration) {
+                        resetProgress();
+                    }
+                });
+
+                slide.addEventListener("ended", () => {
+                    nextSlide();
+                });
+
+                slide.addEventListener("loadedmetadata", () => {
+                    if (index === currentIndex) {
+                        startVideoProgress(slide);
+                    }
+                });
+            }
+        });
+
+        updateSlider();
+    });
+ }
 
     function renderProduct(data) {
+        const media = data.media || (data.images || []).map(img => ({
+            type: "image",
+            src: img,
+            alt: data.title
+        }));
+
+        const mediaItems = media.map(item => {
+            if (item.type === "video") {
+                return `
+                    <video controls playsinline preload="metadata">
+                        <source src="${item.src}" type="video/mp4">
+                        Ваш браузер не підтримує відео.
+                    </video>
+                `;
+            }
+
+            return `<img src="${item.src}" alt="${item.alt || data.title}">`;
+        }).join("");
+
         content.innerHTML = `
             <div class="product-card">
                 <div class="product-top">
@@ -1046,14 +1424,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             <button class="slider-btn prev" type="button">‹</button>
 
                             <div class="slider-track">
-                                ${data.images.map(img => `<img src="${img}" alt="${data.title}">`).join("")}
+                                ${mediaItems}
                             </div>
 
                             <button class="slider-btn next" type="button">›</button>
                         </div>
 
                         <div class="slider-dots">
-                            ${data.images.map((_, i) => `<span class="slider-dot ${i === 0 ? "active" : ""}"></span>`).join("")}
+                            ${media.map((_, i) => `<span class="slider-dot ${i === 0 ? "active" : ""}"></span>`).join("")}
                         </div>
 
                         <div class="slider-progress">
@@ -1089,13 +1467,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     </table>
                 </div>
 
+                ${!data.hideExtra ? `
                 <div class="info-section">
-                    <h3>Переваги</h3>
-                    <div class="extra-grid">
-                        ${data.extra.map(card => `
+                   <h3>Переваги</h3>
+                   <div class="extra-grid">
+                      ${data.extra.map(card => `
                             <div class="extra-card">
-                                <h4>${card.title}</h4>
-                                <p>${card.text}</p>
+                               <h4>${card.title}</h4>
+                               <p>${card.text}</p>
                             </div>
                         `).join("")}
                     </div>
@@ -1112,7 +1491,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         `).join("")}
                     </div>
                 </div>
-            </div>
+                ` : ""}
         `;
 
         initSliders();
@@ -1122,11 +1501,18 @@ document.addEventListener("DOMContentLoaded", function () {
         transporter: {
             title: "Стрічковий транспортер",
             badge: "Безперервне транспортування",
-            images: [
-                "images/img 10_1.jpg",
-                "images/1_1.png",
-                "images/1_4.jpg",
-                "images/1_5.jpg"
+            media: [
+                { type: "image", src: "images/img 10_1.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/1_1a.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/1_2a.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/14_1.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/14_5.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/14_2.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/14_4.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/14_3.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/1_1.png", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/1_4.jpg", alt: "Стрічковий транспортер" },
+                { type: "image", src: "images/1_5.jpg", alt: "Стрічковий транспортер" }
             ],
             description: "Стрічкові транспортери для безперервної подачі та переміщення сипучих і штучних матеріалів у виробничих та складських процесах.",
             features: [
@@ -1138,10 +1524,11 @@ document.addEventListener("DOMContentLoaded", function () {
             specs: [
                 ["Тип", "Стрічковий транспортер"],
                 ["Режим", "Безперервний"],
-                ["Довжина", "під задачу замовника"],
+                ["Довжина", "від 1 м"],
+                ["Ширина", "від 100 до 1200 мм, кут нахилу від 0 до 45 градусів (регульована)"],
                 ["Привід", "Електричний"],
                 ["Матеріал", "Сталь / комбіноване виконання"],
-                ["Сфера застосування", "Будівельна, промислова, складська"]
+                ["Сфера застосування", "Будівельна, промислова, складська, харчова промисловість"]
             ],
             extra: [
                 { title: "Стабільна подача", text: "Забезпечує рівномірне переміщення матеріалу між виробничими вузлами." },
@@ -1156,12 +1543,18 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         mix: {
-            title: "Змішувач",
+            title: "Линія змішування",
             badge: "Підготовка та змішування",
             images: [
                 "images/img 10_2.jpg",
-                "images/8_2a.jpg",
-                "images/8_1d.jpg"
+                "images/10_8.jpg",
+                "images/4_1d.jpg",
+                "images/4_2a.jpg",
+                "images/10_3.jpg",
+                "images/10_4.jpg",
+                "images/10_6.jpg",
+                "images/10_5.jpg",
+                "images/10_7.jpg"
             ],
             description: "Змішувальні вузли та обладнання для підготовки, перемішування та стабілізації сипучих і сухих компонентів.",
             features: [
@@ -1175,6 +1568,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ["Матеріали", "Сухі та сипучі компоненти"],
                 ["Режим", "Циклічний / безперервний"],
                 ["Корпус", "Сталь"],
+                ["Объем", "литры от500 до 3000"],
                 ["Керування", "Ручне / автоматизоване"],
                 ["Сфера застосування", "Сухі суміші, технічні суміші, мінеральні матеріали"]
             ],
@@ -1198,7 +1592,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 "images/img 11_3.jpg",
                 "images/2_1.jpg",
                 "images/2_2a.jpg",
-                "images/2_3.jpg"
+                "images/2_3.jpg",
+                "images/img 11_4.jpg",
+                "images/img 11_5.jpg",
+                "images/img 11_6.jpg",
+                "images/img 11_7.jpg",
+                "images/img 11_8.jpg",
+                "images/img 11_9.jpg",
+                "images/img 11_1a.jpg",
+                "images/img 11_2a.jpg"
             ],
             description: "Шнекові транспортери для контрольованого переміщення сипучих матеріалів у горизонтальному, похилому або комбінованому виконанні.",
             features: [
@@ -1209,10 +1611,12 @@ document.addEventListener("DOMContentLoaded", function () {
             ],
             specs: [
                 ["Тип", "Шнековий транспортер"],
+                ["Діаметр", "від 100 до 500 мм"],
+                ["Довжина", "від 1 м, кут нахилу - від 0 до 60 градусів (регульована)"],
                 ["Монтаж", "Горизонтальний / похилий"],
                 ["Призначення", "Сипучі матеріали, порошки, гранулят"],
-                ["Привід", "Електричний"],
-                ["Матеріал", "Сталь"],
+                ["Виконання", "Труба, жолоб"],
+                ["Матеріал", "Сталь 3, нержавійка"],
                 ["Сфера застосування", "Будівельна, аграрна, промислова"]
             ],
             extra: [
@@ -1234,6 +1638,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 "images/15_4.jpg",
                 "images/15_2.jpg",
                 "images/15_3.jpg",
+                "images/15_5.jpg",
+                "images/15_6.jpg",
+                "images/15_7.jpg",
+                "images/15_8.jpg",
+                "images/15_9.jpg",
+                "images/15_1a.jpg",
+                "images/15_2a.jpg",
+                "images/15_3a.jpg"
             ],
             description: "Сушильний барабан для обробки сипучих матеріалів у технологічних лініях, де потрібна контрольована вологість і стабільне сушіння.",
             features: [
@@ -1245,7 +1657,9 @@ document.addEventListener("DOMContentLoaded", function () {
             specs: [
                 ["Тип", "Барабанний"],
                 ["Режим", "Безперервний"],
+                ["Паливо", "Пропан, дизель, пелети"],
                 ["Матеріал", "Сталь"],
+                ["Производительность", "кг от 500 до 2000"],
                 ["Привід", "Електричний"],
                 ["Призначення", "Сушіння сипучих матеріалів"],
                 ["Сфера застосування", "Будівельна та промислова галузь"]
@@ -1299,12 +1713,8 @@ document.addEventListener("DOMContentLoaded", function () {
         chain: {
             title: "Ланцюговий скребковий транспортер",
             badge: "Закрите транспортування",
-            images: [
-                "images/14_1.jpg",
-                "images/14_2.jpg",
-                "images/14_3.jpg",
-                "images/14_4.jpg",
-                "images/14_5.jpg"
+            media: [
+                { type: "video", src: "video/transporter.mp4" },
             ],
             description: "Ланцюговий скребковий транспортер для переміщення сипучих матеріалів у закритому корпусі.",
             features: [
@@ -1371,7 +1781,7 @@ document.addEventListener("DOMContentLoaded", function () {
             badge: "Накопичення та зберігання",
             images: [
                 "images/9_1.jpg",
-                "images/9_1a.jpg",
+                "images/9_1a.jpg"
             ],
             description: "Бункери, силоси та накопичувальні ємності для зберігання, буферного накопичення та стабільної подачі матеріалу в технологічному процесі.",
             features: [
@@ -1400,11 +1810,60 @@ document.addEventListener("DOMContentLoaded", function () {
             ]
         },
 
+        hoper: {
+            title: "Развонтажувачи вагонов типа Хоппер",
+            badge: "Развонтажування",
+            hideExtra: true,
+            images: [
+                "images/16_1.jpg",
+                "images/16_2.jpg",
+                "images/16_3.jpg",
+                "images/16_4.jpg",
+                "images/16_5.jpg",
+                "images/16_6.jpg",
+                "images/16_7.jpg",
+                "images/16_8.jpg",
+                "images/16_9.jpg",
+                "images/16_10.jpg",
+                "images/16_11.jpg",
+                "images/16_12.jpg",
+                "images/16_13.jpg"
+            ],
+            description: "Комплекс працює на ущільненому майданчику 6/12 м.",
+            features: [
+                "Керована подача. Відбирає цемент через два вивантажувальні вікна хопера, забезпечуючи рівномірний потік та мінімальне запилення.",
+                "Мобільність без будівельних робіт. Усі вузли на тележках і опорах, комплекс збирається на майданчику 6/12 м без приямків і фундаментів.",
+                "Підкатний розвантажувач (дві шнекові секції, привід 2/11 кВт) з комплектом ущільнень та механізмом переміщення.",
+                "Передвижний гвинтовий конвеєр довжиною 9,5 м із регульованим випускним патрубком та поворотною стрілою."
+            ],
+            specs: [
+                ["Призначення", "Развонтажування вагонів"],
+                ["Конфігурація", "Індивідуально під задачу"],
+                ["Режим", "Циклічний / безперервний"],
+                ["Корпус", "Сталь"],
+                ["Мощность", "23- 35 кВт"],
+                ["Производительность", "30-60 т/ч"],
+                ["Керування", "Ручне / автоматизоване"],
+                ["Площадь размещения", "Подача пiд вагон"],
+                ["Сфера застосування", "Строительство, сх"]
+            ],
+            extra: [
+                { title: "Гнучкість", text: "Можуть бути виготовлені в різній формі та об’ємі під конкретне виробництво." },
+                { title: "Стабільність подачі", text: "Допомагають вирівнювати потік матеріалу між етапами процесу." },
+                { title: "Комплексне рішення", text: "Легко інтегруються у лінії з норіями, шнеками та транспортерами." }
+            ],
+            applications: [
+                { title: "Сухі суміші", text: "Накопичення компонентів перед змішуванням і дозуванням." },
+                { title: "Цементні системи", text: "Зберігання цементу, порошків та мінеральних матеріалів." },
+                { title: "Аграрні об’єкти", text: "Буферне накопичення сипучих продуктів і сировини." }
+            ]
+        },
+
         services: {
             title: "Послуги",
             badge: "Комплексні рішення",
             images: [
-                "images/services.png",
+                "images/services.png"
             ],
             description: "Інженерні та комплексні рішення для виробництва: від окремих вузлів до повних ліній транспортування, подачі та підготовки матеріалів.",
             features: [
@@ -1438,6 +1897,62 @@ document.addEventListener("DOMContentLoaded", function () {
         setActive(item);
         renderProduct(products[item]);
     }
+
+const processGrid = document.querySelector(".process-grid");
+
+    if (processGrid) {
+        let animationFrame;
+        let isPaused = false;
+        let speed = 0.5;
+
+        function autoScroll() {
+            if (!isPaused) {
+               const maxScroll = processGrid.scrollWidth - processGrid.clientWidth;
+
+                if (processGrid.scrollLeft >= maxScroll) {
+                    processGrid.scrollLeft = 0;
+                } else {
+                    processGrid.scrollLeft += speed;
+                }
+            }
+
+            animationFrame = requestAnimationFrame(autoScroll);
+        }
+
+        autoScroll();
+
+            processGrid.addEventListener("mouseenter", () => {
+            isPaused = true;
+        });
+
+        processGrid.addEventListener("mouseleave", () => {
+            isPaused = false;
+        });
+
+        processGrid.addEventListener("touchstart", () => {
+            isPaused = true;
+        }, { passive: true });
+    }
+
+        const contactToggle = document.getElementById("contactToggle");
+    const contactPopup = document.getElementById("contactPopup");
+
+    if (contactToggle && contactPopup) {
+        contactToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            contactPopup.classList.toggle("show");
+        });
+
+        contactPopup.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener("click", function () {
+            contactPopup.classList.remove("show");
+        });
+    }
+
+
 });
 </script>
 
