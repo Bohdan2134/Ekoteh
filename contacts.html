@@ -454,7 +454,8 @@ body {
     z-index: 100;
 }
 
-.floating-buttons a {
+.floating-buttons a,
+.floating-buttons button {
     text-decoration: none;
     color: white;
     font-size: 14px;
@@ -465,9 +466,16 @@ body {
     transition: 0.3s ease;
     text-align: center;
     min-width: 180px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.floating-buttons a:hover {
+.floating-buttons a:hover,
+.floating-buttons button:hover {
     transform: translateY(-2px);
 }
 
@@ -485,6 +493,173 @@ body {
 
 .mail-btn:hover {
     background: var(--accent-dark);
+}
+
+.contact-popup-wrap {
+    position: relative;
+}
+
+.contact-toggle {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.contact-popup {
+    position: absolute;
+    right: 0;
+    bottom: 58px;
+    width: 220px;
+    background: white;
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    border: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-popup.show {
+    display: flex;
+}
+
+.contact-phone {
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 15px;
+    padding-bottom: 4px;
+}
+
+.contact-link {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 14px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+}
+
+.telegram {
+    background: #2AABEE;
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+.viber {
+    background: #7360F2;
+}
+
+.yt-super-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 180px;
+    padding: 13px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.1;
+    background:
+        linear-gradient(135deg, #ff2a2a 0%, #ff0000 45%, #c40000 100%);
+    box-shadow:
+        0 12px 28px rgba(255, 0, 0, 0.30),
+        0 4px 12px rgba(0, 0, 0, 0.14);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    animation: ytPulse 2.2s infinite;
+}
+
+.yt-super-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow:
+        0 18px 42px rgba(255, 0, 0, 0.40),
+        0 8px 18px rgba(0, 0, 0, 0.18);
+    filter: brightness(1.05);
+}
+
+.yt-super-btn:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.yt-super-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -85%;
+    width: 52%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.12) 25%,
+        rgba(255,255,255,0.45) 50%,
+        rgba(255,255,255,0.12) 75%,
+        transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+}
+
+.yt-super-btn:hover::before {
+    left: 130%;
+}
+
+.yt-super-btn::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 13px;
+    border: 1px solid rgba(255,255,255,0.14);
+    pointer-events: none;
+}
+
+.yt-super-btn__icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.14);
+}
+
+.yt-super-btn__icon svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    display: block;
+}
+
+.yt-super-btn__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.yt-super-btn__text small {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.82);
+    margin-top: 2px;
 }
 
 /* MOBILE */
@@ -703,7 +878,40 @@ body {
 
 <div class="floating-buttons">
     <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
-    <a href="mailto:tov.ekoteh@gmail.com" class="mail-btn">Написати нам</a>
+
+    <div class="contact-popup-wrap">
+        <button type="button" class="mail-btn contact-toggle" id="contactToggle">
+            Написати нам
+        </button>
+        
+        <div class="contact-popup" id="contactPopup">
+            <div class="contact-phone">📞 +380 99 123 45 67</div>
+
+            <a href="https://t.me/utanabali" target="_blank" class="contact-link telegram">
+                Telegram
+            </a>
+
+            <a href="https://wa.me/380672567173" target="_blank" class="contact-link whatsapp">
+                WhatsApp
+            </a>
+
+            <a href="viber://chat?number=%2B380672567173" class="contact-link viber">
+                Viber
+            </a>
+        </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TOVEkoteh" target="_blank" class="yt-super-btn">
+        <span class="yt-super-btn__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C17.6 2.5 12 2.5 12 2.5s-5.6 0-8.6.4c-.4.1-1.3.1-2.1 1C.7 4.6.5 6.2.5 6.2S0 8.1 0 10v1.9c0 1.9.5 3.8.5 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.3.4 7.3.4s5.6 0 8.6-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.5-1.9.5-3.8V10c0-1.9-.5-3.8-.5-3.8zM9.5 14.5V7.5l6 3.5-6 3.5z"/>
+            </svg>
+        </span>
+        <span class="yt-super-btn__text">
+            Наш YouTube
+            <small>дивитися відео</small>
+        </span>
+    </a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -771,6 +979,63 @@ document.addEventListener("DOMContentLoaded", function () {
             submitBtn.textContent = "Надіслати запит";
         });
     });
+
+
+    const processGrid = document.querySelector(".process-grid");
+
+    if (processGrid) {
+        let animationFrame;
+        let isPaused = false;
+        let speed = 0.5;
+
+        function autoScroll() {
+            if (!isPaused) {
+               const maxScroll = processGrid.scrollWidth - processGrid.clientWidth;
+
+                if (processGrid.scrollLeft >= maxScroll) {
+                    processGrid.scrollLeft = 0;
+                } else {
+                    processGrid.scrollLeft += speed;
+                }
+            }
+
+            animationFrame = requestAnimationFrame(autoScroll);
+        }
+
+        autoScroll();
+
+            processGrid.addEventListener("mouseenter", () => {
+            isPaused = true;
+        });
+
+        processGrid.addEventListener("mouseleave", () => {
+            isPaused = false;
+        });
+
+        processGrid.addEventListener("touchstart", () => {
+            isPaused = true;
+        }, { passive: true });
+    }
+
+        const contactToggle = document.getElementById("contactToggle");
+    const contactPopup = document.getElementById("contactPopup");
+
+    if (contactToggle && contactPopup) {
+        contactToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            contactPopup.classList.toggle("show");
+        });
+
+        contactPopup.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener("click", function () {
+            contactPopup.classList.remove("show");
+        });
+    }
+
+
 });
 </script>
 
