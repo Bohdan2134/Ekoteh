@@ -32,6 +32,12 @@ body {
     background: var(--light);
     color: var(--text);
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img,
+video {
+    max-width: 100%;
 }
 
 .container {
@@ -49,6 +55,7 @@ body {
     width: 100%;
     background: rgba(10, 20, 34, 0.35);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 999;
     transition: 0.3s ease;
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -68,6 +75,10 @@ body {
     min-height: 78px;
 }
 
+.header-logo {
+    flex: 0 0 auto;
+}
+
 .header-logo img {
     width: 155px;
     display: block;
@@ -78,6 +89,7 @@ body {
     align-items: center;
     gap: 28px;
     flex-wrap: wrap;
+    min-width: 0;
 }
 
 .header-nav a {
@@ -86,6 +98,7 @@ body {
     font-weight: 600;
     position: relative;
     transition: 0.3s ease;
+    white-space: nowrap;
 }
 
 .header-nav a::after {
@@ -150,12 +163,14 @@ body {
     font-size: 14px;
     margin-bottom: 18px;
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .hero-inner h1 {
     margin: 0 0 12px;
     font-size: 50px;
     line-height: 1.08;
+    word-break: break-word;
 }
 
 .hero-inner p {
@@ -193,7 +208,7 @@ body {
 
 .main-layout {
     display: grid;
-    grid-template-columns: 290px 1fr;
+    grid-template-columns: 290px minmax(0, 1fr);
     gap: 28px;
     align-items: start;
 }
@@ -207,6 +222,7 @@ body {
     position: sticky;
     top: 96px;
     box-shadow: 0 16px 30px rgba(17,42,70,0.16);
+    min-width: 0;
 }
 
 .sidebar-title {
@@ -238,6 +254,7 @@ body {
     transition: 0.25s ease;
     font-size: 16px;
     border: 1px solid transparent;
+    word-break: break-word;
 }
 
 .sidebar-nav a:hover {
@@ -266,6 +283,7 @@ body {
     border-radius: 22px;
     padding: 32px;
     box-shadow: 0 12px 30px rgba(17,42,70,0.05);
+    min-width: 0;
 }
 
 .empty-card h2,
@@ -273,6 +291,7 @@ body {
     margin: 0 0 12px;
     font-size: 36px;
     color: var(--primary);
+    word-break: break-word;
 }
 
 .empty-card p,
@@ -296,6 +315,7 @@ body {
     border-radius: 16px;
     padding: 22px 18px;
     transition: 0.3s ease;
+    min-width: 0;
 }
 
 .empty-info:hover {
@@ -318,7 +338,7 @@ body {
 /* PRODUCT */
 .product-top {
     display: grid;
-    grid-template-columns: minmax(320px, 470px) 1fr;
+    grid-template-columns: minmax(320px, 470px) minmax(0, 1fr);
     gap: 30px;
     align-items: start;
 }
@@ -326,6 +346,11 @@ body {
 .product-image-wrap {
     border-radius: 18px;
     background: #eef4fb;
+    min-width: 0;
+}
+
+.product-main {
+    min-width: 0;
 }
 
 .product-main .subtitle {
@@ -368,6 +393,7 @@ body {
     border-radius: 10px;
     padding: 14px 20px;
     transition: 0.3s ease;
+    text-align: center;
 }
 
 .btn-primary {
@@ -394,6 +420,7 @@ body {
 /* INFO */
 .info-section {
     margin-top: 32px;
+    min-width: 0;
 }
 
 .info-section h3 {
@@ -408,6 +435,7 @@ body {
     border: 1px solid var(--border);
     border-radius: 14px;
     overflow: hidden;
+    table-layout: fixed;
 }
 
 .spec-table tr:nth-child(odd) {
@@ -418,6 +446,9 @@ body {
     padding: 14px 16px;
     border-bottom: 1px solid var(--border);
     font-size: 15px;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .spec-table tr:last-child td {
@@ -448,6 +479,7 @@ body {
     border-radius: 16px;
     padding: 22px 18px;
     transition: 0.3s ease;
+    min-width: 0;
 }
 
 .extra-card:hover,
@@ -476,11 +508,13 @@ body {
     overflow: hidden;
     border-radius: 18px;
     background: #eef4fb;
+    width: 100%;
 }
 
 .slider-track {
     display: flex;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
 .slider-track img,
@@ -513,6 +547,9 @@ body {
     font-size: 20px;
     cursor: pointer;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slider-btn.prev { left: 12px; }
@@ -523,6 +560,7 @@ body {
     justify-content: center;
     gap: 8px;
     margin-top: 12px;
+    flex-wrap: wrap;
 }
 
 .slider-dot {
@@ -531,6 +569,7 @@ body {
     border-radius: 50%;
     background: #c7d6ea;
     cursor: pointer;
+    flex: 0 0 auto;
 }
 
 .slider-dot.active {
@@ -590,6 +629,7 @@ body {
     padding: 14px 22px;
     border-radius: 10px;
     transition: 0.3s ease;
+    text-align: center;
 }
 
 .btn-white {
@@ -622,6 +662,7 @@ body {
     flex-direction: column;
     gap: 12px;
     z-index: 100;
+    max-width: calc(100vw - 28px);
 }
 
 .floating-buttons a,
@@ -636,6 +677,7 @@ body {
     transition: 0.3s ease;
     text-align: center;
     min-width: 180px;
+    max-width: 100%;
     border: none;
     cursor: pointer;
     font-family: inherit;
@@ -680,6 +722,7 @@ body {
     right: 0;
     bottom: 58px;
     width: 220px;
+    max-width: min(220px, calc(100vw - 28px));
     background: white;
     border-radius: 14px;
     padding: 14px;
@@ -866,7 +909,7 @@ body {
     text-decoration: underline;
 }
 
-/* MOBILE */
+/* TABLET */
 @media (max-width: 1100px) {
     .product-top {
         grid-template-columns: 1fr;
@@ -899,7 +942,137 @@ body {
     }
 }
 
+@media (max-width: 900px) {
+    .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+        gap: 12px;
+        min-height: auto;
+    }
+
+    .header-nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .page-hero {
+        padding-top: 118px;
+    }
+
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 6px;
+        gap: 10px;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.18);
+        border-radius: 999px;
+    }
+
+    .sidebar-nav a {
+        white-space: nowrap;
+        min-width: max-content;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
+}
+
 @media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .page-hero {
+        min-height: 260px;
+    }
+
+    .hero-inner {
+        padding: 28px 0 34px;
+    }
+
+    .hero-inner h1 {
+        font-size: 34px;
+    }
+
+    .hero-inner p {
+        font-size: 16px;
+    }
+
+    .top-intro,
+    .empty-card,
+    .product-card {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .top-intro h2,
+    .empty-card h2,
+    .product-main h2 {
+        font-size: 28px;
+    }
+
+    .slider-track img,
+    .slider-track video {
+        height: 250px;
+    }
+
+    .product-actions a,
+    .bottom-cta-buttons a {
+        width: 100%;
+    }
+
+    .bottom-cta {
+        padding: 26px 22px;
+        border-radius: 18px;
+    }
+
+    .bottom-cta h3 {
+        font-size: 24px;
+    }
+
+    .bottom-cta p {
+        font-size: 15px;
+    }
+
+    .bottom-cta-buttons {
+        width: 100%;
+    }
+
+    .floating-buttons {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .floating-buttons a,
+    .floating-buttons button {
+        min-width: 155px;
+        font-size: 13px;
+        padding: 12px 14px;
+    }
+
+    .contact-popup {
+        bottom: 54px;
+    }
+
     .yt-super-btn {
         min-width: 155px;
         padding: 12px 14px;
@@ -926,88 +1099,6 @@ body {
     }
 }
 
-@media (max-width: 900px) {
-    .header-inner {
-        flex-direction: column;
-        justify-content: center;
-        padding: 12px 0;
-    }
-
-    .header-nav {
-        justify-content: center;
-        gap: 16px;
-    }
-
-    .page-hero {
-        padding-top: 118px;
-    }
-
-    .main-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        position: static;
-    }
-
-    .sidebar-nav {
-        flex-direction: row;
-        overflow-x: auto;
-        padding-bottom: 6px;
-    }
-
-    .sidebar-nav a {
-        white-space: nowrap;
-        min-width: max-content;
-    }
-}
-
-@media (max-width: 768px) {
-    .page-hero {
-        min-height: 260px;
-    }
-
-    .hero-inner {
-        padding: 28px 0 34px;
-    }
-
-    .hero-inner h1 {
-        font-size: 34px;
-    }
-
-    .hero-inner p {
-        font-size: 16px;
-    }
-
-    .top-intro,
-    .empty-card,
-    .product-card {
-        padding: 22px;
-    }
-
-    .top-intro h2,
-    .empty-card h2,
-    .product-main h2 {
-        font-size: 28px;
-    }
-
-    .slider-track img,
-    .slider-track video {
-        height: 250px;
-    }
-
-    .floating-buttons {
-        right: 14px;
-        bottom: 14px;
-    }
-
-    .floating-buttons a {
-        min-width: 155px;
-        font-size: 13px;
-        padding: 12px 14px;
-    }
-}
-
 @media (max-width: 560px) {
     .header-logo img {
         width: 135px;
@@ -1023,6 +1114,132 @@ body {
 
     .page-hero {
         padding-top: 128px;
+    }
+
+    .hero-badge {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .hero-inner h1 {
+        font-size: 29px;
+    }
+
+    .hero-inner p {
+        font-size: 15px;
+    }
+
+    .top-intro,
+    .empty-card,
+    .product-card,
+    .sidebar {
+        padding: 18px;
+    }
+
+    .sidebar-title {
+        font-size: 20px;
+    }
+
+    .sidebar-subtitle {
+        font-size: 13px;
+    }
+
+    .empty-grid,
+    .extra-grid,
+    .application-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slider-track img,
+    .slider-track video {
+        height: 220px;
+        padding: 8px;
+    }
+
+    .slider-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .spec-table td {
+        padding: 12px 12px;
+        font-size: 14px;
+    }
+
+    .spec-table td:first-child {
+        width: 40%;
+    }
+
+    .feature-list li {
+        font-size: 15px;
+    }
+
+    .footer {
+        padding: 32px 16px;
+    }
+
+    .footer h4 {
+        font-size: 22px;
+    }
+
+    .footer p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .header-nav {
+        gap: 10px 12px;
+    }
+
+    .header-nav a {
+        font-size: 13px;
+    }
+
+    .page-hero {
+        min-height: 240px;
+    }
+
+    .hero-inner h1 {
+        font-size: 26px;
+    }
+
+    .top-intro h2,
+    .empty-card h2,
+    .product-main h2 {
+        font-size: 24px;
+    }
+
+    .slider-track img,
+    .slider-track video {
+        height: 200px;
+    }
+
+    .floating-buttons {
+        right: 10px;
+        bottom: 10px;
+        gap: 10px;
+    }
+
+    .floating-buttons a,
+    .floating-buttons button,
+    .yt-super-btn {
+        min-width: 142px;
+        padding: 11px 12px;
+        font-size: 12px;
+    }
+
+    .contact-popup {
+        width: 200px;
+    }
+
+    .contact-phone {
+        font-size: 14px;
     }
 }
 </style>
@@ -1217,184 +1434,184 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initSliders() {
-    const sliders = document.querySelectorAll(".slider");
+        const sliders = document.querySelectorAll(".slider");
 
-    sliders.forEach(slider => {
-        const track = slider.querySelector(".slider-track");
-        const slides = slider.querySelectorAll("img, video");
-        const prevBtn = slider.querySelector(".prev");
-        const nextBtn = slider.querySelector(".next");
-        const dots = slider.parentElement.querySelectorAll(".slider-dot");
-        const progressBar = slider.parentElement.querySelector(".slider-progress-bar");
+        sliders.forEach(slider => {
+            const track = slider.querySelector(".slider-track");
+            const slides = slider.querySelectorAll("img, video");
+            const prevBtn = slider.querySelector(".prev");
+            const nextBtn = slider.querySelector(".next");
+            const dots = slider.parentElement.querySelectorAll(".slider-dot");
+            const progressBar = slider.parentElement.querySelector(".slider-progress-bar");
 
-        let currentIndex = 0;
-        let interval = null;
+            let currentIndex = 0;
+            let interval = null;
 
-        function pauseAllVideos() {
-            slides.forEach(slide => {
-                if (slide.tagName === "VIDEO") {
-                    slide.pause();
-                }
-            });
-        }
-
-        function resetProgress() {
-            if (!progressBar) return;
-            progressBar.style.transition = "none";
-            progressBar.style.width = "0%";
-        }
-
-        function startImageProgress() {
-            if (!progressBar) return;
-
-            resetProgress();
-
-            setTimeout(() => {
-                progressBar.style.transition = "width 4s linear";
-                progressBar.style.width = "100%";
-            }, 50);
-        }
-
-        function startVideoProgress(video) {
-            if (!progressBar || !video) return;
-
-            resetProgress();
-
-            const duration = video.duration;
-            if (!duration || !isFinite(duration)) return;
-
-            setTimeout(() => {
-                progressBar.style.transition = `width ${duration}s linear`;
-                progressBar.style.width = "100%";
-            }, 50);
-        }
-
-        function updateDots() {
-            dots.forEach((dot, index) => {
-                dot.classList.toggle("active", index === currentIndex);
-            });
-        }
-
-        function updateSlider() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots();
-
-            const currentSlide = slides[currentIndex];
-
-            pauseAllVideos();
-            clearInterval(interval);
-            interval = null;
-            resetProgress();
-
-            if (currentSlide && currentSlide.tagName === "VIDEO") {
-                currentSlide.currentTime = 0;
-                currentSlide.play().then(() => {
-                    startVideoProgress(currentSlide);
-                }).catch(() => {});
-            } else {
-                startAutoSlide();
+            function pauseAllVideos() {
+                slides.forEach(slide => {
+                    if (slide.tagName === "VIDEO") {
+                        slide.pause();
+                    }
+                });
             }
-        }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateSlider();
-        }
+            function resetProgress() {
+                if (!progressBar) return;
+                progressBar.style.transition = "none";
+                progressBar.style.width = "0%";
+            }
 
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlider();
-        }
+            function startImageProgress() {
+                if (!progressBar) return;
 
-        function startAutoSlide() {
-            clearInterval(interval);
-            interval = setInterval(() => {
+                resetProgress();
+
+                setTimeout(() => {
+                    progressBar.style.transition = "width 4s linear";
+                    progressBar.style.width = "100%";
+                }, 50);
+            }
+
+            function startVideoProgress(video) {
+                if (!progressBar || !video) return;
+
+                resetProgress();
+
+                const duration = video.duration;
+                if (!duration || !isFinite(duration)) return;
+
+                setTimeout(() => {
+                    progressBar.style.transition = `width ${duration}s linear`;
+                    progressBar.style.width = "100%";
+                }, 50);
+            }
+
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle("active", index === currentIndex);
+                });
+            }
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateDots();
+
                 const currentSlide = slides[currentIndex];
 
+                pauseAllVideos();
+                clearInterval(interval);
+                interval = null;
+                resetProgress();
+
                 if (currentSlide && currentSlide.tagName === "VIDEO") {
-                    return;
+                    currentSlide.currentTime = 0;
+                    currentSlide.play().then(() => {
+                        startVideoProgress(currentSlide);
+                    }).catch(() => {});
+                } else {
+                    startAutoSlide();
                 }
-
-                nextSlide();
-            }, 4000);
-
-            const currentSlide = slides[currentIndex];
-            if (currentSlide && currentSlide.tagName !== "VIDEO") {
-                startImageProgress();
             }
-        }
 
-        function stopAutoSlide() {
-            clearInterval(interval);
-            interval = null;
-            resetProgress();
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener("click", () => {
-                nextSlide();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener("click", () => {
-                prevSlide();
-            });
-        }
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener("click", () => {
-                currentIndex = index;
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
                 updateSlider();
-            });
-        });
-
-        slider.addEventListener("mouseenter", () => {
-            stopAutoSlide();
-        });
-
-        slider.addEventListener("mouseleave", () => {
-            const currentSlide = slides[currentIndex];
-            if (!currentSlide) return;
-
-            if (currentSlide.tagName === "VIDEO") {
-                if (currentSlide.paused) {
-                    currentSlide.play().catch(() => {});
-                }
-            } else {
-                startAutoSlide();
             }
-        });
 
-        slides.forEach((slide, index) => {
-            if (slide.tagName === "VIDEO") {
-                slide.addEventListener("play", () => {
-                    clearInterval(interval);
-                    interval = null;
-                    startVideoProgress(slide);
-                });
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlider();
+            }
 
-                slide.addEventListener("pause", () => {
-                    if (index === currentIndex && slide.currentTime < slide.duration) {
-                        resetProgress();
+            function startAutoSlide() {
+                clearInterval(interval);
+                interval = setInterval(() => {
+                    const currentSlide = slides[currentIndex];
+
+                    if (currentSlide && currentSlide.tagName === "VIDEO") {
+                        return;
                     }
-                });
 
-                slide.addEventListener("ended", () => {
+                    nextSlide();
+                }, 4000);
+
+                const currentSlide = slides[currentIndex];
+                if (currentSlide && currentSlide.tagName !== "VIDEO") {
+                    startImageProgress();
+                }
+            }
+
+            function stopAutoSlide() {
+                clearInterval(interval);
+                interval = null;
+                resetProgress();
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener("click", () => {
                     nextSlide();
                 });
+            }
 
-                slide.addEventListener("loadedmetadata", () => {
-                    if (index === currentIndex) {
-                        startVideoProgress(slide);
-                    }
+            if (prevBtn) {
+                prevBtn.addEventListener("click", () => {
+                    prevSlide();
                 });
             }
-        });
 
-        updateSlider();
-    });
- }
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+            });
+
+            slider.addEventListener("mouseenter", () => {
+                stopAutoSlide();
+            });
+
+            slider.addEventListener("mouseleave", () => {
+                const currentSlide = slides[currentIndex];
+                if (!currentSlide) return;
+
+                if (currentSlide.tagName === "VIDEO") {
+                    if (currentSlide.paused) {
+                        currentSlide.play().catch(() => {});
+                    }
+                } else {
+                    startAutoSlide();
+                }
+            });
+
+            slides.forEach((slide, index) => {
+                if (slide.tagName === "VIDEO") {
+                    slide.addEventListener("play", () => {
+                        clearInterval(interval);
+                        interval = null;
+                        startVideoProgress(slide);
+                    });
+
+                    slide.addEventListener("pause", () => {
+                        if (index === currentIndex && slide.currentTime < slide.duration) {
+                            resetProgress();
+                        }
+                    });
+
+                    slide.addEventListener("ended", () => {
+                        nextSlide();
+                    });
+
+                    slide.addEventListener("loadedmetadata", () => {
+                        if (index === currentIndex) {
+                            startVideoProgress(slide);
+                        }
+                    });
+                }
+            });
+
+            updateSlider();
+        });
+    }
 
     function renderProduct(data) {
         const media = data.media || (data.images || []).map(img => ({
@@ -1492,6 +1709,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
                 ` : ""}
+            </div>
         `;
 
         initSliders();
@@ -1714,7 +1932,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Ланцюговий скребковий транспортер",
             badge: "Закрите транспортування",
             media: [
-                { type: "video", src: "video/transporter.mp4" },
+                { type: "video", src: "video/transporter.mp4" }
             ],
             description: "Ланцюговий скребковий транспортер для переміщення сипучих матеріалів у закритому корпусі.",
             features: [
@@ -1898,7 +2116,7 @@ document.addEventListener("DOMContentLoaded", function () {
         renderProduct(products[item]);
     }
 
-const processGrid = document.querySelector(".process-grid");
+    const processGrid = document.querySelector(".process-grid");
 
     if (processGrid) {
         let animationFrame;
@@ -1907,7 +2125,7 @@ const processGrid = document.querySelector(".process-grid");
 
         function autoScroll() {
             if (!isPaused) {
-               const maxScroll = processGrid.scrollWidth - processGrid.clientWidth;
+                const maxScroll = processGrid.scrollWidth - processGrid.clientWidth;
 
                 if (processGrid.scrollLeft >= maxScroll) {
                     processGrid.scrollLeft = 0;
@@ -1921,7 +2139,7 @@ const processGrid = document.querySelector(".process-grid");
 
         autoScroll();
 
-            processGrid.addEventListener("mouseenter", () => {
+        processGrid.addEventListener("mouseenter", () => {
             isPaused = true;
         });
 
@@ -1934,7 +2152,7 @@ const processGrid = document.querySelector(".process-grid");
         }, { passive: true });
     }
 
-        const contactToggle = document.getElementById("contactToggle");
+    const contactToggle = document.getElementById("contactToggle");
     const contactPopup = document.getElementById("contactPopup");
 
     if (contactToggle && contactPopup) {
@@ -1951,8 +2169,6 @@ const processGrid = document.querySelector(".process-grid");
             contactPopup.classList.remove("show");
         });
     }
-
-
 });
 </script>
 
