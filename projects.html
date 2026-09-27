@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="sk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Реалізовані проєкти — ЕКОТЕХ</title>
+<title>Realizované projekty — EKOTECH</title>
 
 <style>
 * {
@@ -40,7 +40,7 @@ body {
     padding: 0 20px;
 }
 
-/* HEADER */
+/* HLAVIČKA */
 .site-header {
     position: fixed;
     top: 0;
@@ -115,7 +115,7 @@ body {
     color: var(--accent);
 }
 
-/* HERO */
+/* HLAVNÝ BANNER */
 .page-hero {
     padding-top: 78px;
     min-height: 300px;
@@ -128,7 +128,12 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(8,18,31,0.88), rgba(8,18,31,0.5), rgba(8,18,31,0.2));
+    background: linear-gradient(
+        to right,
+        rgba(8,18,31,0.88),
+        rgba(8,18,31,0.5),
+        rgba(8,18,31,0.2)
+    );
 }
 
 .hero-inner {
@@ -162,7 +167,7 @@ body {
     color: rgba(255,255,255,0.9);
 }
 
-/* MAIN */
+/* HLAVNÝ OBSAH */
 .page-section {
     padding: 42px 0 64px;
 }
@@ -250,7 +255,7 @@ body {
     font-size: 14px;
 }
 
-/* CTA */
+/* VÝZVA */
 .bottom-cta {
     margin-top: 36px;
     background: linear-gradient(135deg, var(--accent), #2158c7);
@@ -448,7 +453,10 @@ body {
         0 12px 28px rgba(255, 0, 0, 0.30),
         0 4px 12px rgba(0, 0, 0, 0.14);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
     animation: ytPulse 2.2s infinite;
 }
 
@@ -530,7 +538,7 @@ body {
     margin-top: 2px;
 }
 
-/* FOOTER */
+/* PÄTIČKA */
 .footer {
     margin-top: 52px;
     background: linear-gradient(90deg, #143d68, #1f2a38);
@@ -564,7 +572,7 @@ body {
     text-decoration: underline;
 }
 
-/* MOBILE */
+/* MOBILNÉ ZARIADENIA */
 @media (max-width: 900px) {
     .header-inner {
         flex-direction: column;
@@ -601,32 +609,46 @@ body {
 }
 </style>
 </head>
+
 <body>
 
 <header class="site-header" id="siteHeader">
     <div class="container header-inner">
+
         <a href="index.html" class="header-logo">
-            <img src="images/logo.png" alt="ЕКВІПТЕХ">
+            <img src="images/logo.png" alt="EKOTECH">
         </a>
 
         <nav class="header-nav">
-            <a href="index.html">Головна</a>
-            <a href="about.html">Про компанію</a>
-            <a href="equipment.html">Обладнання</a>
-            <a href="projects.html">Проєкти</a>
-            <a href="clients.html">Наші клієнти</a>
-            <a href="contacts.html">Контакти</a>
+            <a href="index.html">Domov</a>
+            <a href="about.html">O spoločnosti</a>
+            <a href="equipment.html">Zariadenia</a>
+            <a href="projects.html">Projekty</a>
+            <a href="clients.html">Naši klienti</a>
+            <a href="contacts.html">Kontakt</a>
         </nav>
+
     </div>
 </header>
 
 <div class="page-hero">
     <div class="container">
+
         <div class="hero-inner">
-            <div class="hero-badge">Приклади реалізованих рішень</div>
-            <h1>Реалізовані проєкти</h1>
-            <p>Приклади обладнання та виробничих рішень, які вже працюють на підприємствах наших клієнтів.</p>
+
+            <div class="hero-badge">
+                Príklady realizovaných riešení
+            </div>
+
+            <h1>Realizované projekty</h1>
+
+            <p>
+                Príklady zariadení a výrobných riešení,
+                ktoré už fungujú v podnikoch našich klientov.
+            </p>
+
         </div>
+
     </div>
 </div>
 
@@ -634,280 +656,641 @@ body {
     <div class="container">
 
         <div class="section-header">
-            <h2>Наші проєкти</h2>
-            <p>Кожен проєкт — це адаптація обладнання під конкретну технологічну задачу, виробничі умови та вимоги клієнта.</p>
+
+            <h2>Naše projekty</h2>
+
+            <p>
+                Každý projekt je prispôsobením zariadenia konkrétnej
+                technologickej úlohe, výrobným podmienkam a požiadavkám klienta.
+            </p>
+
         </div>
 
         <div class="projects-grid">
 
+            <!-- PROJEKT 1 -->
             <div class="project-card" id="project1">
-                <img src="images/img 10_1.jpg" alt="Лінія транспортування">
+
+                <img src="images/img 10_1.jpg" alt="Dopravná linka">
+
                 <div class="project-content">
-                    <h3>Лінія транспортування</h3>
-                    <p>Автоматизована система подачі матеріалу для виробничої ділянки з безперервним циклом роботи.</p>
+
+                    <h3>Dopravná linka</h3>
+
+                    <p>
+                        Automatizovaný systém podávania materiálu
+                        pre výrobnú prevádzku s nepretržitým pracovným cyklom.
+                    </p>
 
                     <div class="project-meta">
-                        <div><strong>Задача:</strong> автоматизувати внутрішню логістику матеріалів</div>
-                        <div><strong>Рішення:</strong> стрічкові транспортери та вузли подачі</div>
-                        <div><strong>Результат:</strong> стабільніша подача та менше ручних операцій</div>
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            automatizovať internú logistiku materiálov
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            pásové dopravníky a podávacie uzly
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            stabilnejšie podávanie a menej manuálnych operácií
+                        </div>
+
                     </div>
 
-                    <span class="project-result">Менше ручних операцій</span>
+                    <span class="project-result">
+                        Menej manuálnych operácií
+                    </span>
+
                 </div>
             </div>
 
+
+            <!-- PROJEKT 2 -->
             <div class="project-card" id="project2">
-                <img src="images/img 10_2.jpg" alt="Змішувальний комплекс">
+
+                <img src="images/img 10_2.jpg" alt="Miešací komplex">
+
                 <div class="project-content">
-                    <h3>Змішувальний комплекс</h3>
-                    <p>Рішення для точного змішування сухих компонентів у стабільному щоденному виробничому циклі.</p>
+
+                    <h3>Miešací komplex</h3>
+
+                    <p>
+                        Riešenie na presné miešanie suchých komponentov
+                        v stabilnom každodennom výrobnom cykle.
+                    </p>
 
                     <div class="project-meta">
-                        <div><strong>Задача:</strong> отримати стабільну якість сумішей</div>
-                        <div><strong>Рішення:</strong> змішувальний вузол з інтеграцією в лінію</div>
-                        <div><strong>Результат:</strong> точніше дозування і стабільніша рецептура</div>
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            dosiahnuť stabilnú kvalitu zmesí
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            miešací uzol s integráciou do linky
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            presnejšie dávkovanie a stabilnejšie zloženie
+                        </div>
+
                     </div>
 
-                    <span class="project-result">Стабільна якість суміші</span>
+                    <span class="project-result">
+                        Stabilná kvalita zmesi
+                    </span>
+
                 </div>
             </div>
 
-        <div class="project-card" id="project3">
-                <img src="images/12_1.jpg" alt="Пневмокамерний насос">
-            <div class="project-content">
-                <h3>Пневмокамерний насос</h3>
-                <p>Обладнання для транспортування сипучих матеріалів за допомогою стисненого повітря з точною та стабільною подачею.</p>
 
-            <div class="project-meta">
-               <div><strong>Задача:</strong> забезпечити стабільне транспортування сипучих матеріалів</div>
-               <div><strong>Рішення:</strong> встановлення пневмокамерного насоса в технологічну лінію</div>
-               <div><strong>Результат:</strong> надійна подача матеріалу та кращий контроль процесу</div>
+            <!-- PROJEKT 3 -->
+            <div class="project-card" id="project3">
+
+                <img
+                    src="images/12_1.jpg"
+                    alt="Pneumatický komorový dopravník"
+                >
+
+                <div class="project-content">
+
+                    <h3>Pneumatický komorový dopravník</h3>
+
+                    <p>
+                        Zariadenie na prepravu sypkých materiálov
+                        pomocou stlačeného vzduchu s presným a stabilným podávaním.
+                    </p>
+
+                    <div class="project-meta">
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            zabezpečiť stabilnú dopravu sypkých materiálov
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            inštalovať pneumatický komorový dopravník
+                            do technologickej linky
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            spoľahlivé podávanie materiálu a lepšia kontrola procesu
+                        </div>
+
+                    </div>
+
+                    <span class="project-result">
+                        Spoľahlivé podávanie materiálu
+                    </span>
+
+                </div>
             </div>
 
-            <span class="project-result">Надійна подача матеріалу</span>
+
+            <!-- PROJEKT 4 -->
+            <div class="project-card" id="project4">
+
+                <img
+                    src="images/15_3.jpg"
+                    alt="Sušiaci bubon"
+                >
+
+                <div class="project-content">
+
+                    <h3>Sušiaci bubon</h3>
+
+                    <p>
+                        Zariadenie na efektívne sušenie sypkých materiálov
+                        s rovnomerným rozložením teploty.
+                    </p>
+
+                    <div class="project-meta">
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            znížiť vlhkosť materiálu
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            inštalovať sušiaci bubon
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            stabilná kvalita a príprava materiálu
+                        </div>
+
+                    </div>
+
+                    <span class="project-result">
+                        Stabilná vlhkosť materiálu
+                    </span>
+
+                </div>
+            </div>
+
+
+            <!-- PROJEKT 5 -->
+            <div class="project-card" id="project5">
+
+                <img
+                    src="images/14_5.jpg"
+                    alt="Reťazový škrabkový dopravník"
+                >
+
+                <div class="project-content">
+
+                    <h3>Reťazový škrabkový dopravník</h3>
+
+                    <p>
+                        Riešenie na dopravu materiálov v náročných
+                        podmienkach a obmedzených priestoroch.
+                    </p>
+
+                    <div class="project-meta">
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            doprava ťažkých materiálov
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            škrabkový dopravník
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            spoľahlivé podávanie bez strát
+                        </div>
+
+                    </div>
+
+                    <span class="project-result">
+                        Spoľahlivá doprava
+                    </span>
+
+                </div>
+            </div>
+
+
+            <!-- PROJEKT 6 -->
+            <div class="project-card" id="project6">
+
+                <img
+                    src="images/1_2.jpg"
+                    alt="Korečkový elevátor"
+                >
+
+                <div class="project-content">
+
+                    <h3>Korečkový elevátor</h3>
+
+                    <p>
+                        Vertikálna doprava sypkých materiálov
+                        s vysokou produktivitou.
+                    </p>
+
+                    <div class="project-meta">
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            zdvíhanie materiálu do výšky
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            korečkový elevátor
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            efektívne vertikálne podávanie
+                        </div>
+
+                    </div>
+
+                    <span class="project-result">
+                        Efektívne zdvíhanie materiálu
+                    </span>
+
+                </div>
+            </div>
+
+
+            <!-- PROJEKT 7 -->
+            <div class="project-card" id="project7">
+
+                <img
+                    src="images/9_1.jpg"
+                    alt="Nádrže, zásobníky a silá"
+                >
+
+                <div class="project-content">
+
+                    <h3>Nádrže (zásobníky, silá)</h3>
+
+                    <p>
+                        Systémy na skladovanie a akumuláciu materiálov
+                        pre nepretržitú prevádzku výroby.
+                    </p>
+
+                    <div class="project-meta">
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            zorganizovať skladovanie materiálu
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            zásobníky a silá
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            stabilná zásoba a podávanie
+                        </div>
+
+                    </div>
+
+                    <span class="project-result">
+                        Nepretržitá prevádzka linky
+                    </span>
+
+                </div>
+            </div>
+
+
+            <!-- PROJEKT 8 -->
+            <div class="project-card" id="project8">
+
+                <img
+                    src="images/16_1.jpg"
+                    alt="Vykladače železničných vozňov typu Hopper"
+                >
+
+                <div class="project-content">
+
+                    <h3>
+                        Vykladače železničných vozňov typu Hopper
+                    </h3>
+
+                    <p>
+                        Riešenie na rýchle a efektívne vykladanie
+                        sypkých materiálov zo železničných vozňov
+                        v nepretržitom výrobnom procese.
+                    </p>
+
+                    <div class="project-meta">
+
+                        <div>
+                            <strong>Úloha:</strong>
+                            zabezpečiť bezpečné a úplné vyloženie materiálu
+                            bez strát a prestojov
+                        </div>
+
+                        <div>
+                            <strong>Riešenie:</strong>
+                            automatizovaný vykladací uzol prispôsobený
+                            rôznym typom vozňov Hopper s integráciou
+                            do technologickej linky
+                        </div>
+
+                        <div>
+                            <strong>Výsledok:</strong>
+                            skrátenie času vykladania, minimalizácia strát
+                            materiálu a stabilné podávanie do výroby
+                        </div>
+
+                    </div>
+
+                    <span class="project-result">
+                        Efektívne vykladanie materiálov
+                    </span>
+
+                </div>
+            </div>
+
         </div>
-</div>
-<div class="project-card" id="project4">
-    <img src="images/15_3.jpg" alt="Сушильний барабан">
-    <div class="project-content">
-        <h3>Сушильний барабан</h3>
-        <p>Обладнання для ефективного сушіння сипучих матеріалів з рівномірним розподілом температури.</p>
 
-        <div class="project-meta">
-            <div><strong>Задача:</strong> знизити вологість матеріалу</div>
-            <div><strong>Рішення:</strong> встановлення сушильного барабана</div>
-            <div><strong>Результат:</strong> стабільна якість та підготовка матеріалу</div>
-        </div>
 
-        <span class="project-result">Стабільна вологість матеріалу</span>
-    </div>
-</div>
-
-<div class="project-card" id="project5">
-    <img src="images/14_5.jpg" alt="Ланцюговий скребковий транспортер">
-    <div class="project-content">
-        <h3>Ланцюговий скребковий транспортер</h3>
-        <p>Рішення для транспортування матеріалів у складних умовах та обмежених просторах.</p>
-
-        <div class="project-meta">
-            <div><strong>Задача:</strong> транспортування важких матеріалів</div>
-            <div><strong>Рішення:</strong> скребковий транспортер</div>
-            <div><strong>Результат:</strong> надійна подача без втрат</div>
-        </div>
-
-        <span class="project-result">Надійне транспортування</span>
-    </div>
-</div>
-
-<div class="project-card" id="project6">
-    <img src="images/1_2.jpg" alt="Норія">
-    <div class="project-content">
-        <h3>Норія</h3>
-        <p>Вертикальне транспортування сипучих матеріалів з високою продуктивністю.</p>
-
-        <div class="project-meta">
-            <div><strong>Задача:</strong> підйом матеріалу на висоту</div>
-            <div><strong>Рішення:</strong> ковшовий елеватор (норія)</div>
-            <div><strong>Результат:</strong> ефективна вертикальна подача</div>
-        </div>
-
-        <span class="project-result">Ефективний підйом матеріалу</span>
-    </div>
-</div>
-
-<div class="project-card" id="project7">
-    <img src="images/9_1.jpg" alt="Ємності (бункери, силоси)">
-    <div class="project-content">
-        <h3>Ємності (бункери, силоси)</h3>
-        <p>Системи зберігання та накопичення матеріалів для безперервної роботи виробництва.</p>
-
-        <div class="project-meta">
-            <div><strong>Задача:</strong> організувати зберігання матеріалу</div>
-            <div><strong>Рішення:</strong> бункери та силоси</div>
-            <div><strong>Результат:</strong> стабільний запас та подача</div>
-        </div>
-
-        <span class="project-result">Безперервна робота лінії</span>
-    </div>
-</div>
-
-<div class="project-card" id="project7">
-    <img src="images/16_1.jpg" alt="Ємності (бункери, силоси)">
-    <div class="project-content">
-        <h3>Развонтажувачи вагонов типа Хоппер</h3>
-        <p>Рішення для швидкого та ефективного розвантаження сипучих матеріалів із залізничних вагонів у безперервному виробничому процесі.</p>
-
-        <div class="project-meta">
-            <div><strong>Задача:</strong> забезпечити безпечне та повне розвантаження матеріалу без втрат і простоїв</div>
-            <div><strong>Рішення:</strong> автоматизований розвантажувальний вузол із адаптацією під різні типи хоперів і інтеграцією в технологічну лінію</div>
-            <div><strong>Результат:</strong> скорочення часу розвантаження, мінімізація втрат матеріалу та стабільна подача у виробництво</div>
-        </div>
-
-        <span class="project-result">Ефективне розвантаження матеріалів</span>
-    </div>
-</div>
-    </div>
-
+        <!-- VÝZVA -->
         <div class="bottom-cta">
+
             <div>
-                <h3>Потрібне подібне рішення?</h3>
-                <p>Опишіть вашу задачу, і ми підберемо технічне рішення під ваше виробництво.</p>
+
+                <h3>Potrebujete podobné riešenie?</h3>
+
+                <p>
+                    Opíšte svoju požiadavku a vyberieme
+                    technické riešenie pre vašu výrobu.
+                </p>
+
             </div>
 
             <div class="bottom-cta-buttons">
-                <a href="contacts.html" class="btn-white">Отримати консультацію</a>
-                <a href="equipment.html" class="btn-dark">Переглянути обладнання</a>
+
+                <a href="contacts.html" class="btn-white">
+                    Získať konzultáciu
+                </a>
+
+                <a href="equipment.html" class="btn-dark">
+                    Zobraziť zariadenia
+                </a>
+
             </div>
+
         </div>
 
     </div>
 </div>
 
+
+<!-- PÄTIČKA -->
 <footer class="footer">
+
     <div class="footer-inner">
-        <h4>ТОВ «Екотех»</h4>
-        <p>м. Дніпро, Україна</p>
-        <p>Email: <a href="mailto:tov.ekoteh@gmail.com">tov.ekoteh@gmail.com</a></p>
+
+        <h4>EKOTECH s.r.o.</h4>
+
+        <p>Dnipro, Ukrajina</p>
+
+        <p>
+            Email:
+            <a href="mailto:tov.ekoteh@gmail.com">
+                tov.ekoteh@gmail.com
+            </a>
+        </p>
+
     </div>
+
 </footer>
 
+
+<!-- PLÁVAJÚCE TLAČIDLÁ -->
 <div class="floating-buttons">
-    <a href="contacts.html" class="calc-btn">Отримати розрахунок</a>
+    <a href="contacts.html" class="calc-btn">Získať kalkuláciu</a>
 
     <div class="contact-popup-wrap">
         <button type="button" class="mail-btn contact-toggle" id="contactToggle">
-            Написати нам
+            Napíšte nám
         </button>
         
         <div class="contact-popup" id="contactPopup">
-            <div class="contact-phone">📞 +380 99 123 45 67</div>
+            <div class="contact-phone">📞 +99999999</div>
 
-            <a href="https://t.me/utanabali" target="_blank" class="contact-link telegram">
+            <a href="https://t.me/art133788" target="_blank" class="contact-link telegram">
                 Telegram
             </a>
 
-            <a href="https://wa.me/380672567173" target="_blank" class="contact-link whatsapp">
+            <a href="https://wa.me/380986637780" target="_blank" class="contact-link whatsapp">
                 WhatsApp
             </a>
 
-            <a href="viber://chat?number=%2B380672567173" class="contact-link viber">
+            <a href="viber://chat?number=%2B9999999" class="contact-link viber">
                 Viber
             </a>
         </div>
     </div>
 
-    <a href="https://www.youtube.com/@TOVEkoteh" target="_blank" class="yt-super-btn">
+
+
+    <!-- YOUTUBE -->
+    <a
+        href="https://www.youtube.com/@TOVEkoteh"
+        target="_blank"
+        class="yt-super-btn"
+    >
+
         <span class="yt-super-btn__icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
                 <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C17.6 2.5 12 2.5 12 2.5s-5.6 0-8.6.4c-.4.1-1.3.1-2.1 1C.7 4.6.5 6.2.5 6.2S0 8.1 0 10v1.9c0 1.9.5 3.8.5 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.3.4 7.3.4s5.6 0 8.6-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.5-1.9.5-3.8V10c0-1.9-.5-3.8-.5-3.8zM9.5 14.5V7.5l6 3.5-6 3.5z"/>
+
             </svg>
+
         </span>
+
         <span class="yt-super-btn__text">
-            Наш YouTube
-            <small>дивитися відео</small>
+
+            Náš YouTube
+
+            <small>pozrieť videá</small>
+
         </span>
+
     </a>
+
 </div>
 
+
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
+
     const header = document.getElementById("siteHeader");
 
     function updateHeader() {
+
         if (!header) return;
+
         if (window.scrollY > 30) {
+
             header.classList.add("scrolled");
+
         } else {
+
             header.classList.remove("scrolled");
+
         }
+
     }
 
     updateHeader();
+
     window.addEventListener("scroll", updateHeader);
 
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+
     document.querySelectorAll(".header-nav a").forEach(link => {
+
         const href = link.getAttribute("href");
+
         if (href === currentPage) {
+
             link.classList.add("active");
+
         }
+
     });
 
-  const processGrid = document.querySelector(".process-grid");
+
+    const processGrid =
+        document.querySelector(".process-grid");
 
     if (processGrid) {
+
         let animationFrame;
+
         let isPaused = false;
+
         let speed = 0.5;
 
+
         function autoScroll() {
+
             if (!isPaused) {
-               const maxScroll = processGrid.scrollWidth - processGrid.clientWidth;
+
+                const maxScroll =
+                    processGrid.scrollWidth -
+                    processGrid.clientWidth;
 
                 if (processGrid.scrollLeft >= maxScroll) {
+
                     processGrid.scrollLeft = 0;
+
                 } else {
+
                     processGrid.scrollLeft += speed;
+
                 }
+
             }
 
-            animationFrame = requestAnimationFrame(autoScroll);
+            animationFrame =
+                requestAnimationFrame(autoScroll);
+
         }
+
 
         autoScroll();
 
-            processGrid.addEventListener("mouseenter", () => {
-            isPaused = true;
-        });
 
-        processGrid.addEventListener("mouseleave", () => {
-            isPaused = false;
-        });
+        processGrid.addEventListener(
+            "mouseenter",
+            () => {
+                isPaused = true;
+            }
+        );
 
-        processGrid.addEventListener("touchstart", () => {
-            isPaused = true;
-        }, { passive: true });
+        processGrid.addEventListener(
+            "mouseleave",
+            () => {
+                isPaused = false;
+            }
+        );
+
+        processGrid.addEventListener(
+            "touchstart",
+            () => {
+                isPaused = true;
+            },
+            { passive: true }
+        );
+
     }
 
-        const contactToggle = document.getElementById("contactToggle");
-    const contactPopup = document.getElementById("contactPopup");
+
+    const contactToggle =
+        document.getElementById("contactToggle");
+
+    const contactPopup =
+        document.getElementById("contactPopup");
+
 
     if (contactToggle && contactPopup) {
-        contactToggle.addEventListener("click", function (e) {
-            e.stopPropagation();
-            contactPopup.classList.toggle("show");
-        });
 
-        contactPopup.addEventListener("click", function (e) {
-            e.stopPropagation();
-        });
+        contactToggle.addEventListener(
+            "click",
+            function (e) {
 
-        document.addEventListener("click", function () {
-            contactPopup.classList.remove("show");
-        });
+                e.stopPropagation();
+
+                contactPopup.classList.toggle("show");
+
+            }
+        );
+
+
+        contactPopup.addEventListener(
+            "click",
+            function (e) {
+
+                e.stopPropagation();
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                contactPopup.classList.remove("show");
+
+            }
+        );
+
     }
 
 });
+
 </script>
 
 </body>
