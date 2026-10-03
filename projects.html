@@ -4,608 +4,243 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Realizované projekty — EKOTECH</title>
+<meta name="description" content="Realizované projekty EKOTECH: dopravné linky, miešacie komplexy, pneumatické dopravníky, sušiace bubny, elevátory, zásobníky a vykladače vozňov.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preload" as="image" href="images/background.jpg">
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+:root{
+    --primary:#16385b;
+    --accent:#2f6fed;
+    --accent-dark:#205bd0;
+    --light:#f4f7fb;
+    --text:#223548;
+    --muted:#5a6b7d;
+    --border:#e2e9f2;
+    --success:#28a745;
+    --header-h:78px;
 }
 
-:root {
-    --primary: #16385b;
-    --accent: #2f6fed;
-    --accent-dark: #205bd0;
-    --light: #f4f7fb;
-    --text: #223548;
-    --muted: #5a6b7d;
-    --border: #e2e9f2;
-    --success: #28a745;
+html{scroll-behavior:smooth}
+
+body{
+    margin:0;
+    font-family:'Segoe UI',Roboto,Arial,sans-serif;
+    background:var(--light);
+    color:var(--text);
+    line-height:1.6;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: var(--light);
-    color: var(--text);
-    line-height: 1.6;
-}
-
-.container {
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
 
 /* HLAVIČKA */
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(10, 20, 34, 0.35);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    transition: 0.3s ease;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+.site-header{
+    position:fixed;top:0;left:0;width:100%;
+    background:rgba(10,20,34,.35);
+    backdrop-filter:blur(10px);
+    z-index:999;
+    transition:background-color .3s ease,box-shadow .3s ease,border-color .3s ease;
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
-
-.site-header.scrolled {
-    background: rgba(255,255,255,0.96);
-    border-bottom: 1px solid #dfe7f2;
-    box-shadow: 0 8px 24px rgba(17,42,70,0.08);
+.site-header.scrolled{
+    background:rgba(255,255,255,.96);
+    border-bottom-color:#dfe7f2;
+    box-shadow:0 8px 24px rgba(17,42,70,.08);
 }
-
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    min-height: 78px;
+.header-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:var(--header-h)}
+.header-logo img{width:155px;height:auto;display:block}
+.header-nav{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.header-nav a{text-decoration:none;color:#fff;font-weight:600;position:relative;transition:color .3s ease}
+.header-nav a::after{
+    content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;
+    background:var(--accent);transition:width .3s ease;
 }
-
-.header-logo img {
-    width: 155px;
-    display: block;
-}
-
-.header-nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-}
-
-.header-nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-.header-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: 0.3s ease;
-}
-
-.header-nav a:hover::after,
-.header-nav a.active::after {
-    width: 100%;
-}
-
-.site-header.scrolled .header-nav a {
-    color: var(--text);
-}
-
-.header-nav a.active {
-    color: #7fb2ff;
-}
-
-.site-header.scrolled .header-nav a.active {
-    color: var(--accent);
-}
+.header-nav a:hover::after,.header-nav a.active::after{width:100%}
+.site-header.scrolled .header-nav a{color:var(--text)}
+.header-nav a.active{color:#7fb2ff}
+.site-header.scrolled .header-nav a.active{color:var(--accent)}
 
 /* HLAVNÝ BANNER */
-.page-hero {
-    padding-top: 78px;
-    min-height: 300px;
-    background: url('images/background.jpg') center/cover no-repeat;
-    position: relative;
-    overflow: hidden;
+.page-hero{
+    padding-top:var(--header-h);
+    min-height:300px;
+    background:url('images/background.jpg') center/cover no-repeat;
+    position:relative;
+    overflow:hidden;
 }
-
-.page-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(8,18,31,0.88),
-        rgba(8,18,31,0.5),
-        rgba(8,18,31,0.2)
-    );
+.page-hero::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to right,rgba(8,18,31,.88),rgba(8,18,31,.5),rgba(8,18,31,.2));
 }
-
-.hero-inner {
-    position: relative;
-    z-index: 2;
-    padding: 42px 0 54px;
-    color: white;
-    max-width: 760px;
+.hero-inner{position:relative;z-index:2;padding:42px 0 54px;color:#fff;max-width:760px}
+.hero-badge{
+    display:inline-block;padding:9px 14px;border-radius:999px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+    color:rgba(255,255,255,.9);font-size:14px;margin-bottom:18px;
 }
-
-.hero-badge {
-    display: inline-block;
-    padding: 9px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.14);
-    color: rgba(255,255,255,0.9);
-    font-size: 14px;
-    margin-bottom: 18px;
-}
-
-.hero-inner h1 {
-    margin: 0 0 12px;
-    font-size: 50px;
-    line-height: 1.08;
-}
-
-.hero-inner p {
-    margin: 0;
-    font-size: 19px;
-    color: rgba(255,255,255,0.9);
-}
+.hero-inner h1{margin:0 0 12px;font-size:50px;line-height:1.08}
+.hero-inner p{margin:0;font-size:19px;color:rgba(255,255,255,.9)}
 
 /* HLAVNÝ OBSAH */
-.page-section {
-    padding: 42px 0 64px;
-}
+.page-section{padding:42px 0 64px}
+.section-header{text-align:center;max-width:920px;margin:0 auto 40px}
+.section-header h2{margin:0 0 14px;font-size:40px;color:var(--primary)}
+.section-header p{margin:0;font-size:18px;color:var(--muted)}
 
-.section-header {
-    text-align: center;
-    max-width: 920px;
-    margin: 0 auto 40px;
-}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
 
-.section-header h2 {
-    margin: 0 0 14px;
-    font-size: 40px;
-    color: var(--primary);
+.project-card{
+    background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(17,42,70,.05);
+    transition:transform .3s ease,box-shadow .3s ease;
+    scroll-margin-top:calc(var(--header-h) + 30px);
 }
+.project-card:hover{transform:translateY(-6px);box-shadow:0 18px 35px rgba(17,42,70,.1)}
+.project-card:target{border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,111,237,.18)}
+.project-card img{width:100%;height:260px;object-fit:cover;display:block}
 
-.section-header p {
-    margin: 0;
-    font-size: 18px;
-    color: var(--muted);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-}
-
-.project-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(17,42,70,0.05);
-    transition: 0.3s ease;
-    scroll-margin-top: 110px;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 35px rgba(17,42,70,0.1);
-}
-
-.project-card img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
-}
-
-.project-content {
-    padding: 24px;
-}
-
-.project-content h3 {
-    margin: 0 0 10px;
-    font-size: 24px;
-    color: var(--primary);
-}
-
-.project-content p {
-    margin: 0 0 14px;
-    color: var(--muted);
-    font-size: 16px;
-}
-
-.project-meta {
-    display: grid;
-    gap: 8px;
-    margin: 16px 0;
-}
-
-.project-meta div {
-    font-size: 15px;
-    color: #425569;
-}
-
-.project-result {
-    display: inline-block;
-    background: #eef4ff;
-    color: var(--accent);
-    font-weight: 700;
-    border-radius: 999px;
-    padding: 8px 12px;
-    font-size: 14px;
+.project-content{padding:24px}
+.project-content h3{margin:0 0 10px;font-size:24px;color:var(--primary)}
+.project-content p{margin:0 0 14px;color:var(--muted);font-size:16px}
+.project-meta{display:grid;gap:8px;margin:16px 0}
+.project-meta div{font-size:15px;color:#425569}
+.project-result{
+    display:inline-block;background:#eef4ff;color:var(--accent);font-weight:700;
+    border-radius:999px;padding:8px 12px;font-size:14px;
 }
 
 /* VÝZVA */
-.bottom-cta {
-    margin-top: 36px;
-    background: linear-gradient(135deg, var(--accent), #2158c7);
-    color: white;
-    border-radius: 20px;
-    padding: 34px 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    box-shadow: 0 18px 36px rgba(47,111,237,0.2);
+.bottom-cta{
+    margin-top:36px;background:linear-gradient(135deg,var(--accent),#2158c7);color:#fff;
+    border-radius:20px;padding:34px 28px;display:flex;justify-content:space-between;
+    align-items:center;gap:20px;flex-wrap:wrap;box-shadow:0 18px 36px rgba(47,111,237,.2);
+}
+.bottom-cta h3{margin:0 0 8px;font-size:30px}
+.bottom-cta p{margin:0;color:rgba(255,255,255,.88);font-size:17px}
+.bottom-cta-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.bottom-cta-buttons a{
+    display:inline-block;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:10px;
+    transition:background-color .3s ease,transform .3s ease;
+}
+.btn-white{background:#fff;color:var(--accent)}
+.btn-white:hover{background:#eef4ff;transform:translateY(-2px)}
+.btn-dark{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.btn-dark:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+
+/* PLÁVAJÚCE TLAČIDLÁ */
+.floating-buttons{
+    position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;
+    gap:12px;z-index:100;max-width:calc(100vw - 28px);
+}
+.floating-buttons>a,.floating-buttons button{
+    text-decoration:none;color:#fff;font-size:14px;font-weight:700;
+    padding:14px 18px;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,.16);
+    transition:background-color .3s ease,transform .3s ease;
+    text-align:center;min-width:180px;border:none;cursor:pointer;font-family:inherit;
+    display:inline-flex;align-items:center;justify-content:center;
+}
+.floating-buttons>a:hover,.floating-buttons button:hover{transform:translateY(-2px)}
+.calc-btn{background:var(--success)}
+.calc-btn:hover{background:#21903a}
+.mail-btn{background:var(--accent)}
+.mail-btn:hover{background:var(--accent-dark)}
+
+.contact-popup-wrap{position:relative}
+.contact-popup{
+    position:absolute;right:0;bottom:58px;width:220px;max-width:min(220px,calc(100vw - 28px));
+    background:#fff;border-radius:14px;padding:14px;box-shadow:0 14px 30px rgba(0,0,0,.18);
+    border:1px solid var(--border);display:none;flex-direction:column;gap:10px;
+}
+.contact-popup.show{display:flex}
+.contact-phone{text-align:center;font-weight:700;color:var(--primary);font-size:15px;padding-bottom:4px}
+.contact-link{
+    display:block;text-decoration:none;text-align:center;color:#fff;font-size:14px;
+    font-weight:700;padding:12px 14px;border-radius:10px;transition:transform .3s ease;
+}
+.contact-link:hover{transform:translateY(-2px)}
+.telegram{background:#2AABEE}
+.whatsapp{background:#25D366}
+.viber{background:#7360F2}
+
+.yt-super-btn{
+    position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    min-width:180px;padding:13px 18px;border-radius:14px;text-decoration:none;color:#fff;
+    font-weight:800;font-size:14px;line-height:1.1;
+    background:linear-gradient(135deg,#ff2a2a 0%,#f00 45%,#c40000 100%);
+    box-shadow:0 12px 28px rgba(255,0,0,.30),0 4px 12px rgba(0,0,0,.14);
+    overflow:hidden;
+    transition:transform .3s ease,filter .3s ease;
+    animation:ytPulse 2.2s infinite;
+}
+.yt-super-btn:hover{transform:translateY(-3px) scale(1.04);filter:brightness(1.05)}
+.yt-super-btn:active{transform:translateY(-1px) scale(.99)}
+.yt-super-btn::before{
+    content:"";position:absolute;top:0;left:-85%;width:52%;height:100%;
+    background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.12) 25%,rgba(255,255,255,.45) 50%,rgba(255,255,255,.12) 75%,transparent 100%);
+    transform:skewX(-20deg);transition:left .65s ease;
+}
+.yt-super-btn:hover::before{left:130%}
+.yt-super-btn::after{
+    content:"";position:absolute;inset:1px;border-radius:13px;
+    border:1px solid rgba(255,255,255,.14);pointer-events:none;
+}
+.yt-super-btn__icon{
+    width:34px;height:34px;flex:0 0 34px;display:flex;align-items:center;justify-content:center;
+    border-radius:999px;background:rgba(255,255,255,.14);
+}
+.yt-super-btn__icon svg{width:18px;height:18px;fill:#fff;display:block}
+.yt-super-btn__text{display:flex;flex-direction:column;align-items:flex-start;text-align:left;white-space:nowrap}
+.yt-super-btn__text small{font-size:11px;font-weight:600;color:rgba(255,255,255,.82);margin-top:2px}
+
+@keyframes ytPulse{
+    0%,100%{box-shadow:0 12px 28px rgba(255,0,0,.30),0 4px 12px rgba(0,0,0,.14),0 0 0 0 rgba(255,0,0,.45)}
+    50%{box-shadow:0 12px 28px rgba(255,0,0,.30),0 4px 12px rgba(0,0,0,.14),0 0 0 12px rgba(255,0,0,0)}
 }
 
-.bottom-cta h3 {
-    margin: 0 0 8px;
-    font-size: 30px;
-}
-
-.bottom-cta p {
-    margin: 0;
-    color: rgba(255,255,255,0.88);
-    font-size: 17px;
-}
-
-.bottom-cta-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.bottom-cta-buttons a {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 14px 22px;
-    border-radius: 10px;
-    transition: 0.3s ease;
-}
-
-.btn-white {
-    background: white;
-    color: var(--accent);
-}
-
-.btn-white:hover {
-    background: #eef4ff;
-    transform: translateY(-2px);
-}
-
-.btn-dark {
-    background: rgba(255,255,255,0.14);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.25);
-}
-
-.btn-dark:hover {
-    background: rgba(255,255,255,0.22);
-    transform: translateY(-2px);
-}
-
-.floating-buttons {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 100;
-}
-
-.floating-buttons a,
-.floating-buttons button {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 14px 18px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
-    transition: 0.3s ease;
-    text-align: center;
-    min-width: 180px;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.floating-buttons a:hover,
-.floating-buttons button:hover {
-    transform: translateY(-2px);
-}
-
-.calc-btn {
-    background: var(--success);
-}
-
-.calc-btn:hover {
-    background: #21903a;
-}
-
-.mail-btn {
-    background: var(--accent);
-}
-
-.mail-btn:hover {
-    background: var(--accent-dark);
-}
-
-.contact-popup-wrap {
-    position: relative;
-}
-
-.contact-toggle {
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.contact-popup {
-    position: absolute;
-    right: 0;
-    bottom: 58px;
-    width: 220px;
-    background: white;
-    border-radius: 14px;
-    padding: 14px;
-    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-    border: 1px solid var(--border);
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.contact-popup.show {
-    display: flex;
-}
-
-.contact-phone {
-    text-align: center;
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 15px;
-    padding-bottom: 4px;
-}
-
-.contact-link {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 12px 14px;
-    border-radius: 10px;
-    transition: 0.3s ease;
-}
-
-.contact-link:hover {
-    transform: translateY(-2px);
-}
-
-.telegram {
-    background: #2AABEE;
-}
-
-.whatsapp {
-    background: #25D366;
-}
-
-.viber {
-    background: #7360F2;
-}
-
-.yt-super-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-width: 180px;
-    padding: 13px 18px;
-    border-radius: 14px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 1.1;
-    background:
-        linear-gradient(135deg, #ff2a2a 0%, #ff0000 45%, #c40000 100%);
-    box-shadow:
-        0 12px 28px rgba(255, 0, 0, 0.30),
-        0 4px 12px rgba(0, 0, 0, 0.14);
-    overflow: hidden;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        filter 0.3s ease;
-    animation: ytPulse 2.2s infinite;
-}
-
-.yt-super-btn:hover {
-    transform: translateY(-3px) scale(1.04);
-    box-shadow:
-        0 18px 42px rgba(255, 0, 0, 0.40),
-        0 8px 18px rgba(0, 0, 0, 0.18);
-    filter: brightness(1.05);
-}
-
-.yt-super-btn:active {
-    transform: translateY(-1px) scale(0.99);
-}
-
-.yt-super-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -85%;
-    width: 52%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255,255,255,0.12) 25%,
-        rgba(255,255,255,0.45) 50%,
-        rgba(255,255,255,0.12) 75%,
-        transparent 100%
-    );
-    transform: skewX(-20deg);
-    transition: left 0.65s ease;
-}
-
-.yt-super-btn:hover::before {
-    left: 130%;
-}
-
-.yt-super-btn::after {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: 13px;
-    border: 1px solid rgba(255,255,255,0.14);
-    pointer-events: none;
-}
-
-.yt-super-btn__icon {
-    width: 34px;
-    height: 34px;
-    flex: 0 0 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.14);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.14);
-}
-
-.yt-super-btn__icon svg {
-    width: 18px;
-    height: 18px;
-    fill: white;
-    display: block;
-}
-
-.yt-super-btn__text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    white-space: nowrap;
-}
-
-.yt-super-btn__text small {
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.82);
-    margin-top: 2px;
-}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 
 /* PÄTIČKA */
-.footer {
-    margin-top: 52px;
-    background: linear-gradient(90deg, #143d68, #1f2a38);
-    color: white;
-    padding: 40px 20px;
-}
-
-.footer-inner {
-    text-align: center;
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-.footer h4 {
-    margin: 0 0 12px;
-    font-size: 24px;
-}
-
-.footer p {
-    margin: 8px 0;
-    color: rgba(255,255,255,0.88);
-    font-size: 16px;
-}
-
-.footer a {
-    color: #9bc2ff;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
+.footer{margin-top:52px;background:linear-gradient(90deg,#143d68,#1f2a38);color:#fff;padding:40px 20px}
+.footer-inner{text-align:center;max-width:1280px;margin:0 auto}
+.footer h4{margin:0 0 12px;font-size:24px}
+.footer p{margin:8px 0;color:rgba(255,255,255,.88);font-size:16px}
+.footer a{color:#9bc2ff;text-decoration:none}
+.footer a:hover{text-decoration:underline}
 
 /* MOBILNÉ ZARIADENIA */
-@media (max-width: 900px) {
-    .header-inner {
-        flex-direction: column;
-        justify-content: center;
-        padding: 12px 0;
-    }
-
-    .header-nav {
-        justify-content: center;
-        gap: 16px;
-    }
-
-    .page-hero {
-        padding-top: 118px;
-    }
+@media (max-width:900px){
+    :root{--header-h:118px}
+    .header-inner{flex-direction:column;justify-content:center;padding:12px 0}
+    .header-nav{justify-content:center;gap:16px}
 }
-
-@media (max-width: 768px) {
-    .hero-inner h1 {
-        font-size: 34px;
-    }
-
-    .hero-inner p {
-        font-size: 16px;
-    }
-
-    .bottom-cta h3 {
-        font-size: 24px;
-    }
-
-    .bottom-cta p {
-        font-size: 15px;
-    }
+@media (max-width:768px){
+    .container{padding:0 16px}
+    .page-hero{min-height:260px}
+    .hero-inner{padding:28px 0 34px}
+    .hero-inner h1{font-size:34px}
+    .hero-inner p{font-size:16px}
+    .section-header h2{font-size:30px}
+    .section-header p{font-size:16px}
+    .projects-grid{grid-template-columns:1fr}
+    .project-card img{height:220px}
+    .project-content{padding:20px}
+    .bottom-cta h3{font-size:24px}
+    .bottom-cta p{font-size:15px}
+    .bottom-cta-buttons,.bottom-cta-buttons a{width:100%;text-align:center}
+    .floating-buttons{right:14px;bottom:14px}
+    .floating-buttons>a,.floating-buttons button{min-width:155px;font-size:13px;padding:12px 14px}
+}
+@media (max-width:560px){
+    :root{--header-h:128px}
+    .header-logo img{width:135px}
+    .header-nav{gap:12px}
+    .header-nav a{font-size:14px}
+    .hero-inner h1{font-size:29px}
+}
+@media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -614,12 +249,11 @@ body {
 
 <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-
         <a href="index.html" class="header-logo">
-            <img src="images/logo.png" alt="EKOTECH">
+            <img src="images/logo.png" alt="EKOTECH" width="155" height="48" fetchpriority="high">
         </a>
 
-        <nav class="header-nav">
+        <nav class="header-nav" aria-label="Hlavná navigácia">
             <a href="index.html">Domov</a>
             <a href="about.html">O spoločnosti</a>
             <a href="equipment.html">Zariadenia</a>
@@ -627,54 +261,40 @@ body {
             <a href="clients.html">Naši klienti</a>
             <a href="contacts.html">Kontakt</a>
         </nav>
-
     </div>
 </header>
 
-<div class="page-hero">
+<section class="page-hero">
     <div class="container">
-
         <div class="hero-inner">
-
-            <div class="hero-badge">
-                Príklady realizovaných riešení
-            </div>
-
+            <div class="hero-badge">Príklady realizovaných riešení</div>
             <h1>Realizované projekty</h1>
-
             <p>
                 Príklady zariadení a výrobných riešení,
                 ktoré už fungujú v podnikoch našich klientov.
             </p>
-
         </div>
-
     </div>
-</div>
+</section>
 
-<div class="page-section">
+<main class="page-section">
     <div class="container">
 
         <div class="section-header">
-
             <h2>Naše projekty</h2>
-
             <p>
                 Každý projekt je prispôsobením zariadenia konkrétnej
                 technologickej úlohe, výrobným podmienkam a požiadavkám klienta.
             </p>
-
         </div>
 
         <div class="projects-grid">
 
             <!-- PROJEKT 1 -->
-            <div class="project-card" id="project1">
-
-                <img src="images/img 10_1.jpg" alt="Dopravná linka">
+            <article class="project-card" id="project1">
+                <img src="images/img 10_1.jpg" alt="Dopravná linka" width="520" height="260" decoding="async">
 
                 <div class="project-content">
-
                     <h3>Dopravná linka</h3>
 
                     <p>
@@ -683,39 +303,20 @@ body {
                     </p>
 
                     <div class="project-meta">
-
-                        <div>
-                            <strong>Úloha:</strong>
-                            automatizovať internú logistiku materiálov
-                        </div>
-
-                        <div>
-                            <strong>Riešenie:</strong>
-                            pásové dopravníky a podávacie uzly
-                        </div>
-
-                        <div>
-                            <strong>Výsledok:</strong>
-                            stabilnejšie podávanie a menej manuálnych operácií
-                        </div>
-
+                        <div><strong>Úloha:</strong> automatizovať internú logistiku materiálov</div>
+                        <div><strong>Riešenie:</strong> pásové dopravníky a podávacie uzly</div>
+                        <div><strong>Výsledok:</strong> stabilnejšie podávanie a menej manuálnych operácií</div>
                     </div>
 
-                    <span class="project-result">
-                        Menej manuálnych operácií
-                    </span>
-
+                    <span class="project-result">Menej manuálnych operácií</span>
                 </div>
-            </div>
-
+            </article>
 
             <!-- PROJEKT 2 -->
-            <div class="project-card" id="project2">
-
-                <img src="images/img 10_2.jpg" alt="Miešací komplex">
+            <article class="project-card" id="project2">
+                <img src="images/img 10_2.jpg" alt="Miešací komplex" width="520" height="260" decoding="async">
 
                 <div class="project-content">
-
                     <h3>Miešací komplex</h3>
 
                     <p>
@@ -724,42 +325,20 @@ body {
                     </p>
 
                     <div class="project-meta">
-
-                        <div>
-                            <strong>Úloha:</strong>
-                            dosiahnuť stabilnú kvalitu zmesí
-                        </div>
-
-                        <div>
-                            <strong>Riešenie:</strong>
-                            miešací uzol s integráciou do linky
-                        </div>
-
-                        <div>
-                            <strong>Výsledok:</strong>
-                            presnejšie dávkovanie a stabilnejšie zloženie
-                        </div>
-
+                        <div><strong>Úloha:</strong> dosiahnuť stabilnú kvalitu zmesí</div>
+                        <div><strong>Riešenie:</strong> miešací uzol s integráciou do linky</div>
+                        <div><strong>Výsledok:</strong> presnejšie dávkovanie a stabilnejšie zloženie</div>
                     </div>
 
-                    <span class="project-result">
-                        Stabilná kvalita zmesi
-                    </span>
-
+                    <span class="project-result">Stabilná kvalita zmesi</span>
                 </div>
-            </div>
-
+            </article>
 
             <!-- PROJEKT 3 -->
-            <div class="project-card" id="project3">
-
-                <img
-                    src="images/12_1.jpg"
-                    alt="Pneumatický komorový dopravník"
-                >
+            <article class="project-card" id="project3">
+                <img src="images/12_1.jpg" alt="Pneumatický komorový dopravník" width="520" height="260" decoding="async">
 
                 <div class="project-content">
-
                     <h3>Pneumatický komorový dopravník</h3>
 
                     <p>
@@ -768,43 +347,24 @@ body {
                     </p>
 
                     <div class="project-meta">
-
-                        <div>
-                            <strong>Úloha:</strong>
-                            zabezpečiť stabilnú dopravu sypkých materiálov
-                        </div>
-
+                        <div><strong>Úloha:</strong> zabezpečiť stabilnú dopravu sypkých materiálov</div>
                         <div>
                             <strong>Riešenie:</strong>
                             inštalovať pneumatický komorový dopravník
                             do technologickej linky
                         </div>
-
-                        <div>
-                            <strong>Výsledok:</strong>
-                            spoľahlivé podávanie materiálu a lepšia kontrola procesu
-                        </div>
-
+                        <div><strong>Výsledok:</strong> spoľahlivé podávanie materiálu a lepšia kontrola procesu</div>
                     </div>
 
-                    <span class="project-result">
-                        Spoľahlivé podávanie materiálu
-                    </span>
-
+                    <span class="project-result">Spoľahlivé podávanie materiálu</span>
                 </div>
-            </div>
-
+            </article>
 
             <!-- PROJEKT 4 -->
-            <div class="project-card" id="project4">
-
-                <img
-                    src="images/15_3.jpg"
-                    alt="Sušiaci bubon"
-                >
+            <article class="project-card" id="project4">
+                <img src="images/15_3.jpg" alt="Sušiaci bubon" width="520" height="260" loading="lazy" decoding="async">
 
                 <div class="project-content">
-
                     <h3>Sušiaci bubon</h3>
 
                     <p>
@@ -813,42 +373,20 @@ body {
                     </p>
 
                     <div class="project-meta">
-
-                        <div>
-                            <strong>Úloha:</strong>
-                            znížiť vlhkosť materiálu
-                        </div>
-
-                        <div>
-                            <strong>Riešenie:</strong>
-                            inštalovať sušiaci bubon
-                        </div>
-
-                        <div>
-                            <strong>Výsledok:</strong>
-                            stabilná kvalita a príprava materiálu
-                        </div>
-
+                        <div><strong>Úloha:</strong> znížiť vlhkosť materiálu</div>
+                        <div><strong>Riešenie:</strong> inštalovať sušiaci bubon</div>
+                        <div><strong>Výsledok:</strong> stabilná kvalita a príprava materiálu</div>
                     </div>
 
-                    <span class="project-result">
-                        Stabilná vlhkosť materiálu
-                    </span>
-
+                    <span class="project-result">Stabilná vlhkosť materiálu</span>
                 </div>
-            </div>
-
+            </article>
 
             <!-- PROJEKT 5 -->
-            <div class="project-card" id="project5">
-
-                <img
-                    src="images/14_5.jpg"
-                    alt="Reťazový škrabkový dopravník"
-                >
+            <article class="project-card" id="project5">
+                <img src="images/14_5.jpg" alt="Reťazový škrabkový dopravník" width="520" height="260" loading="lazy" decoding="async">
 
                 <div class="project-content">
-
                     <h3>Reťazový škrabkový dopravník</h3>
 
                     <p>
@@ -857,42 +395,20 @@ body {
                     </p>
 
                     <div class="project-meta">
-
-                        <div>
-                            <strong>Úloha:</strong>
-                            doprava ťažkých materiálov
-                        </div>
-
-                        <div>
-                            <strong>Riešenie:</strong>
-                            škrabkový dopravník
-                        </div>
-
-                        <div>
-                            <strong>Výsledok:</strong>
-                            spoľahlivé podávanie bez strát
-                        </div>
-
+                        <div><strong>Úloha:</strong> doprava ťažkých materiálov</div>
+                        <div><strong>Riešenie:</strong> škrabkový dopravník</div>
+                        <div><strong>Výsledok:</strong> spoľahlivé podávanie bez strát</div>
                     </div>
 
-                    <span class="project-result">
-                        Spoľahlivá doprava
-                    </span>
-
+                    <span class="project-result">Spoľahlivá doprava</span>
                 </div>
-            </div>
-
+            </article>
 
             <!-- PROJEKT 6 -->
-            <div class="project-card" id="project6">
-
-                <img
-                    src="images/1_2.jpg"
-                    alt="Korečkový elevátor"
-                >
+            <article class="project-card" id="project6">
+                <img src="images/1_2.jpg" alt="Korečkový elevátor" width="520" height="260" loading="lazy" decoding="async">
 
                 <div class="project-content">
-
                     <h3>Korečkový elevátor</h3>
 
                     <p>
@@ -901,42 +417,20 @@ body {
                     </p>
 
                     <div class="project-meta">
-
-                        <div>
-                            <strong>Úloha:</strong>
-                            zdvíhanie materiálu do výšky
-                        </div>
-
-                        <div>
-                            <strong>Riešenie:</strong>
-                            korečkový elevátor
-                        </div>
-
-                        <div>
-                            <strong>Výsledok:</strong>
-                            efektívne vertikálne podávanie
-                        </div>
-
+                        <div><strong>Úloha:</strong> zdvíhanie materiálu do výšky</div>
+                        <div><strong>Riešenie:</strong> korečkový elevátor</div>
+                        <div><strong>Výsledok:</strong> efektívne vertikálne podávanie</div>
                     </div>
 
-                    <span class="project-result">
-                        Efektívne zdvíhanie materiálu
-                    </span>
-
+                    <span class="project-result">Efektívne zdvíhanie materiálu</span>
                 </div>
-            </div>
-
+            </article>
 
             <!-- PROJEKT 7 -->
-            <div class="project-card" id="project7">
-
-                <img
-                    src="images/9_1.jpg"
-                    alt="Nádrže, zásobníky a silá"
-                >
+            <article class="project-card" id="project7">
+                <img src="images/9_1.jpg" alt="Nádrže, zásobníky a silá" width="520" height="260" loading="lazy" decoding="async">
 
                 <div class="project-content">
-
                     <h3>Nádrže (zásobníky, silá)</h3>
 
                     <p>
@@ -945,45 +439,21 @@ body {
                     </p>
 
                     <div class="project-meta">
-
-                        <div>
-                            <strong>Úloha:</strong>
-                            zorganizovať skladovanie materiálu
-                        </div>
-
-                        <div>
-                            <strong>Riešenie:</strong>
-                            zásobníky a silá
-                        </div>
-
-                        <div>
-                            <strong>Výsledok:</strong>
-                            stabilná zásoba a podávanie
-                        </div>
-
+                        <div><strong>Úloha:</strong> zorganizovať skladovanie materiálu</div>
+                        <div><strong>Riešenie:</strong> zásobníky a silá</div>
+                        <div><strong>Výsledok:</strong> stabilná zásoba a podávanie</div>
                     </div>
 
-                    <span class="project-result">
-                        Nepretržitá prevádzka linky
-                    </span>
-
+                    <span class="project-result">Nepretržitá prevádzka linky</span>
                 </div>
-            </div>
-
+            </article>
 
             <!-- PROJEKT 8 -->
-            <div class="project-card" id="project8">
-
-                <img
-                    src="images/16_1.jpg"
-                    alt="Vykladače železničných vozňov typu Hopper"
-                >
+            <article class="project-card" id="project8">
+                <img src="images/16_1.jpg" alt="Vykladače železničných vozňov typu Hopper" width="520" height="260" loading="lazy" decoding="async">
 
                 <div class="project-content">
-
-                    <h3>
-                        Vykladače železničných vozňov typu Hopper
-                    </h3>
+                    <h3>Vykladače železničných vozňov typu Hopper</h3>
 
                     <p>
                         Riešenie na rýchle a efektívne vykladanie
@@ -992,305 +462,121 @@ body {
                     </p>
 
                     <div class="project-meta">
-
                         <div>
                             <strong>Úloha:</strong>
                             zabezpečiť bezpečné a úplné vyloženie materiálu
                             bez strát a prestojov
                         </div>
-
                         <div>
                             <strong>Riešenie:</strong>
                             automatizovaný vykladací uzol prispôsobený
                             rôznym typom vozňov Hopper s integráciou
                             do technologickej linky
                         </div>
-
                         <div>
                             <strong>Výsledok:</strong>
                             skrátenie času vykladania, minimalizácia strát
                             materiálu a stabilné podávanie do výroby
                         </div>
-
                     </div>
 
-                    <span class="project-result">
-                        Efektívne vykladanie materiálov
-                    </span>
-
+                    <span class="project-result">Efektívne vykladanie materiálov</span>
                 </div>
-            </div>
+            </article>
 
         </div>
 
-
         <!-- VÝZVA -->
         <div class="bottom-cta">
-
             <div>
-
                 <h3>Potrebujete podobné riešenie?</h3>
-
                 <p>
                     Opíšte svoju požiadavku a vyberieme
                     technické riešenie pre vašu výrobu.
                 </p>
-
             </div>
 
             <div class="bottom-cta-buttons">
-
-                <a href="contacts.html" class="btn-white">
-                    Získať konzultáciu
-                </a>
-
-                <a href="equipment.html" class="btn-dark">
-                    Zobraziť zariadenia
-                </a>
-
+                <a href="contacts.html" class="btn-white">Získať konzultáciu</a>
+                <a href="equipment.html" class="btn-dark">Zobraziť zariadenia</a>
             </div>
-
         </div>
 
     </div>
-</div>
-
+</main>
 
 <!-- PÄTIČKA -->
 <footer class="footer">
-
     <div class="footer-inner">
-
         <h4>EKOTECH s.r.o.</h4>
-
         <p>Dnipro, Ukrajina</p>
-
-        <p>
-            Email:
-            <a href="mailto:tov.ekoteh@gmail.com">
-                tov.ekoteh@gmail.com
-            </a>
-        </p>
-
+        <p>Email: <a href="mailto:tov.ekoteh@gmail.com">tov.ekoteh@gmail.com</a></p>
     </div>
-
 </footer>
-
 
 <!-- PLÁVAJÚCE TLAČIDLÁ -->
 <div class="floating-buttons">
     <a href="contacts.html" class="calc-btn">Získať kalkuláciu</a>
 
     <div class="contact-popup-wrap">
-        <button type="button" class="mail-btn contact-toggle" id="contactToggle">
+        <button type="button" class="mail-btn" id="contactToggle" aria-expanded="false" aria-controls="contactPopup">
             Napíšte nám
         </button>
-        
+
         <div class="contact-popup" id="contactPopup">
             <div class="contact-phone">📞 +99999999</div>
 
-            <a href="https://t.me/art133788" target="_blank" class="contact-link telegram">
-                Telegram
-            </a>
-
-            <a href="https://wa.me/380986637780" target="_blank" class="contact-link whatsapp">
-                WhatsApp
-            </a>
-
-            <a href="viber://chat?number=%2B9999999" class="contact-link viber">
-                Viber
-            </a>
+            <a href="https://t.me/art133788" target="_blank" rel="noopener noreferrer" class="contact-link telegram">Telegram</a>
+            <a href="https://wa.me/380986637780" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">WhatsApp</a>
+            <a href="viber://chat?number=%2B9999999" class="contact-link viber">Viber</a>
         </div>
     </div>
 
-
-
     <!-- YOUTUBE -->
-    <a
-        href="https://www.youtube.com/@TOVEkoteh"
-        target="_blank"
-        class="yt-super-btn"
-    >
-
+    <a href="https://www.youtube.com/@TOVEkoteh" target="_blank" rel="noopener noreferrer" class="yt-super-btn">
         <span class="yt-super-btn__icon">
-
-            <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-            >
-
+            <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C17.6 2.5 12 2.5 12 2.5s-5.6 0-8.6.4c-.4.1-1.3.1-2.1 1C.7 4.6.5 6.2.5 6.2S0 8.1 0 10v1.9c0 1.9.5 3.8.5 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.3.4 7.3.4s5.6 0 8.6-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.5-1.9.5-3.8V10c0-1.9-.5-3.8-.5-3.8zM9.5 14.5V7.5l6 3.5-6 3.5z"/>
-
             </svg>
-
         </span>
-
         <span class="yt-super-btn__text">
-
             Náš YouTube
-
             <small>pozrieť videá</small>
-
         </span>
-
     </a>
-
 </div>
 
-
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
-
     const header = document.getElementById("siteHeader");
-
-    function updateHeader() {
-
-        if (!header) return;
-
-        if (window.scrollY > 30) {
-
-            header.classList.add("scrolled");
-
-        } else {
-
-            header.classList.remove("scrolled");
-
-        }
-
-    }
-
+    const updateHeader = () => header.classList.toggle("scrolled", window.scrollY > 30);
     updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
 
-    window.addEventListener("scroll", updateHeader);
-
-
-    const currentPage =
-        window.location.pathname.split("/").pop() || "index.html";
-
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".header-nav a").forEach(link => {
-
-        const href = link.getAttribute("href");
-
-        if (href === currentPage) {
-
-            link.classList.add("active");
-
-        }
-
+        if (link.getAttribute("href") === currentPage) link.classList.add("active");
     });
 
-
-    const processGrid =
-        document.querySelector(".process-grid");
-
-    if (processGrid) {
-
-        let animationFrame;
-
-        let isPaused = false;
-
-        let speed = 0.5;
-
-
-        function autoScroll() {
-
-            if (!isPaused) {
-
-                const maxScroll =
-                    processGrid.scrollWidth -
-                    processGrid.clientWidth;
-
-                if (processGrid.scrollLeft >= maxScroll) {
-
-                    processGrid.scrollLeft = 0;
-
-                } else {
-
-                    processGrid.scrollLeft += speed;
-
-                }
-
-            }
-
-            animationFrame =
-                requestAnimationFrame(autoScroll);
-
-        }
-
-
-        autoScroll();
-
-
-        processGrid.addEventListener(
-            "mouseenter",
-            () => {
-                isPaused = true;
-            }
-        );
-
-        processGrid.addEventListener(
-            "mouseleave",
-            () => {
-                isPaused = false;
-            }
-        );
-
-        processGrid.addEventListener(
-            "touchstart",
-            () => {
-                isPaused = true;
-            },
-            { passive: true }
-        );
-
-    }
-
-
-    const contactToggle =
-        document.getElementById("contactToggle");
-
-    const contactPopup =
-        document.getElementById("contactPopup");
-
+    const contactToggle = document.getElementById("contactToggle");
+    const contactPopup = document.getElementById("contactPopup");
 
     if (contactToggle && contactPopup) {
+        const closePopup = () => {
+            contactPopup.classList.remove("show");
+            contactToggle.setAttribute("aria-expanded", "false");
+        };
 
-        contactToggle.addEventListener(
-            "click",
-            function (e) {
-
-                e.stopPropagation();
-
-                contactPopup.classList.toggle("show");
-
-            }
-        );
-
-
-        contactPopup.addEventListener(
-            "click",
-            function (e) {
-
-                e.stopPropagation();
-
-            }
-        );
-
-
-        document.addEventListener(
-            "click",
-            function () {
-
-                contactPopup.classList.remove("show");
-
-            }
-        );
-
+        contactToggle.addEventListener("click", e => {
+            e.stopPropagation();
+            const open = contactPopup.classList.toggle("show");
+            contactToggle.setAttribute("aria-expanded", String(open));
+        });
+        contactPopup.addEventListener("click", e => e.stopPropagation());
+        document.addEventListener("click", closePopup);
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closePopup(); });
     }
-
 });
-
 </script>
 
 </body>
